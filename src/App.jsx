@@ -632,8 +632,8 @@ const successData = {
 const issuesData = {
   title: 'FY27-FY30 Issues to Address',
   subtitle: 'Severity × Urgency — issues facing the Australian metal mining industry through FY30',
-  unit: '10 issues · ranked by severity × urgency score',
-  intro: "These are the dominant issues for the next three to four financial years. Severity reflects how much each issue could damage industry health if unaddressed; urgency reflects how soon action is required. Score 9 issues need executive-team focus this year.",
+  unit: '10 issues · ranked by severity × urgency score · metal-lens reweighted',
+  intro: "These are the dominant issues for the next three to four financial years. Severity reflects how much each issue could damage industry health if unaddressed; urgency reflects how soon action is required. Toggle the metal lens to reweight scores and reframe each issue for gold-producer or copper-producer perspectives. Score 9 issues need executive-team focus this year.",
   yKey: 'severity',
   xKey: 'urgency',
   yLabel: 'Severity',
@@ -642,8 +642,12 @@ const issuesData = {
     {
       n: 1,
       title: 'Cost inflation outpacing revenue (base metals)',
-      severity: 3, urgency: 3,
-      stake: "Real AISC up 30%+ since 2020; gold price masks margin compression in Cu, Ni, Li. Mid-tier and small producers most exposed.",
+      scores: { all: [3, 3], gold: [2, 3], copper: [3, 3] },
+      stakes: {
+        all: "Real AISC up 30%+ since 2020; gold price masks margin compression in Cu, Ni, Li. Mid-tier and small producers most exposed.",
+        gold: "Au price strength gives some cushion but real AISC up 30%+; productivity now critical to maintain mid-tier margins through the cycle.",
+        copper: "Acute — Cu margins compressed despite strong price; grade decline + diesel + ESG all compounding. Pure-Cu producers most squeezed.",
+      },
       actions: {
         industry: 'Coordinate on shared infrastructure, supplier consolidation, productivity benchmarking',
         government: 'R&D tax incentives; critical infrastructure investment; energy price stability',
@@ -654,8 +658,12 @@ const issuesData = {
     {
       n: 2,
       title: 'Permitting timelines lengthening',
-      severity: 3, urgency: 3,
-      stake: "Discovery-to-production now 18+ years globally and rising. Each year delayed = year of supply not coming. Multiple AU projects stuck in approval backlogs.",
+      scores: { all: [3, 3], gold: [3, 3], copper: [3, 3] },
+      stakes: {
+        all: "Discovery-to-production now 18+ years globally and rising. Each year delayed = year of supply not coming. Multiple AU projects stuck in approval backlogs.",
+        gold: "Affects gold equally; smaller mines often face same approval lag as majors despite simpler footprint. Critical for project pipeline.",
+        copper: "Critical — Cu projects 5-15+ year permit cycles; supply response can't keep up with demand growth. Largest single supply-side constraint.",
+      },
       actions: {
         industry: 'Streamline EIS submissions; pre-empt community engagement; build a learnings repository',
         government: 'Faster federal approvals; one-stop-shop processes; conditional approvals with milestones',
@@ -666,8 +674,12 @@ const issuesData = {
     {
       n: 3,
       title: 'Social licence and Indigenous heritage',
-      severity: 3, urgency: 3,
-      stake: "Juukan-class incidents are reputationally near-existential. Cultural heritage protection laws strengthening; sector lacks consistent co-management framework.",
+      scores: { all: [3, 3], gold: [3, 3], copper: [3, 3] },
+      stakes: {
+        all: "Juukan-class incidents are reputationally near-existential. Cultural heritage protection laws strengthening; sector lacks consistent co-management framework.",
+        gold: "Gold mines often near culturally sensitive areas (WA, NT, QLD); Indigenous co-management essential for project access and approval speed.",
+        copper: "Large footprint Cu mines (tailings, water, scale) attract scrutiny; community licence is often the project chokepoint.",
+      },
       actions: {
         industry: 'Sector-wide Indigenous engagement standards; cultural heritage best-practice repository',
         government: 'Modern cultural heritage legislation; ILUA reform; clear consultation requirements',
@@ -678,8 +690,12 @@ const issuesData = {
     {
       n: 4,
       title: 'Decarbonisation capex burden',
-      severity: 3, urgency: 3,
-      stake: "Net-zero scope 1+2 by 2050 requires US$10-20B+ industry capex through FY30. Hydrogen, electric haulage, renewable power infrastructure all needed simultaneously.",
+      scores: { all: [3, 3], gold: [2, 2], copper: [3, 3] },
+      stakes: {
+        all: "Net-zero scope 1+2 by 2050 requires US$10-20B+ industry capex through FY30. Hydrogen, electric haulage, renewable power infrastructure all needed simultaneously.",
+        gold: "Lower scope-1 intensity than base metals; PPA-led path practical at most gold operations. Less acute capex burden vs Cu.",
+        copper: "High energy intensity (smelting, hydromet where applicable); capex burden material relative to revenue base, especially mid-tier.",
+      },
       actions: {
         industry: 'Pre-competitive technology development; shared renewable infrastructure builds',
         government: 'Tax incentives for early decarbonisation capex; CEFC, ARENA, NAIF scaling',
@@ -690,8 +706,12 @@ const issuesData = {
     {
       n: 5,
       title: 'Workforce constraints',
-      severity: 2, urgency: 3,
-      stake: "Aging mining workforce; FIFO costs spiraling; skills shortages delaying projects. Critical minerals and decarbonisation roles particularly under-supplied.",
+      scores: { all: [2, 3], gold: [2, 3], copper: [2, 3] },
+      stakes: {
+        all: "Aging mining workforce; FIFO costs spiraling; skills shortages delaying projects. Critical minerals and decarbonisation roles particularly under-supplied.",
+        gold: "Same constraint; smaller gold operations often hit harder by FIFO and skills shortage proportional to revenue base.",
+        copper: "Same constraint; Cu operations need more technical (smelter, hydromet) skills which are particularly scarce.",
+      },
       actions: {
         industry: 'Coordinated training programs; female participation initiatives; school outreach',
         government: 'Skilled migration; vocational training subsidies; regional housing investment',
@@ -702,8 +722,12 @@ const issuesData = {
     {
       n: 6,
       title: 'Discovery cliff',
-      severity: 3, urgency: 2,
-      stake: "Tier-1 finds halved each decade since 1990s. Reserves shrinking at top-10 producers; growth-by-acquisition pressure intensifying year by year.",
+      scores: { all: [3, 2], gold: [3, 2], copper: [3, 3] },
+      stakes: {
+        all: "Tier-1 finds halved each decade since 1990s. Reserves shrinking at top-10 producers; growth-by-acquisition pressure intensifying year by year.",
+        gold: "Tier-1 Au finds halved every decade since 1990s; brownfield extension only partial fix. AI exploration may help if validated.",
+        copper: "Acute and urgent — Cu discovery cliff is the most pressing in the sector; supply gap widening forces M&A or acceptance of lower-grade reserves.",
+      },
       actions: {
         industry: 'AI exploration consortia; data sharing for ML training; greenfield drilling programs',
         government: 'Geoscience funding; open-access geological datasets; greenfield exploration tax incentives',
@@ -714,8 +738,12 @@ const issuesData = {
     {
       n: 7,
       title: 'Infrastructure gaps (rail, port, water, grid)',
-      severity: 3, urgency: 2,
-      stake: "Pilbara rail at capacity for new entrants; water rights contested; grid power for inland operations limited. Constrains multiple new project starts.",
+      scores: { all: [3, 2], gold: [2, 2], copper: [3, 2] },
+      stakes: {
+        all: "Pilbara rail at capacity for new entrants; water rights contested; grid power for inland operations limited. Constrains multiple new project starts.",
+        gold: "Lower exposure — most gold operations need power and water but not rail or port at scale; smaller capex footprint.",
+        copper: "High exposure — Cu mines need rail to ports for concentrate; bottleneck for new entrants in Mt Isa belt and Curnamona.",
+      },
       actions: {
         industry: 'Multi-user infrastructure agreements; coordinated investment vehicles',
         government: 'NAIF scaling; common-user infrastructure mandates; transmission build-out',
@@ -726,8 +754,12 @@ const issuesData = {
     {
       n: 8,
       title: 'Resource nationalism in supplier countries',
-      severity: 2, urgency: 2,
-      stake: "AU Cu, Co, Ni, Li supply chains exposed to DRC, Indonesia, Chile, Peru policy shifts. Cobre Panamá-type events possible at any time.",
+      scores: { all: [2, 2], gold: [1, 1], copper: [3, 2] },
+      stakes: {
+        all: "AU Cu, Co, Ni, Li supply chains exposed to DRC, Indonesia, Chile, Peru policy shifts. Cobre Panamá-type events possible at any time.",
+        gold: "Low exposure — gold processed locally and sold as bullion globally; minimal concentrate trade or refining dependency.",
+        copper: "High exposure — Cu concentrate often refined in China; tariff and policy risk material for AU concentrate exports.",
+      },
       actions: {
         industry: 'Diversified sourcing; political risk insurance pools',
         government: 'Bilateral trade and investment treaties; AUKUS critical minerals framework',
@@ -738,8 +770,12 @@ const issuesData = {
     {
       n: 9,
       title: 'M&A premium pressure',
-      severity: 2, urgency: 2,
-      stake: "Discovery cliff means fewer high-quality targets; deal premiums rising. Risk of overpaying at cycle peaks (cf. Newmont-Newcrest at gold ATH).",
+      scores: { all: [2, 2], gold: [3, 3], copper: [2, 2] },
+      stakes: {
+        all: "Discovery cliff means fewer high-quality targets; deal premiums rising. Risk of overpaying at cycle peaks.",
+        gold: "Hot — Au M&A premiums at record highs (cf. Newmont-Newcrest at gold ATH); risk of overpaying at peak; capital discipline critical.",
+        copper: "Rising — Cu mid-tier consolidation expected; premiums tracking up but less heated than Au M&A market.",
+      },
       actions: {
         industry: 'Realistic discovery economics; strategic patience',
         government: 'Encourage greenfield exploration through fiscal incentives',
@@ -750,8 +786,12 @@ const issuesData = {
     {
       n: 10,
       title: 'Lithium-cycle volatility',
-      severity: 2, urgency: 2,
-      stake: "Spodumene 12× spike then 70% reset in 4 years; multiple AU operators unprofitable through trough. Capital allocation and reserve cuts difficult.",
+      scores: { all: [2, 2], gold: [1, 1], copper: [1, 1] },
+      stakes: {
+        all: "Spodumene 12× spike then 70% reset in 4 years; multiple AU operators unprofitable through trough. Capital allocation and reserve cuts difficult.",
+        gold: "Not directly relevant for gold producers; informational only — but indicative of cycle-management challenges in critical metals.",
+        copper: "Not directly relevant for copper producers; informational only — Cu cycles different in shape and depth from Li.",
+      },
       actions: {
         industry: 'Through-cycle margin focus; smaller exposure to spot market',
         government: 'Strategic stockpile concept; long-term offtake support',
@@ -765,8 +805,8 @@ const issuesData = {
 const opportunitiesData = {
   title: 'FY27-FY30 Opportunities to Capture',
   subtitle: 'Impact × Feasibility — opportunities for Australian mining industry through FY30',
-  unit: '10 opportunities · ranked by impact × feasibility score',
-  intro: "Opportunities the industry can realistically capture in the FY27-30 window. Impact reflects upside scale; feasibility reflects how achievable the opportunity is given current capabilities, capital, and policy environment. Score 9 opportunities are the strategic priorities for the period.",
+  unit: '10 opportunities · ranked by impact × feasibility score · metal-lens reweighted',
+  intro: "Opportunities the industry can realistically capture in the FY27-30 window. Impact reflects upside scale; feasibility reflects how achievable the opportunity is given current capabilities, capital, and policy environment. Toggle the metal lens to reweight scores for gold-producer or copper-producer perspectives. Score 9 opportunities are the strategic priorities for the period.",
   yKey: 'impact',
   xKey: 'feasibility',
   yLabel: 'Impact',
@@ -775,8 +815,12 @@ const opportunitiesData = {
     {
       n: 1,
       title: 'Sustained gold price → reserve life extensions',
-      impact: 3, feasibility: 3,
-      stake: "Au at A$5,000+/oz makes lower-grade ore economic. Existing pits and UG operations can extend life 5-10 years through reserve recuts.",
+      scores: { all: [3, 3], gold: [3, 3], copper: [1, 1] },
+      stakes: {
+        all: "Au at A$5,000+/oz makes lower-grade ore economic. Existing pits and UG operations can extend life 5-10 years through reserve recuts.",
+        gold: "Direct opportunity — every Au operation should be running reserve recuts at higher cut-off prices now; mill capacity expansions accretive.",
+        copper: "Not relevant for pure copper producers; price tailwind specific to gold cycle. Au-Cu byproduct producers see partial benefit.",
+      },
       actions: {
         industry: 'Standardise reserve recut methodologies; share learnings on cut-off grade optimisation',
         government: 'Streamlined approval for life-of-mine extensions',
@@ -787,8 +831,12 @@ const opportunitiesData = {
     {
       n: 2,
       title: 'Critical minerals govt-backed finance',
-      impact: 3, feasibility: 3,
-      stake: "US$10B+ in offtake and finance available from US (DPA), AU (Critical Minerals Facility), EU (CRMA). Window may be widest in FY27-29.",
+      scores: { all: [3, 3], gold: [1, 2], copper: [2, 3] },
+      stakes: {
+        all: "US$10B+ in offtake and finance available from US (DPA), AU (Critical Minerals Facility), EU (CRMA). Window may be widest in FY27-29.",
+        gold: "Limited direct benefit — gold not on critical minerals lists. Indirect access for Au-Cu byproduct projects via Cu credits.",
+        copper: "Cu sometimes on critical lists (US, EU); strategic finance available for pure-Cu projects with allied-aligned offtake commitments.",
+      },
       actions: {
         industry: 'Coordinate on standards (provenance, ESG); position AU as preferred allied supplier',
         government: 'Maintain Critical Minerals Facility scale; bilateral offtake agreements',
@@ -799,8 +847,12 @@ const opportunitiesData = {
     {
       n: 3,
       title: 'Autonomous operations productivity uplift',
-      impact: 3, feasibility: 3,
-      stake: "Mature autonomous haulage tech enables 15-25% productivity uplift; partial UG automation rolling out. Strong AU competitive position to defend.",
+      scores: { all: [3, 3], gold: [3, 3], copper: [3, 3] },
+      stakes: {
+        all: "Mature autonomous haulage tech enables 15-25% productivity uplift; partial UG automation rolling out. Strong AU competitive position to defend.",
+        gold: "Applies fully — Au OC operations well-suited to autonomous haulage; UG automation pilots scaling at major Au sites.",
+        copper: "Applies fully — Cu UG operations particularly benefit from automation given depth, scale, and capex per tonne.",
+      },
       actions: {
         industry: 'Standards for autonomous operations; cybersecurity collaboration',
         government: 'Mining-tech R&D tax incentives; skilled visa programs for autonomous engineers',
@@ -811,8 +863,12 @@ const opportunitiesData = {
     {
       n: 4,
       title: 'AI exploration early-mover advantage',
-      impact: 3, feasibility: 2,
-      stake: "KoBold-style AI targeting promising but unproven at tier-1 scale. Early movers will capture best ground; FY27-30 is the validation window.",
+      scores: { all: [3, 2], gold: [3, 2], copper: [3, 3] },
+      stakes: {
+        all: "KoBold-style AI targeting promising but unproven at tier-1 scale. Early movers will capture best ground; FY27-30 is the validation window.",
+        gold: "Au exploration well-suited to ML targeting; multiple AU programs already running. Validates 2027-30; act now to claim ground.",
+        copper: "Highest urgency — Cu discovery cliff makes early-mover AI advantage most valuable; first tier-1 AI find likely to be Cu.",
+      },
       actions: {
         industry: 'Pre-competitive ML datasets; data sharing initiatives',
         government: 'Open geological data; greenfield exploration incentives',
@@ -823,8 +879,12 @@ const opportunitiesData = {
     {
       n: 5,
       title: 'Multi-user infrastructure',
-      impact: 3, feasibility: 2,
-      stake: "Pilbara rail and port shared access; new transmission corridors; shared water rights — reduces capex per project and unlocks marginal deposits.",
+      scores: { all: [3, 2], gold: [2, 2], copper: [3, 2] },
+      stakes: {
+        all: "Pilbara rail and port shared access; new transmission corridors; shared water rights — reduces capex per project and unlocks marginal deposits.",
+        gold: "Lower relevance — gold mines smaller footprint, less infrastructure-dependent for product transport.",
+        copper: "Major opportunity — shared rail and port unlocks marginal Cu projects in Mt Isa belt and Curnamona; common-user mandate critical.",
+      },
       actions: {
         industry: 'Multi-user agreements; coordinated infrastructure investment vehicles',
         government: 'NAIF scaling; common-user infrastructure mandates; transmission planning',
@@ -835,8 +895,12 @@ const opportunitiesData = {
     {
       n: 6,
       title: 'Brownfield extensions of tier-1 assets',
-      impact: 2, feasibility: 3,
-      stake: "Cheap ounces and tonnes from extending existing operations vs greenfield discovery. Multiple AU mines have substantial near-mine resource potential.",
+      scores: { all: [2, 3], gold: [3, 3], copper: [2, 3] },
+      stakes: {
+        all: "Cheap ounces and tonnes from extending existing operations vs greenfield discovery. Multiple AU mines have substantial near-mine resource potential.",
+        gold: "Highest impact — every Au operation should be exploring near-mine resources at current prices; cut-off grade reductions unlock significant ounces.",
+        copper: "Standard opportunity — Cu brownfield extensions valuable but greenfield still important given supply gap; multi-pronged approach needed.",
+      },
       actions: {
         industry: 'Best-practice exploration around existing mines',
         government: 'Streamlined approvals for adjacent extensions',
@@ -847,8 +911,12 @@ const opportunitiesData = {
     {
       n: 7,
       title: 'Mid-tier M&A consolidation',
-      impact: 2, feasibility: 3,
-      stake: "Mid-tier still fragmented vs senior tier; consolidation creates synergies. Northern Star, Evolution, Pan American as natural consolidators.",
+      scores: { all: [2, 3], gold: [3, 3], copper: [2, 2] },
+      stakes: {
+        all: "Mid-tier still fragmented vs senior tier; consolidation creates synergies. Northern Star, Evolution, Pan American as natural consolidators.",
+        gold: "Hot — multiple Au mid-tiers as natural consolidators; positions of strength at sustained gold prices; window through FY30.",
+        copper: "Less active — fewer Cu mid-tiers; majors absorbing rather than mid-tier consolidating; smaller opportunity set.",
+      },
       actions: {
         industry: 'Realistic discovery economics; orderly consolidation',
         government: 'Maintain neutral M&A framework; FIRB process predictability',
@@ -859,8 +927,12 @@ const opportunitiesData = {
     {
       n: 8,
       title: 'Indigenous partnership models as moat',
-      impact: 2, feasibility: 3,
-      stake: "Best-practice Indigenous co-management becomes a competitive advantage — better access to ground, faster approvals, lower regulatory risk.",
+      scores: { all: [2, 3], gold: [3, 3], copper: [2, 3] },
+      stakes: {
+        all: "Best-practice Indigenous co-management becomes a competitive advantage — better access to ground, faster approvals, lower regulatory risk.",
+        gold: "Major opportunity — many Au operations on Indigenous land in WA, NT, SA; co-management = competitive advantage on access and approvals.",
+        copper: "Same opportunity — Cu projects often on Indigenous land; sector-wide moat available to early movers.",
+      },
       actions: {
         industry: 'Sector-wide standards; learnings repository',
         government: 'Native title reform; benefit-sharing frameworks',
@@ -871,8 +943,12 @@ const opportunitiesData = {
     {
       n: 9,
       title: 'Ally-aligned premium pricing',
-      impact: 2, feasibility: 2,
-      stake: "Western buyers paying a premium for non-Chinese and non-Russian metal. Could add 5-15% to AU lithium, REE, nickel pricing if formalised.",
+      scores: { all: [2, 2], gold: [1, 1], copper: [2, 2] },
+      stakes: {
+        all: "Western buyers paying a premium for non-Chinese and non-Russian metal. Could add 5-15% to AU lithium, REE, nickel pricing if formalised.",
+        gold: "Not relevant — gold is fungible bullion; LBMA-good-delivery is the only relevant standard, no provenance premium possible.",
+        copper: "Relevant — provenance certification could add premium; AU Cu well-positioned vs DRC, Russia, Indonesia.",
+      },
       actions: {
         industry: 'Provenance standards; certification frameworks',
         government: 'AUKUS critical minerals framework; bilateral procurement preferences',
@@ -883,8 +959,12 @@ const opportunitiesData = {
     {
       n: 10,
       title: 'Green premium pricing',
-      impact: 2, feasibility: 2,
-      stake: "Low-carbon copper and iron commanding emerging premium. AU producers well-positioned given renewable adoption and ESG record.",
+      scores: { all: [2, 2], gold: [1, 1], copper: [3, 2] },
+      stakes: {
+        all: "Low-carbon copper and iron commanding emerging premium. AU producers well-positioned given renewable adoption and ESG record.",
+        gold: "Not relevant — gold is fungible bullion, no green premium pricing structure exists or likely to emerge.",
+        copper: "Highly relevant — low-carbon Cu commanding emerging premium from EV makers; AU Cu well-positioned to capture.",
+      },
       actions: {
         industry: 'Common standards for low-carbon certification',
         government: 'Border carbon adjustment alignment; export carbon accounting',
@@ -894,6 +974,7 @@ const opportunitiesData = {
     },
   ],
 };
+
 
 // ===== Leading Indicators data =====
 
@@ -1477,18 +1558,59 @@ const ActionList = ({ items, yKey, xKey }) => {
   );
 };
 
-const ActionTab = ({ data }) => (
-  <>
-    <ChartHeader title={data.title} subtitle={data.subtitle} unit={data.unit} />
-    <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
-      {data.intro}
-    </p>
-    <TrendsMatrix trends={data.items}
-      yKey={data.yKey} xKey={data.xKey}
-      yLabel={data.yLabel} xLabel={data.xLabel} />
-    <ActionList items={data.items} yKey={data.yKey} xKey={data.xKey} />
-  </>
-);
+const ActionTab = ({ data }) => {
+  const [lens, setLens] = useState('all');
+  const lenses = [
+    { id: 'all',    label: 'All Metals' },
+    { id: 'gold',   label: 'Gold' },
+    { id: 'copper', label: 'Copper' },
+  ];
+
+  // Derive items with lens-specific scores and stake text at top level,
+  // so TrendsMatrix and ActionList can use them directly.
+  const lensItems = data.items.map(item => ({
+    ...item,
+    [data.yKey]: item.scores[lens][0],
+    [data.xKey]: item.scores[lens][1],
+    stake: item.stakes[lens],
+  }));
+
+  return (
+    <>
+      <ChartHeader title={data.title} subtitle={data.subtitle} unit={data.unit} />
+      <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
+        {data.intro}
+      </p>
+
+      <div className="my-4">
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Metal lens
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          {lenses.map(l => (
+            <button key={l.id} onClick={() => setLens(l.id)}
+              className="px-3 py-1.5 text-xs rounded transition-colors"
+              style={{
+                background: lens === l.id ? C.gold : 'transparent',
+                color: lens === l.id ? C.ink : C.dim,
+                border: `1px solid ${lens === l.id ? C.gold : C.border}`,
+                fontWeight: lens === l.id ? 600 : 400,
+                fontFamily: "'Fraunces', Georgia, serif",
+              }}>
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <TrendsMatrix trends={lensItems}
+        yKey={data.yKey} xKey={data.xKey}
+        yLabel={data.yLabel} xLabel={data.xLabel} />
+      <ActionList items={lensItems} yKey={data.yKey} xKey={data.xKey} />
+    </>
+  );
+};
 
 // ===== Industry Trends =====
 
@@ -2250,8 +2372,8 @@ const App = () => {
           { id: 'markets',   label: 'Markets' },
           { id: 'companies', label: 'Companies' },
           { id: 'leading',   label: 'Leading indicators' },
-          { id: 'strategy',  label: 'Strategy' },
           { id: 'future',    label: 'Future' },
+          { id: 'strategy',  label: 'Strategy' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
             className="px-4 py-2 text-sm rounded-md transition-colors"
