@@ -858,26 +858,26 @@ const TrendsMatrix = ({ trends }) => {
         Each trend's number is plotted by impact (rows) and likelihood (columns). Cell number = impact × likelihood score.
       </div>
       <div style={{ maxWidth: 580 }}>
-        <div className="grid gap-1" style={{ gridTemplateColumns: '92px 1fr 1fr 1fr' }}>
+        <div className="grid gap-1" style={{ gridTemplateColumns: '110px 1fr 1fr 1fr' }}>
           {/* Top row: column labels */}
           <div></div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Low likelihood
+            Low Likelihood
           </div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Medium
+            Medium Likelihood
           </div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            High
+            High Likelihood
           </div>
 
           {/* High impact row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            High impact
+            High Impact
           </div>
           <Cell impact={3} likelihood={1} />
           <Cell impact={3} likelihood={2} />
@@ -886,7 +886,7 @@ const TrendsMatrix = ({ trends }) => {
           {/* Med impact row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Medium
+            Medium Impact
           </div>
           <Cell impact={2} likelihood={1} />
           <Cell impact={2} likelihood={2} />
@@ -895,7 +895,7 @@ const TrendsMatrix = ({ trends }) => {
           {/* Low impact row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Low
+            Low Impact
           </div>
           <Cell impact={1} likelihood={1} />
           <Cell impact={1} likelihood={2} />
