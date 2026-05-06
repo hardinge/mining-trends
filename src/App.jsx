@@ -515,6 +515,386 @@ const futureTrends25yr = {
   ],
 };
 
+// ===== Strategy data =====
+
+const successData = {
+  title: '2050 Picture of Success',
+  subtitle: 'Vision for the Australian metal mining industry by 2050',
+  vision: "By 2050, the Australian metal mining industry is the most cost-competitive, decarbonised, and socially-licensed metal mining sector in the world — supplying critical minerals at scale to allied economies, operating with a diverse and largely automated workforce, and generating sustainable returns through full commodity cycles.",
+  pillars: [
+    {
+      n: 1,
+      title: 'Decarbonised operations',
+      baseline: '~10% of operations net-zero scope 1+2; renewable PPA adoption underway',
+      target: '100% net-zero scope 1+2 across operating mines; hydrogen + electric haulage standard',
+      lenses: {
+        industry: 'Cost-competitive with grid + diesel via low-cost renewables; carbon-priced operations resilient through cycles.',
+        government: 'AU mining contributes proportionally to net-zero commitments; export emissions accounted credibly.',
+        communities: 'No air or water emissions impact on local environments; quality-of-life uplift in mining regions.',
+        investors: 'ESG-compliant; future-proofed against carbon pricing and import border adjustments globally.',
+      },
+      confidence: 'High',
+    },
+    {
+      n: 2,
+      title: 'Critical minerals leadership',
+      baseline: 'AU 1st in Li (~30% global), 4th in REE (~6%), 5th in Ni; tier-2 in Cu',
+      target: 'AU supplies 50%+ of allied-aligned demand for Li, REE, Ni, Co; major Cu position established',
+      lenses: {
+        industry: 'Premium pricing for ally-aligned supply; portfolio diversification across critical minerals.',
+        government: 'Geopolitical leverage; defence and energy supply security; AUKUS supply chain anchor.',
+        communities: 'Long-term economic anchor in regional Australia; multi-decade asset bases.',
+        investors: 'Strategic asset valuations; M&A premiums for AU critical minerals juniors.',
+      },
+      confidence: 'High',
+    },
+    {
+      n: 3,
+      title: 'Global cost competitiveness',
+      baseline: 'AU iron ore top quartile; gold mid-pack; lithium sliding on grade decline',
+      target: 'Top-quartile AISC across all major commodities despite global grade decline',
+      lenses: {
+        industry: 'Productivity, automation, AI offset grade decline; sustainable margin profile through cycles.',
+        government: 'Tax and royalty base sustainability; comparative advantage maintained against global competitors.',
+        communities: 'Mine longevity; stable regional employment through commodity cycles.',
+        investors: 'Margin protection; through-cycle returns predictable; lower equity risk.',
+      },
+      confidence: 'Medium',
+    },
+    {
+      n: 4,
+      title: 'Strong social licence',
+      baseline: 'Multiple Juukan-class incidents per decade; Indigenous engagement variable across operators',
+      target: 'Zero unacceptable cultural or environmental incidents; Indigenous co-management standard at all major operations',
+      lenses: {
+        industry: 'Predictable approvals; lower regulatory friction; faster project timelines.',
+        government: 'Legitimacy of resources policy preserved; royalty regime stable; less political risk.',
+        communities: 'Self-determination, meaningful benefit-sharing, veto rights on cultural sites.',
+        investors: 'Reputation risk eliminated; predictable cost of capital; lower operating risk premium.',
+      },
+      confidence: 'Medium',
+    },
+    {
+      n: 5,
+      title: 'Diversified workforce',
+      baseline: '~17% female; aging demographic; FIFO-heavy; ~3% Indigenous representation',
+      target: '35%+ female; multi-generational; ~10% Indigenous; appropriate automation across sites',
+      lenses: {
+        industry: 'Larger talent pool; better retention; reduced FIFO costs; broader skills base.',
+        government: 'Inclusive economy; regional and Indigenous employment outcomes; lower welfare burden.',
+        communities: 'Locally accessible jobs; transition from FIFO to residential where viable.',
+        investors: 'Lower people-risk; better governance signals; resilient operations.',
+      },
+      confidence: 'Medium',
+    },
+    {
+      n: 6,
+      title: 'Innovation and productivity',
+      baseline: 'AU leads global autonomous haulage; AI exploration in early commercial phase',
+      target: 'Autonomous wherever appropriate; AI-discovered tier-1 deposits in production; 30%+ productivity uplift vs 2025',
+      lenses: {
+        industry: 'Cost competitiveness via productivity offsetting grade decline; tech-driven moat.',
+        government: 'Mining-tech sector spillovers; skilled workforce investment payoff; export of services.',
+        communities: 'Higher-value, safer onsite roles; reduced FIFO commute footprint over time.',
+        investors: 'Sustained margins despite cost pressures; productivity-led re-rating of AU producers.',
+      },
+      confidence: 'High',
+    },
+    {
+      n: 7,
+      title: 'Resilient capital structure',
+      baseline: 'Industry survived 2014-15 with significant pain; balance sheets stronger today than 2010s',
+      target: 'Sector-wide balance sheets that comfortably survive a 50% commodity drawdown without distressed asset sales',
+      lenses: {
+        industry: 'Strategic flexibility through cycles; M&A from position of strength.',
+        government: 'Stable royalty stream; fewer bankruptcies and welfare obligations through downturns.',
+        communities: 'Employment continuity through downturns; investment in mine closure obligations honoured.',
+        investors: 'Through-cycle returns; lower equity risk premium; reliable dividend profile.',
+      },
+      confidence: 'High',
+    },
+    {
+      n: 8,
+      title: 'Sustained mineral supply',
+      baseline: 'AU produces ~1/3 of world Li, ~10% of Au, ~5% of Cu and Ni',
+      target: 'AU is a top-3 global producer of every battery and energy-transition metal it currently produces',
+      lenses: {
+        industry: 'Position of strength in negotiations with allied buyers; pricing power.',
+        government: 'Strategic supply security for AUKUS partners; tariff-shielded markets; export earnings stable.',
+        communities: 'Multi-decade visibility on regional employment; stable economic base.',
+        investors: 'Portfolio diversification across the energy-transition basket; resilient earnings.',
+      },
+      confidence: 'Medium-High',
+    },
+  ],
+};
+
+const issuesData = {
+  title: 'FY27-FY30 Issues to Address',
+  subtitle: 'Severity × Urgency — issues facing the Australian metal mining industry through FY30',
+  unit: '10 issues · ranked by severity × urgency score',
+  intro: "These are the dominant issues for the next three to four financial years. Severity reflects how much each issue could damage industry health if unaddressed; urgency reflects how soon action is required. Score 9 issues need executive-team focus this year.",
+  yKey: 'severity',
+  xKey: 'urgency',
+  yLabel: 'Severity',
+  xLabel: 'Urgency',
+  items: [
+    {
+      n: 1,
+      title: 'Cost inflation outpacing revenue (base metals)',
+      severity: 3, urgency: 3,
+      stake: "Real AISC up 30%+ since 2020; gold price masks margin compression in Cu, Ni, Li. Mid-tier and small producers most exposed.",
+      actions: {
+        industry: 'Coordinate on shared infrastructure, supplier consolidation, productivity benchmarking',
+        government: 'R&D tax incentives; critical infrastructure investment; energy price stability',
+        company: 'Aggressive cost programs, portfolio high-grading, hedging, scale through M&A',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 2,
+      title: 'Permitting timelines lengthening',
+      severity: 3, urgency: 3,
+      stake: "Discovery-to-production now 18+ years globally and rising. Each year delayed = year of supply not coming. Multiple AU projects stuck in approval backlogs.",
+      actions: {
+        industry: 'Streamline EIS submissions; pre-empt community engagement; build a learnings repository',
+        government: 'Faster federal approvals; one-stop-shop processes; conditional approvals with milestones',
+        company: 'Robust EIS at first submission; proactive community engagement; portfolio of permitted projects',
+      },
+      owner: 'Government',
+    },
+    {
+      n: 3,
+      title: 'Social licence and Indigenous heritage',
+      severity: 3, urgency: 3,
+      stake: "Juukan-class incidents are reputationally near-existential. Cultural heritage protection laws strengthening; sector lacks consistent co-management framework.",
+      actions: {
+        industry: 'Sector-wide Indigenous engagement standards; cultural heritage best-practice repository',
+        government: 'Modern cultural heritage legislation; ILUA reform; clear consultation requirements',
+        company: 'Indigenous co-management agreements at all major operations; veto rights on cultural sites',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 4,
+      title: 'Decarbonisation capex burden',
+      severity: 3, urgency: 3,
+      stake: "Net-zero scope 1+2 by 2050 requires US$10-20B+ industry capex through FY30. Hydrogen, electric haulage, renewable power infrastructure all needed simultaneously.",
+      actions: {
+        industry: 'Pre-competitive technology development; shared renewable infrastructure builds',
+        government: 'Tax incentives for early decarbonisation capex; CEFC, ARENA, NAIF scaling',
+        company: 'Phased decarbonisation plans tied to asset replacement cycles; PPA portfolio',
+      },
+      owner: 'Industry',
+    },
+    {
+      n: 5,
+      title: 'Workforce constraints',
+      severity: 2, urgency: 3,
+      stake: "Aging mining workforce; FIFO costs spiraling; skills shortages delaying projects. Critical minerals and decarbonisation roles particularly under-supplied.",
+      actions: {
+        industry: 'Coordinated training programs; female participation initiatives; school outreach',
+        government: 'Skilled migration; vocational training subsidies; regional housing investment',
+        company: 'Automation where possible; residential mining; flexible work; Indigenous training programs',
+      },
+      owner: 'Industry',
+    },
+    {
+      n: 6,
+      title: 'Discovery cliff',
+      severity: 3, urgency: 2,
+      stake: "Tier-1 finds halved each decade since 1990s. Reserves shrinking at top-10 producers; growth-by-acquisition pressure intensifying year by year.",
+      actions: {
+        industry: 'AI exploration consortia; data sharing for ML training; greenfield drilling programs',
+        government: 'Geoscience funding; open-access geological datasets; greenfield exploration tax incentives',
+        company: 'Allocate to AI exploration; brownfield extension priority; selective acquisition',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 7,
+      title: 'Infrastructure gaps (rail, port, water, grid)',
+      severity: 3, urgency: 2,
+      stake: "Pilbara rail at capacity for new entrants; water rights contested; grid power for inland operations limited. Constrains multiple new project starts.",
+      actions: {
+        industry: 'Multi-user infrastructure agreements; coordinated investment vehicles',
+        government: 'NAIF scaling; common-user infrastructure mandates; transmission build-out',
+        company: 'Investment in shared assets; long-term water and power agreements',
+      },
+      owner: 'Government',
+    },
+    {
+      n: 8,
+      title: 'Resource nationalism in supplier countries',
+      severity: 2, urgency: 2,
+      stake: "AU Cu, Co, Ni, Li supply chains exposed to DRC, Indonesia, Chile, Peru policy shifts. Cobre Panamá-type events possible at any time.",
+      actions: {
+        industry: 'Diversified sourcing; political risk insurance pools',
+        government: 'Bilateral trade and investment treaties; AUKUS critical minerals framework',
+        company: 'Geographic diversification; long-term offtake; political risk mitigation',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 9,
+      title: 'M&A premium pressure',
+      severity: 2, urgency: 2,
+      stake: "Discovery cliff means fewer high-quality targets; deal premiums rising. Risk of overpaying at cycle peaks (cf. Newmont-Newcrest at gold ATH).",
+      actions: {
+        industry: 'Realistic discovery economics; strategic patience',
+        government: 'Encourage greenfield exploration through fiscal incentives',
+        company: 'Disciplined M&A criteria; preserve cash for cyclical opportunities',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 10,
+      title: 'Lithium-cycle volatility',
+      severity: 2, urgency: 2,
+      stake: "Spodumene 12× spike then 70% reset in 4 years; multiple AU operators unprofitable through trough. Capital allocation and reserve cuts difficult.",
+      actions: {
+        industry: 'Through-cycle margin focus; smaller exposure to spot market',
+        government: 'Strategic stockpile concept; long-term offtake support',
+        company: 'Long-term contracts; conservative reserve cuts; cost discipline through trough',
+      },
+      owner: 'Company',
+    },
+  ],
+};
+
+const opportunitiesData = {
+  title: 'FY27-FY30 Opportunities to Capture',
+  subtitle: 'Impact × Feasibility — opportunities for Australian mining industry through FY30',
+  unit: '10 opportunities · ranked by impact × feasibility score',
+  intro: "Opportunities the industry can realistically capture in the FY27-30 window. Impact reflects upside scale; feasibility reflects how achievable the opportunity is given current capabilities, capital, and policy environment. Score 9 opportunities are the strategic priorities for the period.",
+  yKey: 'impact',
+  xKey: 'feasibility',
+  yLabel: 'Impact',
+  xLabel: 'Feasibility',
+  items: [
+    {
+      n: 1,
+      title: 'Sustained gold price → reserve life extensions',
+      impact: 3, feasibility: 3,
+      stake: "Au at A$5,000+/oz makes lower-grade ore economic. Existing pits and UG operations can extend life 5-10 years through reserve recuts.",
+      actions: {
+        industry: 'Standardise reserve recut methodologies; share learnings on cut-off grade optimisation',
+        government: 'Streamlined approval for life-of-mine extensions',
+        company: 'Aggressive reserve recuts; near-mine exploration; mill capacity expansions',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 2,
+      title: 'Critical minerals govt-backed finance',
+      impact: 3, feasibility: 3,
+      stake: "US$10B+ in offtake and finance available from US (DPA), AU (Critical Minerals Facility), EU (CRMA). Window may be widest in FY27-29.",
+      actions: {
+        industry: 'Coordinate on standards (provenance, ESG); position AU as preferred allied supplier',
+        government: 'Maintain Critical Minerals Facility scale; bilateral offtake agreements',
+        company: 'Pursue grant funding; lock in long-term offtake; build refining capacity onshore',
+      },
+      owner: 'Industry',
+    },
+    {
+      n: 3,
+      title: 'Autonomous operations productivity uplift',
+      impact: 3, feasibility: 3,
+      stake: "Mature autonomous haulage tech enables 15-25% productivity uplift; partial UG automation rolling out. Strong AU competitive position to defend.",
+      actions: {
+        industry: 'Standards for autonomous operations; cybersecurity collaboration',
+        government: 'Mining-tech R&D tax incentives; skilled visa programs for autonomous engineers',
+        company: 'Full rollout across OC operations; UG automation pilots at multiple sites',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 4,
+      title: 'AI exploration early-mover advantage',
+      impact: 3, feasibility: 2,
+      stake: "KoBold-style AI targeting promising but unproven at tier-1 scale. Early movers will capture best ground; FY27-30 is the validation window.",
+      actions: {
+        industry: 'Pre-competitive ML datasets; data sharing initiatives',
+        government: 'Open geological data; greenfield exploration incentives',
+        company: 'Strategic AI exploration partnerships or in-house programs; ground-position acquisition',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 5,
+      title: 'Multi-user infrastructure',
+      impact: 3, feasibility: 2,
+      stake: "Pilbara rail and port shared access; new transmission corridors; shared water rights — reduces capex per project and unlocks marginal deposits.",
+      actions: {
+        industry: 'Multi-user agreements; coordinated infrastructure investment vehicles',
+        government: 'NAIF scaling; common-user infrastructure mandates; transmission planning',
+        company: 'Shared infrastructure deals; equity in common-user assets',
+      },
+      owner: 'Government',
+    },
+    {
+      n: 6,
+      title: 'Brownfield extensions of tier-1 assets',
+      impact: 2, feasibility: 3,
+      stake: "Cheap ounces and tonnes from extending existing operations vs greenfield discovery. Multiple AU mines have substantial near-mine resource potential.",
+      actions: {
+        industry: 'Best-practice exploration around existing mines',
+        government: 'Streamlined approvals for adjacent extensions',
+        company: 'Reallocate exploration spend to brownfield; extend mine life systematically',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 7,
+      title: 'Mid-tier M&A consolidation',
+      impact: 2, feasibility: 3,
+      stake: "Mid-tier still fragmented vs senior tier; consolidation creates synergies. Northern Star, Evolution, Pan American as natural consolidators.",
+      actions: {
+        industry: 'Realistic discovery economics; orderly consolidation',
+        government: 'Maintain neutral M&A framework; FIRB process predictability',
+        company: 'Disciplined M&A criteria; identify natural consolidation targets',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 8,
+      title: 'Indigenous partnership models as moat',
+      impact: 2, feasibility: 3,
+      stake: "Best-practice Indigenous co-management becomes a competitive advantage — better access to ground, faster approvals, lower regulatory risk.",
+      actions: {
+        industry: 'Sector-wide standards; learnings repository',
+        government: 'Native title reform; benefit-sharing frameworks',
+        company: 'Co-management agreements; equity participation; meaningful benefit-sharing',
+      },
+      owner: 'Company',
+    },
+    {
+      n: 9,
+      title: 'Ally-aligned premium pricing',
+      impact: 2, feasibility: 2,
+      stake: "Western buyers paying a premium for non-Chinese and non-Russian metal. Could add 5-15% to AU lithium, REE, nickel pricing if formalised.",
+      actions: {
+        industry: 'Provenance standards; certification frameworks',
+        government: 'AUKUS critical minerals framework; bilateral procurement preferences',
+        company: 'Long-term contracts with allied buyers; provenance certification',
+      },
+      owner: 'Government',
+    },
+    {
+      n: 10,
+      title: 'Green premium pricing',
+      impact: 2, feasibility: 2,
+      stake: "Low-carbon copper and iron commanding emerging premium. AU producers well-positioned given renewable adoption and ESG record.",
+      actions: {
+        industry: 'Common standards for low-carbon certification',
+        government: 'Border carbon adjustment alignment; export carbon accounting',
+        company: 'Decarbonisation linked to product premium; green offtake contracts',
+      },
+      owner: 'Industry',
+    },
+  ],
+};
+
 // ===== Leading Indicators data =====
 
 // 16. Exploration spend vs gold discoveries (annual)
@@ -812,18 +1192,18 @@ const OverviewSection = ({ data }) => (
   </>
 );
 
-const TrendsMatrix = ({ trends }) => {
-  const itemsAt = (impact, likelihood) =>
-    trends.filter(t => t.impact === impact && t.likelihood === likelihood);
+const TrendsMatrix = ({ trends, yKey = 'impact', xKey = 'likelihood', yLabel = 'Impact', xLabel = 'Likelihood' }) => {
+  const itemsAt = (y, x) =>
+    trends.filter(t => t[yKey] === y && t[xKey] === x);
 
   const cellBg = (score) => {
     const opacity = 0.04 + (score - 1) * 0.045;
     return `rgba(230, 184, 74, ${opacity})`;
   };
 
-  const Cell = ({ impact, likelihood }) => {
-    const items = itemsAt(impact, likelihood);
-    const score = impact * likelihood;
+  const Cell = ({ y, x }) => {
+    const items = itemsAt(y, x);
+    const score = y * x;
     return (
       <div className="p-2 rounded relative flex items-center justify-center"
         style={{
@@ -852,68 +1232,68 @@ const TrendsMatrix = ({ trends }) => {
     <div className="my-5">
       <div className="text-[10px] uppercase tracking-[0.2em] mb-1"
         style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
-        Impact × Likelihood matrix
+        {yLabel} × {xLabel} matrix
       </div>
       <div className="text-xs mb-3" style={{ color: C.dim }}>
-        Each trend's number is plotted by impact (rows) and likelihood (columns). Cell number = impact × likelihood score.
+        Each item's number is plotted by {yLabel.toLowerCase()} (rows) and {xLabel.toLowerCase()} (columns). Cell number = {yLabel.toLowerCase()} × {xLabel.toLowerCase()} score.
       </div>
       <div style={{ maxWidth: 580 }}>
-        <div className="grid gap-1" style={{ gridTemplateColumns: '110px 1fr 1fr 1fr' }}>
+        <div className="grid gap-1" style={{ gridTemplateColumns: '120px 1fr 1fr 1fr' }}>
           {/* Top row: column labels */}
           <div></div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Low Likelihood
+            Low {xLabel}
           </div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Medium Likelihood
+            Medium {xLabel}
           </div>
           <div className="text-center text-[10px] uppercase tracking-widest pb-1"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            High Likelihood
+            High {xLabel}
           </div>
 
-          {/* High impact row */}
+          {/* High row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            High Impact
+            High {yLabel}
           </div>
-          <Cell impact={3} likelihood={1} />
-          <Cell impact={3} likelihood={2} />
-          <Cell impact={3} likelihood={3} />
+          <Cell y={3} x={1} />
+          <Cell y={3} x={2} />
+          <Cell y={3} x={3} />
 
-          {/* Med impact row */}
+          {/* Med row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Medium Impact
+            Medium {yLabel}
           </div>
-          <Cell impact={2} likelihood={1} />
-          <Cell impact={2} likelihood={2} />
-          <Cell impact={2} likelihood={3} />
+          <Cell y={2} x={1} />
+          <Cell y={2} x={2} />
+          <Cell y={2} x={3} />
 
-          {/* Low impact row */}
+          {/* Low row */}
           <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
             style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-            Low Impact
+            Low {yLabel}
           </div>
-          <Cell impact={1} likelihood={1} />
-          <Cell impact={1} likelihood={2} />
-          <Cell impact={1} likelihood={3} />
+          <Cell y={1} x={1} />
+          <Cell y={1} x={2} />
+          <Cell y={1} x={3} />
         </div>
       </div>
     </div>
   );
 };
 
-const TrendsList = ({ items }) => {
+const TrendsList = ({ items, yKey = 'impact', xKey = 'likelihood' }) => {
   const sorted = [...items].sort((a, b) =>
-    (b.impact * b.likelihood) - (a.impact * a.likelihood)
+    (b[yKey] * b[xKey]) - (a[yKey] * a[xKey])
   );
   return (
     <ol className="mt-4 space-y-2">
       {sorted.map(item => {
-        const score = item.impact * item.likelihood;
+        const score = item[yKey] * item[xKey];
         return (
           <li key={item.n} className="flex gap-3 text-sm">
             <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
@@ -941,6 +1321,172 @@ const TrendsTimeView = ({ data }) => (
     </p>
     <TrendsMatrix trends={data.items} />
     <TrendsList items={data.items} />
+  </>
+);
+
+// ===== Strategy components =====
+
+const PillarCard = ({ pillar, lens }) => (
+  <div className="rounded p-3" style={{ background: C.ink, border: `1px solid ${C.border}` }}>
+    <div className="flex items-start gap-2 mb-2">
+      <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mt-0.5"
+        style={{ background: C.marker, color: C.ink }}>
+        {pillar.n}
+      </span>
+      <div className="flex-1 min-w-0">
+        <div className="font-semibold text-sm" style={{ color: C.text, fontFamily: "'Fraunces', Georgia, serif" }}>
+          {pillar.title}
+        </div>
+        <div className="text-[10px] uppercase tracking-widest mt-0.5"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Confidence: {pillar.confidence}
+        </div>
+      </div>
+    </div>
+
+    <div className="space-y-1.5 mb-3 text-xs">
+      <div>
+        <div className="uppercase tracking-widest text-[9px]"
+          style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+          2025 baseline
+        </div>
+        <div style={{ color: C.text }}>{pillar.baseline}</div>
+      </div>
+      <div>
+        <div className="uppercase tracking-widest text-[9px]"
+          style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+          2050 target
+        </div>
+        <div style={{ color: C.text }}>{pillar.target}</div>
+      </div>
+    </div>
+
+    <div className="text-xs pt-2" style={{ borderTop: `1px solid ${C.border}` }}>
+      <div className="uppercase tracking-widest text-[9px] mb-1"
+        style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+        {lens} lens
+      </div>
+      <div style={{ color: C.text }}>{pillar.lenses[lens]}</div>
+    </div>
+  </div>
+);
+
+const SuccessTab = ({ data }) => {
+  const [lens, setLens] = useState('industry');
+  const lenses = [
+    { id: 'industry',    label: 'Industry' },
+    { id: 'government',  label: 'Government' },
+    { id: 'communities', label: 'Communities' },
+    { id: 'investors',   label: 'Investors' },
+  ];
+
+  return (
+    <>
+      <ChartHeader title={data.title} subtitle={data.subtitle}
+        unit={`${data.pillars.length} pillars · stakeholder lens toggle`} />
+
+      <div className="my-4 p-4 rounded"
+        style={{ background: C.ink, borderLeft: `3px solid ${C.gold}` }}>
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Vision statement
+        </div>
+        <div className="text-sm leading-relaxed"
+          style={{ color: C.text, fontFamily: "'Fraunces', Georgia, serif" }}>
+          {data.vision}
+        </div>
+      </div>
+
+      <div className="my-4">
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Stakeholder lens
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          {lenses.map(l => (
+            <button key={l.id} onClick={() => setLens(l.id)}
+              className="px-3 py-1.5 text-xs rounded transition-colors"
+              style={{
+                background: lens === l.id ? C.gold : 'transparent',
+                color: lens === l.id ? C.ink : C.dim,
+                border: `1px solid ${lens === l.id ? C.gold : C.border}`,
+                fontWeight: lens === l.id ? 600 : 400,
+                fontFamily: "'Fraunces', Georgia, serif",
+              }}>
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {data.pillars.map(pillar => (
+          <PillarCard key={pillar.n} pillar={pillar} lens={lens} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+const ActionList = ({ items, yKey, xKey }) => {
+  const sorted = [...items].sort((a, b) =>
+    (b[yKey] * b[xKey]) - (a[yKey] * a[xKey])
+  );
+  return (
+    <ol className="mt-4 space-y-4">
+      {sorted.map(item => {
+        const score = item[yKey] * item[xKey];
+        return (
+          <li key={item.n} className="flex gap-3">
+            <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mt-0.5"
+              style={{ background: C.marker, color: C.ink }}>{item.n}</span>
+            <div style={{ color: C.text, flex: 1, minWidth: 0 }}>
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <span className="font-semibold text-sm" style={{ color: C.text }}>{item.title}.</span>
+                <span className="text-[10px] uppercase tracking-widest"
+                  style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+                  Score {score} · Lead: {item.owner}
+                </span>
+              </div>
+              <div className="text-sm mt-1" style={{ color: C.dim }}>
+                <span className="font-semibold" style={{ color: C.text }}>What's at stake: </span>
+                {item.stake}
+              </div>
+              <div className="mt-2 space-y-1">
+                <div className="flex gap-3 text-xs">
+                  <span className="flex-shrink-0 w-24 uppercase tracking-widest text-[9px] pt-0.5"
+                    style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>Industry</span>
+                  <span style={{ color: C.text }} className="flex-1">{item.actions.industry}</span>
+                </div>
+                <div className="flex gap-3 text-xs">
+                  <span className="flex-shrink-0 w-24 uppercase tracking-widest text-[9px] pt-0.5"
+                    style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>Government</span>
+                  <span style={{ color: C.text }} className="flex-1">{item.actions.government}</span>
+                </div>
+                <div className="flex gap-3 text-xs">
+                  <span className="flex-shrink-0 w-24 uppercase tracking-widest text-[9px] pt-0.5"
+                    style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>Company</span>
+                  <span style={{ color: C.text }} className="flex-1">{item.actions.company}</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
+const ActionTab = ({ data }) => (
+  <>
+    <ChartHeader title={data.title} subtitle={data.subtitle} unit={data.unit} />
+    <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
+      {data.intro}
+    </p>
+    <TrendsMatrix trends={data.items}
+      yKey={data.yKey} xKey={data.xKey}
+      yLabel={data.yLabel} xLabel={data.xLabel} />
+    <ActionList items={data.items} yKey={data.yKey} xKey={data.xKey} />
   </>
 );
 
@@ -1665,11 +2211,18 @@ const App = () => {
     { id: 'futureTrends25yr', label: '25yr Trends' },
   ];
 
+  const tabsStrategy = [
+    { id: 'success',       label: 'Success' },
+    { id: 'issues',        label: 'Issues' },
+    { id: 'opportunities', label: 'Opportunities' },
+  ];
+
   const tabsBySection = {
     industry: tabsIndustry,
     markets: tabsMarkets,
     companies: tabsCompanies,
     leading: tabsLeading,
+    strategy: tabsStrategy,
     future: tabsFuture,
   };
 
@@ -1697,6 +2250,7 @@ const App = () => {
           { id: 'markets',   label: 'Markets' },
           { id: 'companies', label: 'Companies' },
           { id: 'leading',   label: 'Leading indicators' },
+          { id: 'strategy',  label: 'Strategy' },
           { id: 'future',    label: 'Future' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
@@ -1736,6 +2290,9 @@ const App = () => {
         {tab === 'futureTrends5yr'   && <TrendsTimeView data={futureTrends5yr} />}
         {tab === 'futureTrends15yr'  && <TrendsTimeView data={futureTrends15yr} />}
         {tab === 'futureTrends25yr'  && <TrendsTimeView data={futureTrends25yr} />}
+        {tab === 'success'           && <SuccessTab data={successData} />}
+        {tab === 'issues'            && <ActionTab data={issuesData} />}
+        {tab === 'opportunities'     && <ActionTab data={opportunitiesData} />}
         {tab === 'mines'         && <MineChart />}
         {tab === 'aisc'          && <AiscChart />}
         {tab === 'cost'          && <CostChart />}
