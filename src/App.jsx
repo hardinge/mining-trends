@@ -189,7 +189,7 @@ const goldCycleData = [
   { year: 2005, price: 700 }, { year: 2008, price: 1180 }, { year: 2011, price: 2280 },
   { year: 2013, price: 1700 }, { year: 2015, price: 1380 }, { year: 2018, price: 1620 },
   { year: 2020, price: 2100 }, { year: 2022, price: 2050 }, { year: 2024, price: 2700 },
-  { year: 2025, price: 3500 },
+  { year: 2025, price: 3500 }, { year: 2026, price: 4565 },
 ];
 const goldCyclePhases = [
   { x1: 1950, x2: 1971, color: C.slate },
@@ -197,7 +197,7 @@ const goldCyclePhases = [
   { x1: 1980, x2: 2001, color: C.rust },
   { x1: 2001, x2: 2011, color: C.gold },
   { x1: 2011, x2: 2015, color: C.rust },
-  { x1: 2015, x2: 2025, color: C.gold },
+  { x1: 2015, x2: 2026, color: C.gold },
 ];
 const goldCycleNotes = [
   { year: 1971, n: 1, title: 'Nixon shock', body: 'US ends gold-dollar convertibility; price floats and immediately runs' },
@@ -207,6 +207,7 @@ const goldCycleNotes = [
   { year: 2011, n: 5, title: 'US$1,920 nominal peak', body: 'Eurozone crisis, US debt downgrade, QE2' },
   { year: 2020, n: 6, title: 'COVID + negative real rates', body: 'Real yields collapse; gold breaks 2011 nominal high' },
   { year: 2024, n: 7, title: 'Central bank buying surge', body: 'Post-Russia sanctions; EM CBs accumulate at record pace' },
+  { year: 2026, n: 8, title: 'US$4,565/oz today', body: 'Spot price as of May 2026 — +30% YoY; new ATH on Middle East tensions, structural CB buying, fiat debasement thesis' },
 ];
 
 const copperCycleData = [
@@ -216,14 +217,14 @@ const copperCycleData = [
   { year: 2003, price: 1.3 }, { year: 2007, price: 4.5 }, { year: 2009, price: 2.5 },
   { year: 2011, price: 5.0 }, { year: 2014, price: 3.5 }, { year: 2016, price: 2.3 },
   { year: 2020, price: 2.8 }, { year: 2022, price: 4.5 }, { year: 2024, price: 4.2 },
-  { year: 2025, price: 4.8 },
+  { year: 2025, price: 4.8 }, { year: 2026, price: 5.94 },
 ];
 const copperCyclePhases = [
   { x1: 1950, x2: 1974, color: C.slate },
   { x1: 1974, x2: 1999, color: C.rust },
   { x1: 1999, x2: 2011, color: C.gold },
   { x1: 2011, x2: 2016, color: C.rust },
-  { x1: 2016, x2: 2025, color: C.gold },
+  { x1: 2016, x2: 2026, color: C.gold },
 ];
 const copperCycleNotes = [
   { year: 1971, n: 1, title: 'Chile nationalisation', body: 'Codelco formed; supply uncertainty premium' },
@@ -232,6 +233,7 @@ const copperCycleNotes = [
   { year: 2008, n: 4, title: 'GFC plunge', body: 'Half-price in 6 months; rapid rebound on China stimulus' },
   { year: 2016, n: 5, title: 'Cycle bottom', body: 'Glencore, Freeport restructure; capex collapses' },
   { year: 2022, n: 6, title: 'EV/grid premium', body: 'Energy-transition demand thesis re-prices structurally higher' },
+  { year: 2026, n: 7, title: 'US$5.94/lb today', body: 'Spot price as of May 2026 — +25% YoY; energy transition demand, Strait of Hormuz disruption to Chilean refining; ~10% off ATH' },
 ];
 
 const discoveryData = [
@@ -329,21 +331,21 @@ const commoditiesNotes = [
 ];
 
 const top5Data = [
-  { year: 2000, newmont: 5,  barrick: 8,  agnico: 0.5, anglogold: 7,  kinross: 0.6, gold: 280 },
-  { year: 2002, newmont: 12, barrick: 9,  agnico: 0.8, anglogold: 8,  kinross: 1.0, gold: 310 },
-  { year: 2005, newmont: 24, barrick: 15, agnico: 2,   anglogold: 12, kinross: 2.5, gold: 450 },
-  { year: 2008, newmont: 22, barrick: 32, agnico: 5,   anglogold: 12, kinross: 12,  gold: 880 },
-  { year: 2010, newmont: 32, barrick: 52, agnico: 10,  anglogold: 17, kinross: 18,  gold: 1400 },
-  { year: 2011, newmont: 32, barrick: 50, agnico: 6,   anglogold: 18, kinross: 16,  gold: 1700 },
-  { year: 2013, newmont: 12, barrick: 18, agnico: 5,   anglogold: 5,  kinross: 5,   gold: 1300 },
-  { year: 2015, newmont: 10, barrick: 9,  agnico: 6,   anglogold: 3,  kinross: 2,   gold: 1100 },
-  { year: 2017, newmont: 20, barrick: 17, agnico: 11,  anglogold: 4,  kinross: 5,   gold: 1300 },
-  { year: 2019, newmont: 36, barrick: 32, agnico: 14,  anglogold: 8,  kinross: 6,   gold: 1500 },
-  { year: 2020, newmont: 50, barrick: 47, agnico: 19,  anglogold: 11, kinross: 9,   gold: 1900 },
-  { year: 2022, newmont: 36, barrick: 30, agnico: 22,  anglogold: 6,  kinross: 5,   gold: 1800 },
-  { year: 2023, newmont: 48, barrick: 30, agnico: 28,  anglogold: 7,  kinross: 6,   gold: 2050 },
-  { year: 2024, newmont: 50, barrick: 32, agnico: 42,  anglogold: 10, kinross: 11,  gold: 2700 },
-  { year: 2025, newmont: 62, barrick: 36, agnico: 58,  anglogold: 16, kinross: 14,  gold: 3500 },
+  { year: 2000, newmont: 5,  barrick: 8,  agnico: 0.5, anglogold: 7,  kinross: 0.6, newcrest: 1.5,  gold: 280 },
+  { year: 2002, newmont: 12, barrick: 9,  agnico: 0.8, anglogold: 8,  kinross: 1.0, newcrest: 2,    gold: 310 },
+  { year: 2005, newmont: 24, barrick: 15, agnico: 2,   anglogold: 12, kinross: 2.5, newcrest: 6,    gold: 450 },
+  { year: 2008, newmont: 22, barrick: 32, agnico: 5,   anglogold: 12, kinross: 12,  newcrest: 14,   gold: 880 },
+  { year: 2010, newmont: 32, barrick: 52, agnico: 10,  anglogold: 17, kinross: 18,  newcrest: 25,   gold: 1400 },
+  { year: 2011, newmont: 32, barrick: 50, agnico: 6,   anglogold: 18, kinross: 16,  newcrest: 28,   gold: 1700 },
+  { year: 2013, newmont: 12, barrick: 18, agnico: 5,   anglogold: 5,  kinross: 5,   newcrest: 7,    gold: 1300 },
+  { year: 2015, newmont: 10, barrick: 9,  agnico: 6,   anglogold: 3,  kinross: 2,   newcrest: 7,    gold: 1100 },
+  { year: 2017, newmont: 20, barrick: 17, agnico: 11,  anglogold: 4,  kinross: 5,   newcrest: 13,   gold: 1300 },
+  { year: 2019, newmont: 36, barrick: 32, agnico: 14,  anglogold: 8,  kinross: 6,   newcrest: 17,   gold: 1500 },
+  { year: 2020, newmont: 50, barrick: 47, agnico: 19,  anglogold: 11, kinross: 9,   newcrest: 22,   gold: 1900 },
+  { year: 2022, newmont: 36, barrick: 30, agnico: 22,  anglogold: 6,  kinross: 5,   newcrest: 10,   gold: 1800 },
+  { year: 2023, newmont: 48, barrick: 30, agnico: 28,  anglogold: 7,  kinross: 6,   newcrest: 19,   gold: 2050 },
+  { year: 2024, newmont: 50, barrick: 32, agnico: 42,  anglogold: 10, kinross: 11,  newcrest: null, gold: 2700 },
+  { year: 2025, newmont: 62, barrick: 36, agnico: 58,  anglogold: 16, kinross: 14,  newcrest: null, gold: 3500 },
 ];
 const top5Notes = [
   { year: 2002, n: 1, title: 'Newmont-Normandy', body: 'Acquires Australian Normandy + Franco-Nevada — vaults to #1 globally' },
@@ -417,6 +419,22 @@ const companiesOverview = {
     { n: 1, title: 'M&A waves', body: '2001 BHP-Billiton creates the first true diversified major. 2007 peak (Rio-Alcan US$38B) ends in GFC. Glencore-Xstrata 2013 marks late-cycle consolidation. 2019 brings the gold senior wave (Newmont-Goldcorp, Barrick-Randgold). 2023 Newmont-Newcrest is the biggest gold deal ever; 2024 BHP-Anglo bid signals copper scarcity premium.' },
     { n: 2, title: 'Senior gold consolidation', body: 'Newmont-Normandy (2002) and Barrick-Placer Dome (2006) created the modern top-2. After the 2015 trough, Newmont-Goldcorp and Newmont-Newcrest cemented #1; Agnico-Kirkland Lake created a true challenger; Agnico now rivals Newmont by market cap at gold ATH.' },
     { n: 3, title: 'Mid-tier emergence', body: 'Northern Star (2010 founding) and Evolution (2011 founding) grew from nothing to multi-billion-dollar producers via systematic acquisition. The 2025 gold breakout has lifted the entire mid-tier — percentage gains exceed the seniors.' },
+  ],
+};
+
+const futureTrends = {
+  title: 'Where the next decade points',
+  intro: 'Reading the past 75 years forward: the strongest signals are a long-running discovery decline running into rising energy-transition demand, a structural gold bull driven by central-bank reallocation, and a permanent grade-decline tailwind to costs. Below are the trends most likely to shape Australian and global metal mining through 2035.',
+  items: [
+    { n: 1, title: 'Copper supply gap widens', body: 'Energy transition (EVs, grid, data centres, electrification of heat) needs ~50 Mt/yr by 2035 vs 23 Mt today. Pipeline of approved projects covers <60% of forecast demand. Expect structurally higher prices, more copper-driven M&A (BHP-Anglo will not be the last), Chinese majors paying premiums for African assets.' },
+    { n: 2, title: 'Gold structural bull continues', body: 'Central-bank buying running 1,000+ tonnes/year (vs ~400t pre-2022) — driven by post-Russia-sanctions de-dollarisation. Gold/M2 ratio still well below 1980 highs. Likely path: continued grind higher with high volatility; A$ gold price (the figure that matters for Australian producers) compounds further given AUD weakness.' },
+    { n: 3, title: 'Discovery cliff forces M&A acceleration', body: 'Tier-1 finds halved each decade since 1990s for both Au and Cu. Average mine reserve life across majors has fallen ~30% in 15 years. With brownfield extension exhausted at most assets, the only path to growth is acquisition. Expect M&A deal count near current levels; deal sizes to grow as fewer targets remain.' },
+    { n: 4, title: 'Grade decline = cost ceiling rises', body: 'Average operating Cu grade ~0.6% (was 1.6% in 1990); Au heap-leach grades approaching 0.5 g/t at scale. Each year requires more rock moved per oz/Mt produced. AISC and unit cost will keep rising in real terms; only step-changes in autonomous haulage, AI ore-sorting, and deep-UG block caves can offset.' },
+    { n: 5, title: 'Permitting timelines structural problem', body: 'Discovery-to-production averaged ~10 years in the 1990s; now 18+ years globally and rising. Australian permitting is faster than most jurisdictions but still extending. This means even if exploration succeeds, supply response lags 10-20 years — locking in tight markets.' },
+    { n: 6, title: 'Critical minerals: Australia\'s structural advantage', body: 'Lithium, REE, nickel sulphide, vanadium, tungsten — all areas where Australia has resource + jurisdiction + ally-aligned geopolitics. US/EU government-backed offtake/finance is now reality (DPA grants, Critical Minerals Facility). Lithium reset of 2024 will see consolidation; mid-decade Li price recovery likely as backlog clears.' },
+    { n: 7, title: 'Iron ore plateau, not collapse', body: 'Chinese steel demand has peaked but Indian + SE Asian growth provides ~20-year offset. Pilbara remains the lowest-cost producer globally. Risk: African competition (Simandou ramps mid-decade) erodes price premium. Australian iron ore revenue likely flat-to-slightly-down through 2035, not crashing.' },
+    { n: 8, title: 'AI exploration and autonomous mining', body: 'KoBold (gold/copper) and similar AI-targeting programs starting to deliver discoveries. Cadia PC2-3, Mt Keith automation, autonomous Pilbara haul fleets at full deployment. Productivity uplift could be 15-25% over the decade — partial offset to grade decline.' },
+    { n: 9, title: 'ESG/closure becomes cost line', body: 'Tailings management (post-Brumadinho), water rights, scope-1 decarbonisation, Indigenous heritage (post-Juukan Gorge) — each adds ~5-10% to operating costs. Premium pricing for "green" copper/iron emerging. Australian producers well-positioned vs DRC, Russia, parts of Latin America.' },
   ],
 };
 
@@ -659,11 +677,11 @@ const CopperChart = () => (
 
 const GoldCycleChart = () => (
   <>
-    <ChartHeader title="Gold price cycle" subtitle="Real US$2025 per ounce; phase shading shows bull/bear regimes" unit="real US$ / oz" />
+    <ChartHeader title="Gold price cycle" subtitle="Real US$2025 per ounce, with 2026 spot; phase shading shows bull/bear regimes" unit="real US$ / oz · 2026 = current spot" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={goldCycleData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
-        <XAxis dataKey="year" type="number" domain={[1950, 2025]} {...axisStyle} tick={{ fill: C.dim }} />
+        <XAxis dataKey="year" type="number" domain={[1950, 2026]} {...axisStyle} tick={{ fill: C.dim }} />
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} formatter={(v) => `$${v}`} />
         {goldCyclePhases.map((p, i) => (
@@ -683,11 +701,11 @@ const GoldCycleChart = () => (
 
 const CopperCycleChart = () => (
   <>
-    <ChartHeader title="Copper price cycle" subtitle="Real US$2025 per pound; phase shading shows market regimes" unit="real US$ / lb" />
+    <ChartHeader title="Copper price cycle" subtitle="Real US$2025 per pound, with 2026 spot; phase shading shows market regimes" unit="real US$ / lb · 2026 = current spot" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={copperCycleData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
-        <XAxis dataKey="year" type="number" domain={[1950, 2025]} {...axisStyle} tick={{ fill: C.dim }} />
+        <XAxis dataKey="year" type="number" domain={[1950, 2026]} {...axisStyle} tick={{ fill: C.dim }} />
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} formatter={(v) => `$${v}`} />
         {copperCyclePhases.map((p, i) => (
@@ -815,7 +833,7 @@ const CommoditiesChart = () => (
 
 const Top5Chart = () => (
   <>
-    <ChartHeader title="Top 5 global gold miners — market cap" subtitle="2000-2025 in US$B; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
+    <ChartHeader title="Top 5 global gold miners — market cap" subtitle="2000-2025 in US$B; Newcrest plotted alongside until Nov 2023 acquisition; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={top5Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -824,15 +842,16 @@ const Top5Chart = () => (
         <YAxis yAxisId="gold" orientation="right" {...axisStyle} tick={{ fill: C.gold }} />
         <Tooltip {...tooltipStyle} />
         <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="newmont" name="Newmont" stroke={C.ochre} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="barrick" name="Barrick" stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="agnico" name="Agnico Eagle" stroke={C.teal} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="anglogold" name="AngloGold" stroke={C.plum} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="kinross" name="Kinross" stroke={C.slate} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="gold" type="monotone" dataKey="gold" name="Gold US$/oz" stroke={C.gold} strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
+        <Line yAxisId="cap" type="monotone" dataKey="newmont"   name="Newmont"           stroke={C.ochre}  strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="barrick"   name="Barrick"           stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="agnico"    name="Agnico Eagle"      stroke={C.teal}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="anglogold" name="AngloGold"         stroke={C.plum}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="kinross"   name="Kinross"           stroke={C.slate}  strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="newcrest"  name="Newcrest (to 2023)" stroke={C.sand}  strokeWidth={2} dot={{ r: 2 }} connectNulls={false} />
+        <Line yAxisId="gold" type="monotone" dataKey="gold"     name="Gold US$/oz"       stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
         {top5Notes.map(note => {
           const pt = findNearest(top5Data, note.year);
-          const yMax = Math.max(pt.newmont, pt.barrick, pt.agnico, pt.anglogold, pt.kinross);
+          const yMax = Math.max(pt.newmont, pt.barrick, pt.agnico, pt.anglogold, pt.kinross, pt.newcrest || 0);
           return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 4} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
             label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
@@ -903,11 +922,15 @@ const App = () => {
     { id: 'top5',          label: '14 · Top 5 Au miners' },
     { id: 'top615',        label: '15 · Mid-tier Au miners' },
   ];
+  const tabsFuture = [
+    { id: 'futureTrends', label: 'Trends' },
+  ];
 
   const tabsBySection = {
     industry: tabsIndustry,
     markets: tabsMarkets,
     companies: tabsCompanies,
+    future: tabsFuture,
   };
 
   const onSection = (s) => {
@@ -933,6 +956,7 @@ const App = () => {
           { id: 'industry',  label: 'Industry trends' },
           { id: 'markets',   label: 'Markets' },
           { id: 'companies', label: 'Companies' },
+          { id: 'future',    label: 'Future' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
             className="px-4 py-2 text-sm rounded-md transition-colors"
@@ -967,6 +991,7 @@ const App = () => {
         {tab === 'industryOverview'  && <OverviewSection data={industryOverview} />}
         {tab === 'marketsOverview'   && <OverviewSection data={marketsOverview} />}
         {tab === 'companiesOverview' && <OverviewSection data={companiesOverview} />}
+        {tab === 'futureTrends'      && <OverviewSection data={futureTrends} />}
         {tab === 'mines'       && <MineChart />}
         {tab === 'aisc'        && <AiscChart />}
         {tab === 'cost'        && <CostChart />}
@@ -985,9 +1010,6 @@ const App = () => {
       </main>
 
       <footer className="max-w-5xl mx-auto mt-4 text-xs space-y-2" style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-        <div>
-          Fifteen views of a seventy-five-year cycle.
-        </div>
         <div>
           Indicative trends compiled from industry knowledge, not precise statistics. AISC was standardised in <span style={{ color: C.gold }}>2013</span>; earlier values are back-cast. Company market caps and merger values are best-effort approximations — directional shape is reliable, exact figures are not.
         </div>
