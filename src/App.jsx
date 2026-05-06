@@ -980,16 +980,27 @@ const opportunitiesData = {
 
 const agnicoCaseData = [
   { year: 2000, agnico: 0.5,  newmont: 5,   barrick: 8,   evolution: null, gold: 280  },
+  { year: 2001, agnico: 0.6,  newmont: 9,   barrick: 8.5, evolution: null, gold: 270  },
   { year: 2002, agnico: 0.8,  newmont: 12,  barrick: 9,   evolution: null, gold: 310  },
+  { year: 2003, agnico: 1.2,  newmont: 16,  barrick: 11,  evolution: null, gold: 365  },
+  { year: 2004, agnico: 1.6,  newmont: 20,  barrick: 12,  evolution: null, gold: 410  },
   { year: 2005, agnico: 2,    newmont: 24,  barrick: 15,  evolution: null, gold: 450  },
+  { year: 2006, agnico: 3,    newmont: 23,  barrick: 25,  evolution: null, gold: 605  },
+  { year: 2007, agnico: 4,    newmont: 22,  barrick: 35,  evolution: null, gold: 700  },
   { year: 2008, agnico: 5,    newmont: 22,  barrick: 32,  evolution: null, gold: 880  },
+  { year: 2009, agnico: 8,    newmont: 30,  barrick: 40,  evolution: null, gold: 970  },
   { year: 2010, agnico: 10,   newmont: 32,  barrick: 52,  evolution: null, gold: 1400 },
   { year: 2011, agnico: 6,    newmont: 32,  barrick: 50,  evolution: 0.3,  gold: 1700 },
+  { year: 2012, agnico: 8,    newmont: 25,  barrick: 35,  evolution: 0.4,  gold: 1660 },
   { year: 2013, agnico: 5,    newmont: 12,  barrick: 18,  evolution: 0.5,  gold: 1300 },
+  { year: 2014, agnico: 7,    newmont: 10,  barrick: 13,  evolution: 0.6,  gold: 1200 },
   { year: 2015, agnico: 6,    newmont: 10,  barrick: 9,   evolution: 1,    gold: 1100 },
+  { year: 2016, agnico: 10,   newmont: 18,  barrick: 20,  evolution: 1.8,  gold: 1250 },
   { year: 2017, agnico: 11,   newmont: 20,  barrick: 17,  evolution: 2.5,  gold: 1300 },
+  { year: 2018, agnico: 9,    newmont: 18,  barrick: 15,  evolution: 3,    gold: 1280 },
   { year: 2019, agnico: 14,   newmont: 36,  barrick: 32,  evolution: 5,    gold: 1500 },
   { year: 2020, agnico: 19,   newmont: 50,  barrick: 47,  evolution: 8,    gold: 1900 },
+  { year: 2021, agnico: 15,   newmont: 50,  barrick: 35,  evolution: 6,    gold: 1800 },
   { year: 2022, agnico: 22,   newmont: 36,  barrick: 30,  evolution: 5,    gold: 1800 },
   { year: 2023, agnico: 28,   newmont: 48,  barrick: 30,  evolution: 7,    gold: 2050 },
   { year: 2024, agnico: 42,   newmont: 50,  barrick: 32,  evolution: 10,   gold: 2700 },
@@ -1004,24 +1015,22 @@ const agnicoCallouts = [
     body: 'Acquired 50% from distressed Osisko Mining alongside Yamana — bought a tier-1 asset at a low point in the cycle.' },
   { year: 2017, n: 3, title: 'Nunavut platform online',
     body: 'Meliadine and Amaruq commissioning establishes second regional platform alongside Abitibi.' },
-  { year: 2022, n: 4, title: 'Kirkland Lake merger closes (Feb)',
-    body: '~US$10B all-stock merger of equals brings Detour Lake, Macassa, and Fosterville. Reserves doubled overnight; production scale rivals Newmont and Barrick.' },
-  { year: 2022, n: 5, title: 'Sean Boyd → Ammar Al-Joundi',
-    body: 'Boyd retires as CEO after 24 years; becomes Executive Chair. Al-Joundi (President since 2015) takes over after a brief Tony Makuch interregnum.' },
-  { year: 2023, n: 6, title: '100% Canadian Malartic',
+  { year: 2022, n: 4, title: 'Kirkland Lake merger + leadership transition',
+    body: '~US$10B all-stock merger of equals closes Feb 8 — brings Detour Lake, Macassa, Fosterville. Reserves doubled overnight; production scale rivals Newmont and Barrick. Sean Boyd retires as CEO after 24 years (becomes Executive Chair); Ammar Al-Joundi takes over within months after a brief Tony Makuch tenure.' },
+  { year: 2023, n: 5, title: '100% Canadian Malartic',
     body: 'Buys remaining 50% via Yamana split with Pan American (~US$4.8B JV deal). Consolidates Canada\'s largest gold mine; unlocks Odyssey project and Abitibi mill optimisation.' },
-  { year: 2024, n: 7, title: 'Detour expansion + reserve growth',
+  { year: 2024, n: 6, title: 'Detour expansion + reserve growth',
     body: 'Detour Lake throughput expansion underway; ongoing exploration adds reserves at Detour, Hope Bay, Macassa.' },
-  { year: 2026, n: 8, title: 'Market cap leadership',
+  { year: 2026, n: 7, title: 'Market cap leadership',
     body: 'AEM market cap rivals or exceeds Newmont at gold ATH. Cleanest senior balance sheet; premium P/NAV multiple sustained through cycle.' },
 ];
 
 const agnicoDrivers = [
-  { name: 'Premium re-rating',           value: 30 },
-  { name: 'M&A / portfolio transformation', value: 25 },
-  { name: 'Gold price tailwind',         value: 20 },
-  { name: 'Reserve / resource growth',   value: 15 },
-  { name: 'Capital allocation discipline', value: 10 },
+  { name: 'M&A / portfolio transformation', value: 35 },
+  { name: 'Operational consistency',        value: 25 },
+  { name: 'Capital allocation discipline',  value: 15 },
+  { name: 'Gold price tailwind',            value: 15 },
+  { name: 'Platform integration',           value: 10 },
 ];
 
 const agnicoWhySections = [
@@ -1759,7 +1768,7 @@ const AgnicoCaseStudyTab = () => {
         <ResponsiveContainer>
           <ComposedChart data={agnicoCaseData} margin={{ top: 20, right: 60, bottom: 10, left: 10 }}>
             <CartesianGrid stroke={C.border} strokeDasharray="2 4" />
-            <XAxis dataKey="year" stroke={C.dim} tick={{ fill: C.dim, fontSize: 11 }} />
+            <XAxis dataKey="year" stroke={C.dim} tick={{ fill: C.dim, fontSize: 11 }} interval={1} />
             <YAxis yAxisId="left" stroke={C.dim} tick={{ fill: C.dim, fontSize: 11 }}
               label={{ value: 'Market cap (US$B)', angle: -90, position: 'insideLeft', fill: C.dim, fontSize: 11, style: { textAnchor: 'middle' } }} />
             <YAxis yAxisId="right" orientation="right" stroke={C.gold} tick={{ fill: C.gold, fontSize: 11 }}
