@@ -438,6 +438,212 @@ const futureTrends = {
   ],
 };
 
+// ===== Leading Indicators data =====
+
+// 16. Exploration spend vs gold discoveries (annual)
+const explorationData = [
+  { year: 1995, spend: 2.0,  discoveries: 28 },
+  { year: 2000, spend: 1.2,  discoveries: 22 },
+  { year: 2003, spend: 2.0,  discoveries: 18 },
+  { year: 2005, spend: 3.5,  discoveries: 15 },
+  { year: 2008, spend: 6.5,  discoveries: 12 },
+  { year: 2010, spend: 8.0,  discoveries: 10 },
+  { year: 2012, spend: 13.2, discoveries: 8 },
+  { year: 2015, spend: 5.5,  discoveries: 5 },
+  { year: 2018, spend: 5.8,  discoveries: 6 },
+  { year: 2020, spend: 4.5,  discoveries: 4 },
+  { year: 2022, spend: 7.5,  discoveries: 3 },
+  { year: 2024, spend: 6.5,  discoveries: 3 },
+  { year: 2025, spend: 7.0,  discoveries: 2 },
+];
+const explorationNotes = [
+  { year: 2000, n: 1, title: 'Cheap dollars, easy targets',  body: 'US$1.2B/yr finds 22 tier-1 deposits — best ratio on record (~$55M per Moz)' },
+  { year: 2012, n: 2, title: 'Peak spend',                   body: 'US$13.2B/yr finds only 8 tier-1 deposits (~$1.65B per Moz) — worst ratio in recorded history' },
+  { year: 2018, n: 3, title: 'AI-targeting era begins',      body: 'KoBold, Earth AI, GoldSpot deploy ML on legacy datasets — early results promising but no tier-1 yet' },
+  { year: 2025, n: 4, title: 'Spend rises, finds collapse',  body: '~3,000× cost-per-Moz vs 2000 in real terms; signal that future supply will be tight regardless of price' },
+];
+
+// 17. Average ore grade — operating mines
+const gradeData = [
+  { year: 1990, cuGrade: 1.6, auGradeOC: 2.8, auGradeUG: 6.8 },
+  { year: 1995, cuGrade: 1.5, auGradeOC: 2.5, auGradeUG: 6.2 },
+  { year: 2000, cuGrade: 1.3, auGradeOC: 2.1, auGradeUG: 5.6 },
+  { year: 2005, cuGrade: 1.1, auGradeOC: 1.8, auGradeUG: 5.0 },
+  { year: 2010, cuGrade: 0.9, auGradeOC: 1.5, auGradeUG: 4.5 },
+  { year: 2015, cuGrade: 0.8, auGradeOC: 1.3, auGradeUG: 4.0 },
+  { year: 2020, cuGrade: 0.7, auGradeOC: 1.1, auGradeUG: 3.7 },
+  { year: 2025, cuGrade: 0.6, auGradeOC: 1.0, auGradeUG: 3.5 },
+];
+const gradeNotes = [
+  { year: 1990, n: 1, title: 'Cu reference grade',  body: '~1.6% Cu was typical of operating porphyries; modern equivalents require 1.8-2× the rock movement' },
+  { year: 2005, n: 2, title: 'Au heap-leach scales', body: 'OC heap-leach economics extend to 1.5-2 g/t ore that was uneconomic 20 years prior' },
+  { year: 2025, n: 3, title: 'Halving in 35 years', body: 'Cu down ~60%; Au OC down ~65%. Drives unit cost ↑, energy intensity ↑, waste tonnage ↑ regardless of metal price' },
+];
+
+// 18. Reserve life — top-10 producers
+const reserveLifeData = [
+  { year: 2000, gold: 18, copper: 28 },
+  { year: 2005, gold: 22, copper: 32 },
+  { year: 2010, gold: 21, copper: 31 },
+  { year: 2015, gold: 18, copper: 28 },
+  { year: 2020, gold: 16, copper: 25 },
+  { year: 2025, gold: 14, copper: 22 },
+];
+const reserveLifeNotes = [
+  { year: 2005, n: 1, title: 'Boom-era reserve build', body: 'High prices justify lower-grade reserves; reported life-of-mine extends across the sector' },
+  { year: 2015, n: 2, title: 'Post-crash writedowns',  body: 'Reserves recut at lower price decks; Au reserve life back to 2000 levels' },
+  { year: 2025, n: 3, title: 'Reserve cliff',          body: 'Au at ~14yr (lowest on record); Cu at ~22yr (lowest in 25yr). Forces M&A — only path to growth is acquisition' },
+];
+
+// 19. Project pipeline — significant projects in feasibility/permit/construction
+const pipelineData = [
+  { year: 2010, copper: 28, gold: 42, lithium: 8,  nickel: 12 },
+  { year: 2013, copper: 32, gold: 48, lithium: 10, nickel: 14 },
+  { year: 2015, copper: 22, gold: 28, lithium: 12, nickel: 14 },
+  { year: 2017, copper: 20, gold: 30, lithium: 18, nickel: 16 },
+  { year: 2020, copper: 18, gold: 32, lithium: 28, nickel: 18 },
+  { year: 2022, copper: 22, gold: 38, lithium: 45, nickel: 24 },
+  { year: 2024, copper: 26, gold: 38, lithium: 35, nickel: 22 },
+  { year: 2025, copper: 28, gold: 36, lithium: 30, nickel: 22 },
+];
+const pipelineNotes = [
+  { year: 2013, n: 1, title: 'Pipeline peak',         body: 'End of supercycle capex; many projects approved at peak prices that struggled to deliver economics' },
+  { year: 2017, n: 2, title: 'Cu pipeline trough',    body: 'Worst Cu pipeline in 20yr; Codelco ageing, Escondida grade declining, no major new projects committed' },
+  { year: 2022, n: 3, title: 'Lithium pipeline ATH',  body: '45 projects vs 8 in 2010 — boom mentality; 2024 reset trims pipeline back ~33%' },
+  { year: 2025, n: 4, title: 'Cu projects revive',    body: '28 projects but covers <60% of forecast 2035 demand; structural deficit baked in' },
+];
+
+// 20. Discovery-to-production lag (avg years)
+const lagData = [
+  { decade: '1980s',  years: 8 },
+  { decade: '1990s',  years: 10 },
+  { decade: '2000s',  years: 12 },
+  { decade: '2010s',  years: 16 },
+  { decade: '2020s*', years: 18 },
+];
+const lagNotes = [
+  { decade: '1980s',  n: 1, title: 'Greenfield rapid path', body: 'Permitting light, environmental review limited, social licence informal — average 8 years' },
+  { decade: '2010s',  n: 2, title: 'Lengthening',          body: 'NEPA-equivalent reviews thicken; tailings standards tighten; community/Indigenous consent formalised' },
+  { decade: '2020s*', n: 3, title: 'Doubling',             body: 'Even fast-tracked critical-minerals projects average 18yr discovery-to-first-production; *partial decade' },
+];
+
+// 21. Mining majors aggregate capex (top 5 diversifieds, US$B)
+const capexData = [
+  { year: 2000, capex: 8 },
+  { year: 2003, capex: 12 },
+  { year: 2005, capex: 18 },
+  { year: 2008, capex: 35 },
+  { year: 2010, capex: 48 },
+  { year: 2012, capex: 78 },
+  { year: 2014, capex: 65 },
+  { year: 2016, capex: 32 },
+  { year: 2018, capex: 38 },
+  { year: 2020, capex: 42 },
+  { year: 2022, capex: 60 },
+  { year: 2024, capex: 65 },
+  { year: 2025, capex: 70 },
+];
+const capexNotes = [
+  { year: 2012, n: 1, title: 'Capex peak',          body: 'BHP, Rio, Glencore, Anglo, Vale aggregate capex at US$78B; followed by major project cancellations through 2014-16' },
+  { year: 2016, n: 2, title: 'Capex trough',        body: 'Down 60% from peak; "shareholder discipline" era — buybacks > capex' },
+  { year: 2022, n: 3, title: 'Energy transition cycle', body: 'Capex turns higher led by Cu projects; pipeline still well below what 2035 demand would require' },
+];
+
+// 22. Geographic concentration — top 3 country share by metal
+const concentrationData = [
+  { metal: 'Iron ore', top1: 35, top2: 20, top3: 10, others: 35 },
+  { metal: 'Gold',     top1: 11, top2: 10, top3: 9,  others: 70 },
+  { metal: 'Copper',   top1: 28, top2: 13, top3: 11, others: 48 },
+  { metal: 'Nickel',   top1: 50, top2: 10, top3: 8,  others: 32 },
+  { metal: 'Lithium',  top1: 45, top2: 35, top3: 15, others: 5 },
+  { metal: 'Cobalt',   top1: 70, top2: 8,  top3: 6,  others: 16 },
+  { metal: 'Rare earths', top1: 70, top2: 15, top3: 8, others: 7 },
+];
+const concentrationNotes = [
+  { n: 1, title: 'Diversified vs concentrated',     body: 'Au is the most diversified (top-3 only 30%); cobalt and REE are 80%+ concentrated in top 3' },
+  { n: 2, title: 'Geopolitical premium emerging',   body: 'Western buyers pay premium for "ally-aligned" metal — Australia advantaged on Li, REE, Ni, Cu' },
+  { n: 3, title: 'Single-country risk',             body: 'DRC for Co, China for REE, Indonesia for Ni — any policy shift directly translates to global price' },
+];
+
+// 23. Australian diesel price (real A$/L)
+const dieselData = [
+  { year: 1990, price: 0.85 },
+  { year: 1995, price: 0.95 },
+  { year: 2000, price: 1.05 },
+  { year: 2005, price: 1.30 },
+  { year: 2008, price: 1.65 },
+  { year: 2010, price: 1.45 },
+  { year: 2012, price: 1.55 },
+  { year: 2015, price: 1.40 },
+  { year: 2018, price: 1.55 },
+  { year: 2020, price: 1.30 },
+  { year: 2022, price: 2.05 },
+  { year: 2024, price: 1.95 },
+  { year: 2025, price: 2.00 },
+];
+const dieselNotes = [
+  { year: 2008, n: 1, title: 'Pre-GFC oil spike', body: 'Brent US$147 nominal; diesel A$1.65/L drives massive cost inflation across haulage' },
+  { year: 2020, n: 2, title: 'COVID trough',     body: 'Demand destruction takes diesel to A$1.30/L; brief tailwind for OC operators' },
+  { year: 2022, n: 3, title: 'Russia/Ukraine spike', body: 'Diesel A$2.05/L — fundamental factor in 2022-23 AISC inflation; ~15-20% of OC unit cost' },
+];
+
+// 24. Resource nationalism / royalty events per year
+const royaltyData = [
+  { year: 1971, events: 1 },
+  { year: 1995, events: 1 },
+  { year: 2000, events: 1 },
+  { year: 2005, events: 2 },
+  { year: 2008, events: 3 },
+  { year: 2010, events: 3 },
+  { year: 2012, events: 6 },
+  { year: 2014, events: 4 },
+  { year: 2016, events: 2 },
+  { year: 2018, events: 4 },
+  { year: 2020, events: 5 },
+  { year: 2022, events: 6 },
+  { year: 2023, events: 7 },
+  { year: 2024, events: 6 },
+  { year: 2025, events: 5 },
+];
+const royaltyNotes = [
+  { year: 1971, n: 1, title: 'Chile / Codelco',         body: 'Salvador Allende nationalises Cu mines — defining 20th-c resource nationalism event' },
+  { year: 2012, n: 2, title: 'Mongolia, Indonesia',     body: 'OT renegotiation; Indonesia Ni export ban; ~6 major events in one year' },
+  { year: 2018, n: 3, title: 'DRC mining code',         body: 'Royalty hikes, "strategic minerals" classification; ~A$1B+ industry impact' },
+  { year: 2023, n: 4, title: 'Panama Cobre Panamá',     body: 'Court rules First Quantum contract unconstitutional — US$10B asset shut overnight' },
+  { year: 2024, n: 5, title: 'Mexico Li, AU royalties', body: 'Mexico nationalises Li; QLD coal royalties hiked; WA Li royalty review' },
+];
+
+// 25. Permit-to-production funnel — average years at each stage by decade
+const funnelData = [
+  { decade: '1980s',  explore: 2, prefeas: 1.5, feasibility: 1.5, permit: 1,   construct: 2 },
+  { decade: '1990s',  explore: 3, prefeas: 1.5, feasibility: 2,   permit: 1.5, construct: 2 },
+  { decade: '2000s',  explore: 3, prefeas: 2,   feasibility: 2.5, permit: 2,   construct: 2.5 },
+  { decade: '2010s',  explore: 4, prefeas: 3,   feasibility: 3,   permit: 3,   construct: 3 },
+  { decade: '2020s*', explore: 4, prefeas: 3,   feasibility: 3,   permit: 4,   construct: 3.5 },
+];
+const funnelNotes = [
+  { decade: '1990s',  n: 1, title: 'Reference baseline',  body: 'Discovery → first production averaged 10 years; smaller pre-feas, lighter permitting' },
+  { decade: '2010s',  n: 2, title: 'Permit/feasibility expand', body: 'Tailings + water + Indigenous consultation lengthen — every stage adds ~1 year' },
+  { decade: '2020s*', n: 3, title: 'Permit stage doubles', body: 'Average permit step now 4yr (was 1yr in 1980s); biggest single contributor to total lag' },
+];
+
+const leadingOverview = {
+  title: 'Reading the leading indicators',
+  intro: 'Production volumes and prices are lagging indicators — they tell you what already happened. The ten charts in this section are leading indicators that change today and show up in supply, costs, and corporate behaviour 5-15 years later. The picture they collectively paint: tightening supply, rising costs, structural M&A pressure.',
+  items: [
+    { n: 1, title: 'Supply-tightness signals (most predictive)',
+      body: 'Exploration cost-per-Moz has risen ~3,000× since 2000 in real terms while finds keep declining — most reliable predictor of higher future prices. Reserve life across majors is at multi-decade lows. Cu project pipeline covers <60% of 2035 forecast demand.' },
+    { n: 2, title: 'Cost-direction signals',
+      body: 'Avg Cu grade halved 1990-2025; Au OC grade halved similarly. Diesel price structurally higher post-2022. Discovery-to-production lag has roughly doubled in 35 years. All push unit costs up regardless of metal price.' },
+    { n: 3, title: 'Capital-allocation signals',
+      body: 'Mining capex cyclical with 2-3 year price lag — currently rebuilding from 2016 trough. Resource nationalism events trending up since 2010 (Panama, Mexico, Mongolia, Australia royalties). Both signal capital deployment friction.' },
+    { n: 4, title: 'Geopolitical / scarcity signals',
+      body: 'Cobalt, REE, Ni concentration in single countries creates premium for "ally-aligned" supply — direct tailwind for Australian critical minerals. Conversely, Au is the most geographically diversified and least subject to this dynamic.' },
+    { n: 5, title: 'What this implies',
+      body: 'Higher real prices for most metals through 2035; rising real costs (partly offset by automation/AI); accelerating M&A as growth-by-acquisition becomes the only option; premium valuations for deposits in low-risk jurisdictions.' },
+  ],
+};
+
 // ============ COMPONENTS ============
 
 const CHART_HEIGHT = 280;
@@ -893,6 +1099,248 @@ const Top615Chart = () => (
   </>
 );
 
+// ===== Leading Indicators charts =====
+
+const ExplorationChart = () => (
+  <>
+    <ChartHeader title="Gold exploration spend vs discoveries" subtitle="Annual global exploration spend (line) vs tier-1 (>2 Moz) discoveries (bars)" unit="US$B real spend · count of tier-1 discoveries" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <ComposedChart data={explorationData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis yAxisId="disc" {...axisStyle} tick={{ fill: C.ochre }} />
+        <YAxis yAxisId="spend" orientation="right" {...axisStyle} tick={{ fill: C.gold }} />
+        <Tooltip {...tooltipStyle} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
+        <Bar yAxisId="disc" dataKey="discoveries" name="Discoveries (left)" fill={C.ochre} fillOpacity={0.85} />
+        <Line yAxisId="spend" type="monotone" dataKey="spend" name="Exploration spend US$B (right)" stroke={C.gold} strokeWidth={2.5} dot={{ r: 3 }} />
+        {explorationNotes.map(note => {
+          const pt = findNearest(explorationData, note.year);
+          return <ReferenceDot key={note.n} yAxisId="spend" x={pt.year} y={pt.spend + 1.5} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </ComposedChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={explorationNotes} />
+  </>
+);
+
+const GradeChart = () => (
+  <>
+    <ChartHeader title="Average ore grade — operating mines" subtitle="Cu grade in % (left) and Au grades in g/t (right) — operating mines, weighted average" unit="Cu % · Au g/t · 1990-2025" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <ComposedChart data={gradeData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis yAxisId="cu" {...axisStyle} tick={{ fill: C.copper }} />
+        <YAxis yAxisId="au" orientation="right" {...axisStyle} tick={{ fill: C.gold }} />
+        <Tooltip {...tooltipStyle} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Line yAxisId="cu" type="monotone" dataKey="cuGrade"   name="Cu grade % (left)"     stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line yAxisId="au" type="monotone" dataKey="auGradeUG" name="Au UG g/t (right)"     stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line yAxisId="au" type="monotone" dataKey="auGradeOC" name="Au OC g/t (right)"     stroke={C.ochre}  strokeWidth={2.5} dot={{ r: 3 }} />
+        {gradeNotes.map(note => {
+          const pt = findNearest(gradeData, note.year);
+          return <ReferenceDot key={note.n} yAxisId="au" x={pt.year} y={pt.auGradeUG + 0.5} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </ComposedChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={gradeNotes} />
+  </>
+);
+
+const ReserveLifeChart = () => (
+  <>
+    <ChartHeader title="Reserve life across top-10 producers" subtitle="Average remaining mine life — gold and copper seniors" unit="years of reserve at current production" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <LineChart data={reserveLifeData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v} years`} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
+        <Line type="monotone" dataKey="gold"   name="Gold seniors"   stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="copper" name="Copper seniors" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
+        {reserveLifeNotes.map(note => {
+          const pt = findNearest(reserveLifeData, note.year);
+          return <ReferenceDot key={note.n} x={pt.year} y={pt.copper + 2} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </LineChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={reserveLifeNotes} />
+  </>
+);
+
+const PipelineChart = () => (
+  <>
+    <ChartHeader title="Project pipeline by metal" subtitle="Significant new projects in pre-feasibility / feasibility / permitting / construction" unit="number of projects in development" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <LineChart data={pipelineData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Line type="monotone" dataKey="copper"  name="Copper"  stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="gold"    name="Gold"    stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="lithium" name="Lithium" stroke={C.teal}   strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="nickel"  name="Nickel"  stroke={C.slate}  strokeWidth={2.5} dot={{ r: 3 }} />
+        {pipelineNotes.map(note => {
+          const pt = findNearest(pipelineData, note.year);
+          const yMax = Math.max(pt.copper, pt.gold, pt.lithium, pt.nickel);
+          return <ReferenceDot key={note.n} x={pt.year} y={yMax + 4} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </LineChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={pipelineNotes} />
+  </>
+);
+
+const LagChart = () => (
+  <>
+    <ChartHeader title="Discovery-to-production lag" subtitle="Average years from initial discovery to first production — global, all metals" unit="years" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <BarChart data={lagData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="decade" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v} years`} />
+        <Bar dataKey="years" name="Years to production" fill={C.ochre} fillOpacity={0.85} />
+        {lagNotes.map(note => {
+          const pt = lagData.find(d => d.decade === note.decade);
+          if (!pt) return null;
+          return <ReferenceDot key={note.n} x={pt.decade} y={pt.years + 2} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </BarChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={lagNotes} />
+  </>
+);
+
+const CapexChart = () => (
+  <>
+    <ChartHeader title="Mining majors aggregate capex" subtitle="BHP + Rio + Glencore + Anglo + Vale combined annual capex" unit="US$B nominal · 2-3yr lag to commodity prices" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <LineChart data={capexData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `$${v}B`} />
+        <Line type="monotone" dataKey="capex" name="Aggregate capex US$B" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
+        {capexNotes.map(note => {
+          const pt = findNearest(capexData, note.year);
+          return <ReferenceDot key={note.n} x={pt.year} y={pt.capex + 8} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </LineChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={capexNotes} />
+  </>
+);
+
+const ConcentrationChart = () => (
+  <>
+    <ChartHeader title="Geographic concentration risk" subtitle="Share of global mine production from top-3 producing countries" unit="% global production" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT + 60}>
+      <BarChart data={concentrationData} layout="vertical" margin={{ top: 8, right: 12, left: 60, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" horizontal={false} />
+        <XAxis type="number" domain={[0, 100]} {...axisStyle} tick={{ fill: C.dim }} tickFormatter={(v) => `${v}%`} />
+        <YAxis dataKey="metal" type="category" {...axisStyle} tick={{ fill: C.text }} width={80} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v}%`} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Bar dataKey="top1"   name="Top 1 country"  stackId="a" fill={C.rust} />
+        <Bar dataKey="top2"   name="Top 2 country"  stackId="a" fill={C.copper} />
+        <Bar dataKey="top3"   name="Top 3 country"  stackId="a" fill={C.ochre} />
+        <Bar dataKey="others" name="All others"     stackId="a" fill={C.slate} fillOpacity={0.5} />
+      </BarChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={concentrationNotes} />
+  </>
+);
+
+const DieselChart = () => (
+  <>
+    <ChartHeader title="Australian diesel price (real)" subtitle="Mining-relevant cost driver — diesel typically 15-20% of OC unit cost" unit="A$2025 per litre · pump price equivalent" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <LineChart data={dieselData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `A$${v}/L`} />
+        <Line type="monotone" dataKey="price" name="Diesel A$/L real" stroke={C.rust} strokeWidth={2.5} dot={{ r: 3 }} />
+        {dieselNotes.map(note => {
+          const pt = findNearest(dieselData, note.year);
+          return <ReferenceDot key={note.n} x={pt.year} y={pt.price + 0.2} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </LineChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={dieselNotes} />
+  </>
+);
+
+const RoyaltyChart = () => (
+  <>
+    <ChartHeader title="Resource nationalism events" subtitle="Major royalty hikes, nationalisations, contract reopenings, export bans per year" unit="count of significant events" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <BarChart data={royaltyData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} />
+        <Bar dataKey="events" name="Resource nationalism events" fill={C.plum} fillOpacity={0.85} />
+        {royaltyNotes.map(note => {
+          const pt = findNearest(royaltyData, note.year);
+          return <ReferenceDot key={note.n} x={pt.year} y={pt.events + 1} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </BarChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={royaltyNotes} />
+  </>
+);
+
+const FunnelChart = () => (
+  <>
+    <ChartHeader title="Permit-to-production funnel" subtitle="Average years at each project stage — discovery to first production, by decade" unit="years per stage · sum = total lag" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <BarChart data={funnelData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="decade" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v} yrs`} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Bar dataKey="explore"     name="Explore → PFS"        stackId="a" fill={C.ochre} />
+        <Bar dataKey="prefeas"     name="PFS → DFS"            stackId="a" fill={C.copper} />
+        <Bar dataKey="feasibility" name="DFS → Permit"         stackId="a" fill={C.rust} />
+        <Bar dataKey="permit"      name="Permit → Construct"   stackId="a" fill={C.plum} />
+        <Bar dataKey="construct"   name="Construct → Production" stackId="a" fill={C.teal} />
+        {funnelNotes.map(note => {
+          const pt = funnelData.find(d => d.decade === note.decade);
+          if (!pt) return null;
+          const total = pt.explore + pt.prefeas + pt.feasibility + pt.permit + pt.construct;
+          return <ReferenceDot key={note.n} x={pt.decade} y={total + 1.5} r={11}
+            fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </BarChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={funnelNotes} />
+  </>
+);
+
 // ============ MAIN ============
 const App = () => {
   const [section, setSection] = useState('industry');
@@ -922,6 +1370,19 @@ const App = () => {
     { id: 'top5',          label: '14 · Top 5 Au miners' },
     { id: 'top615',        label: '15 · Mid-tier Au miners' },
   ];
+  const tabsLeading = [
+    { id: 'leadingOverview', label: 'Overview' },
+    { id: 'exploration',    label: '16 · Spend vs discoveries' },
+    { id: 'grade',          label: '17 · Ore grade' },
+    { id: 'reservelife',    label: '18 · Reserve life' },
+    { id: 'pipeline',       label: '19 · Project pipeline' },
+    { id: 'lag',            label: '20 · Discovery → production lag' },
+    { id: 'capex',          label: '21 · Mining capex' },
+    { id: 'concentration',  label: '22 · Concentration risk' },
+    { id: 'diesel',         label: '23 · Diesel price' },
+    { id: 'royalty',        label: '24 · Resource nationalism' },
+    { id: 'funnel',         label: '25 · Permit funnel' },
+  ];
   const tabsFuture = [
     { id: 'futureTrends', label: 'Trends' },
   ];
@@ -930,6 +1391,7 @@ const App = () => {
     industry: tabsIndustry,
     markets: tabsMarkets,
     companies: tabsCompanies,
+    leading: tabsLeading,
     future: tabsFuture,
   };
 
@@ -956,6 +1418,7 @@ const App = () => {
           { id: 'industry',  label: 'Industry trends' },
           { id: 'markets',   label: 'Markets' },
           { id: 'companies', label: 'Companies' },
+          { id: 'leading',   label: 'Leading indicators' },
           { id: 'future',    label: 'Future' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
@@ -991,22 +1454,33 @@ const App = () => {
         {tab === 'industryOverview'  && <OverviewSection data={industryOverview} />}
         {tab === 'marketsOverview'   && <OverviewSection data={marketsOverview} />}
         {tab === 'companiesOverview' && <OverviewSection data={companiesOverview} />}
+        {tab === 'leadingOverview'   && <OverviewSection data={leadingOverview} />}
         {tab === 'futureTrends'      && <OverviewSection data={futureTrends} />}
-        {tab === 'mines'       && <MineChart />}
-        {tab === 'aisc'        && <AiscChart />}
-        {tab === 'cost'        && <CostChart />}
-        {tab === 'method'      && <MethodChart />}
-        {tab === 'rev'         && <RevChart />}
-        {tab === 'gold'        && <GoldChart />}
-        {tab === 'copper'      && <CopperChart />}
-        {tab === 'goldcycle'   && <GoldCycleChart />}
-        {tab === 'coppercycle' && <CopperCycleChart />}
-        {tab === 'discovery'   && <DiscoveryChart />}
-        {tab === 'cudiscovery' && <CopperDiscoveryChart />}
-        {tab === 'merger'      && <MergerChart />}
-        {tab === 'commodities' && <CommoditiesChart />}
-        {tab === 'top5'        && <Top5Chart />}
-        {tab === 'top615'      && <Top615Chart />}
+        {tab === 'mines'         && <MineChart />}
+        {tab === 'aisc'          && <AiscChart />}
+        {tab === 'cost'          && <CostChart />}
+        {tab === 'method'        && <MethodChart />}
+        {tab === 'rev'           && <RevChart />}
+        {tab === 'gold'          && <GoldChart />}
+        {tab === 'copper'        && <CopperChart />}
+        {tab === 'goldcycle'     && <GoldCycleChart />}
+        {tab === 'coppercycle'   && <CopperCycleChart />}
+        {tab === 'discovery'     && <DiscoveryChart />}
+        {tab === 'cudiscovery'   && <CopperDiscoveryChart />}
+        {tab === 'merger'        && <MergerChart />}
+        {tab === 'commodities'   && <CommoditiesChart />}
+        {tab === 'top5'          && <Top5Chart />}
+        {tab === 'top615'        && <Top615Chart />}
+        {tab === 'exploration'   && <ExplorationChart />}
+        {tab === 'grade'         && <GradeChart />}
+        {tab === 'reservelife'   && <ReserveLifeChart />}
+        {tab === 'pipeline'      && <PipelineChart />}
+        {tab === 'lag'           && <LagChart />}
+        {tab === 'capex'         && <CapexChart />}
+        {tab === 'concentration' && <ConcentrationChart />}
+        {tab === 'diesel'        && <DieselChart />}
+        {tab === 'royalty'       && <RoyaltyChart />}
+        {tab === 'funnel'        && <FunnelChart />}
       </main>
 
       <footer className="max-w-5xl mx-auto mt-4 text-xs space-y-2" style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
