@@ -801,17 +801,10 @@ const App = () => {
       className="p-4 sm:p-6">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&display=swap');`}</style>
 
-      <header className="mb-5 max-w-5xl mx-auto">
-        <div className="text-xs uppercase tracking-[0.25em] mb-1" style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+      <header className="mb-4 max-w-5xl mx-auto">
+        <div className="text-xs uppercase tracking-[0.25em]" style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
           1950 → 2025 · Australian metal mining + global markets
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold leading-tight" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-          Fourteen views of a seventy-five-year cycle.
-        </h1>
-        <p className="text-sm mt-2 max-w-2xl" style={{ color: C.dim }}>
-          Indicative trends compiled from industry knowledge, not precise statistics. AISC was standardised in <span style={{ color: C.gold }}>2013</span>;
-          earlier values are back-cast. Company market caps and merger values are best-effort approximations — directional shape is reliable, exact figures are not.
-        </p>
       </header>
 
       <div className="max-w-5xl mx-auto mb-3 flex gap-2">
@@ -865,9 +858,17 @@ const App = () => {
         {tab === 'top615'      && <Top615Chart />}
       </main>
 
-      <footer className="max-w-5xl mx-auto mt-4 text-xs" style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
-        Sources: directional trends synthesised from publicly known industry events; figures illustrative.
-        For decision-grade data: ABS, Geoscience Australia, S&amp;P Global / WoodMac, USGS, World Gold Council, MinEx Consulting (discoveries), company annual reports.
+      <footer className="max-w-5xl mx-auto mt-4 text-xs space-y-2" style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+        <div>
+          Fourteen views of a seventy-five-year cycle.
+        </div>
+        <div>
+          Indicative trends compiled from industry knowledge, not precise statistics. AISC was standardised in <span style={{ color: C.gold }}>2013</span>; earlier values are back-cast. Company market caps and merger values are best-effort approximations — directional shape is reliable, exact figures are not.
+        </div>
+        <div>
+          Sources: directional trends synthesised from publicly known industry events; figures illustrative.
+          For decision-grade data: ABS, Geoscience Australia, S&amp;P Global / WoodMac, USGS, World Gold Council, MinEx Consulting (discoveries), company annual reports.
+        </div>
       </footer>
     </div>
   );
