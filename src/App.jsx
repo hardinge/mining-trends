@@ -665,6 +665,48 @@ const NotesPanel = ({ notes }) => (
   </ol>
 );
 
+const KeyInsight = ({ children }) => (
+  <div className="mt-3 pl-3 py-1" style={{ borderLeft: `3px solid ${C.gold}` }}>
+    <div className="text-[10px] uppercase tracking-[0.2em] mb-0.5" style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>Key insight</div>
+    <div className="text-sm leading-snug" style={{ color: C.text }}>{children}</div>
+  </div>
+);
+
+const insights = {
+  // Industry trends
+  mines:        "Open-cut count tripled from 1965-1985 and has stayed dominant ever since; underground count has been roughly flat at 30-45 mines for 75 years.",
+  aisc:         "Real all-in costs nearly tripled from 1980 to the 2011 peak, corrected ~25%, and are rising again on inflation and grade decline.",
+  cost:         "Open-cut mines move ~15× more rock per dollar than underground; autonomous haulage widened the gap, while UG depth and ESG costs work the other way.",
+  method:       "Sub-level open stoping remains the dominant gold UG method; block/panel caving has tripled in count since 2000 — capital-heavy but lowest cost per tonne at scale.",
+  rev:          "Iron ore alone now generates more revenue than all other Australian metals combined. Lithium spiked 2022-23 and reset; gold continues steady growth.",
+  gold:         "Total world production tripled 1950-2025 even as South Africa's absolute output collapsed by ~25%. Asia-Pacific is now the largest production block by volume.",
+  copper:       "Global Cu production grew ~7× from 3 Mt to 23 Mt. South America is the volume giant; Africa's recent climb is the only major growth story outside Asia.",
+
+  // Markets
+  goldcycle:    "Three real-price bull markets in 75 years, each driven by a different mechanism — monetary regime change (1971-80), industrial demand (2001-11), and central bank reallocation (2015-now).",
+  coppercycle:  "A 25-year real-price decline (1974-1999) was reversed by China demand, then re-set higher by the energy transition. Currently within striking distance of the all-time real high.",
+  discovery:    "Tier-1 (>2 Moz) gold finds peaked in the 1990s and have roughly halved each decade since. No continent has been spared the decline.",
+  cudiscovery:  "Same pattern as gold but with South America historically dominant. The 2020s are tracking the weakest decade on record despite copper's strategic importance.",
+  merger:       "M&A activity bunches near cycle peaks: 2007 pre-GFC, 2013 supercycle late, 2019-23 gold consolidation. The 2024 BHP-Anglo bid signals a copper scarcity premium emerging.",
+  commodities:  "From 2000, iron ore, copper, gold, and nickel tracked together until 2008, then diverged. Lithium's 12× spike-and-correction is the most dramatic single-metal story of the era.",
+
+  // Companies
+  top5:         "Sector market cap closely tracks the gold price. Newcrest sat at near-senior scale before its 2023 acquisition; Agnico has emerged as Newmont's true peer in the current bull.",
+  top615:       "Mid-tier names roughly mirror gold price moves but with higher beta. Northern Star and Evolution grew from nothing to ~US$18B and ~US$8B through systematic acquisition.",
+
+  // Leading indicators
+  exploration:  "Spend has risen ~3× while tier-1 finds have fallen ~85%. Cost-per-Moz-discovered has worsened ~30× — the single most reliable leading indicator of higher future prices.",
+  grade:        "Cu and Au grades have both roughly halved in 35 years. Independent of metal price, this means more rock moved, more energy used, more waste produced per unit metal.",
+  reservelife:  "Top-10 Au reserve life is at a multi-decade low (~14yr); Cu at ~22yr (lowest in 25yr). Means the seniors must either acquire or shrink — there is no organic growth path.",
+  pipeline:     "The Cu project pipeline currently covers <60% of forecast 2035 demand. Lithium peaked in 2022 and has reset 33%; Cu is rebuilding from a 2017 trough but well behind demand.",
+  lag:          "Discovery-to-production lag has roughly doubled in 35 years. Even when exploration succeeds, supply response lags 15-20 years — locking in tight markets even on optimistic find rates.",
+  capex:        "Aggregate majors capex is rebuilding from the 2016 trough but still well below what 2035 demand would require. 2-3 year lag from prices to capex translates to a 4-6 year lag to supply.",
+  concentration: "Cobalt (DRC), REE (China), Ni (Indonesia) are 70%+ concentrated in single countries. Au is the most diversified of all metals. Drives ally-aligned pricing premium for Australian critical minerals.",
+  diesel:       "Diesel spiked to A$2.05/L during Russia/Ukraine and remains structurally elevated. At ~15-20% of OC unit cost, this is a major contributor to recent AISC inflation across Australian gold producers.",
+  royalty:      "Resource nationalism events have roughly tripled in frequency since 2010. Panama, Mexico, Indonesia, Mongolia, Chile and Australia have all hiked terms or nationalised in the past five years.",
+  funnel:       "The permit step alone has gone from 1yr (1980s) to 4yr (2020s) — the single biggest contributor to lag growth. Even fast-tracked critical minerals projects average 18yr discovery-to-production.",
+};
+
 const tooltipStyle = {
   contentStyle: { background: C.ink, border: `1px solid ${C.border}`, borderRadius: 6, color: C.text, fontFamily: 'ui-monospace, monospace', fontSize: 12 },
   labelStyle: { color: C.gold, fontWeight: 600 },
@@ -715,6 +757,7 @@ const MineChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.mines}</KeyInsight>
     <NotesPanel notes={mineNotes} />
   </>
 );
@@ -739,6 +782,7 @@ const AiscChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.aisc}</KeyInsight>
     <NotesPanel notes={aiscNotes} />
   </>
 );
@@ -764,6 +808,7 @@ const CostChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.cost}</KeyInsight>
     <NotesPanel notes={costNotes} />
   </>
 );
@@ -791,6 +836,7 @@ const MethodChart = () => (
         })}
       </AreaChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.method}</KeyInsight>
     <NotesPanel notes={methodNotes} />
   </>
 );
@@ -820,6 +866,7 @@ const RevChart = () => (
         })}
       </AreaChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.rev}</KeyInsight>
     <NotesPanel notes={revNotes} />
   </>
 );
@@ -847,6 +894,7 @@ const GoldChart = () => (
         })}
       </AreaChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.gold}</KeyInsight>
     <NotesPanel notes={goldNotes} />
   </>
 );
@@ -875,6 +923,7 @@ const CopperChart = () => (
         })}
       </AreaChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.copper}</KeyInsight>
     <NotesPanel notes={copperNotes} />
   </>
 );
@@ -901,6 +950,7 @@ const GoldCycleChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.goldcycle}</KeyInsight>
     <NotesPanel notes={goldCycleNotes} />
   </>
 );
@@ -925,6 +975,7 @@ const CopperCycleChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.coppercycle}</KeyInsight>
     <NotesPanel notes={copperCycleNotes} />
   </>
 );
@@ -953,6 +1004,7 @@ const DiscoveryChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.discovery}</KeyInsight>
     <NotesPanel notes={discoveryNotes} />
   </>
 );
@@ -981,6 +1033,7 @@ const CopperDiscoveryChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.cudiscovery}</KeyInsight>
     <NotesPanel notes={copperDiscoveryNotes} />
   </>
 );
@@ -1006,6 +1059,7 @@ const MergerChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.merger}</KeyInsight>
     <NotesPanel notes={mergerNotes} />
   </>
 );
@@ -1033,6 +1087,7 @@ const CommoditiesChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.commodities}</KeyInsight>
     <NotesPanel notes={commoditiesNotes} />
   </>
 );
@@ -1064,6 +1119,7 @@ const Top5Chart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.top5}</KeyInsight>
     <NotesPanel notes={top5Notes} />
   </>
 );
@@ -1095,6 +1151,7 @@ const Top615Chart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.top615}</KeyInsight>
     <NotesPanel notes={top615Notes} />
   </>
 );
@@ -1122,6 +1179,7 @@ const ExplorationChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.exploration}</KeyInsight>
     <NotesPanel notes={explorationNotes} />
   </>
 );
@@ -1148,6 +1206,7 @@ const GradeChart = () => (
         })}
       </ComposedChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.grade}</KeyInsight>
     <NotesPanel notes={gradeNotes} />
   </>
 );
@@ -1172,6 +1231,7 @@ const ReserveLifeChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.reservelife}</KeyInsight>
     <NotesPanel notes={reserveLifeNotes} />
   </>
 );
@@ -1199,6 +1259,7 @@ const PipelineChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.pipeline}</KeyInsight>
     <NotesPanel notes={pipelineNotes} />
   </>
 );
@@ -1222,6 +1283,7 @@ const LagChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.lag}</KeyInsight>
     <NotesPanel notes={lagNotes} />
   </>
 );
@@ -1244,6 +1306,7 @@ const CapexChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.capex}</KeyInsight>
     <NotesPanel notes={capexNotes} />
   </>
 );
@@ -1264,6 +1327,7 @@ const ConcentrationChart = () => (
         <Bar dataKey="others" name="All others"     stackId="a" fill={C.slate} fillOpacity={0.5} />
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.concentration}</KeyInsight>
     <NotesPanel notes={concentrationNotes} />
   </>
 );
@@ -1286,6 +1350,7 @@ const DieselChart = () => (
         })}
       </LineChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.diesel}</KeyInsight>
     <NotesPanel notes={dieselNotes} />
   </>
 );
@@ -1308,6 +1373,7 @@ const RoyaltyChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.royalty}</KeyInsight>
     <NotesPanel notes={royaltyNotes} />
   </>
 );
@@ -1337,6 +1403,7 @@ const FunnelChart = () => (
         })}
       </BarChart>
     </ResponsiveContainer>
+    <KeyInsight>{insights.funnel}</KeyInsight>
     <NotesPanel notes={funnelNotes} />
   </>
 );
