@@ -1026,25 +1026,18 @@ const agnicoCallouts = [
 ];
 
 const agnicoDrivers = [
-  { name: 'M&A / portfolio transformation', value: 35 },
-  { name: 'Operational consistency',        value: 25 },
-  { name: 'Capital allocation discipline',  value: 15 },
-  { name: 'Gold price tailwind',            value: 15 },
-  { name: 'Platform integration',           value: 10 },
+  { name: 'M&A / acquisitions',        value: 30 },
+  { name: 'Operational consistency',   value: 20 },
+  { name: 'Reserve & resource growth', value: 10 },
+  { name: 'Platform thinking',         value: 10 },
+  { name: 'Gold price + margins',      value: 10 },
+  { name: 'Capital allocation',        value: 10 },
+  { name: 'Premium re-rating',         value: 10 },
 ];
 
 const agnicoWhySections = [
   {
-    title: '1. Massive reserve and resource growth',
-    bullets: [
-      'Reserves grew from ~20 Moz in 2013 to ~50 Moz post-Kirkland and Yamana — a 2.5× increase in a decade where most majors saw reserves shrink.',
-      'Detour Lake alone added ~20 Moz of reserves with a 25+ year mine life via the Kirkland Lake merger.',
-      'Ongoing organic exploration at Macassa, Hope Bay, Detour, and Kittila continues to extend mine lives at modest cost per ounce.',
-      'Reserve grade held above industry average despite the scale increase — counter to the sector-wide grade-decline trend.',
-    ],
-  },
-  {
-    title: '2. Best major-sector acquisitions of the cycle',
+    title: '1. Best major-sector acquisitions of the cycle · 30%',
     bullets: [
       '2014 Canadian Malartic JV — bought from distressed Osisko alongside Yamana at a low point in the cycle.',
       '2022 Kirkland Lake merger — transformational; got Detour, Macassa, Fosterville for ~US$10B in stock at trough valuations relative to gold price.',
@@ -1053,7 +1046,7 @@ const agnicoWhySections = [
     ],
   },
   {
-    title: '3. Exceptional operational consistency',
+    title: '2. Exceptional operational consistency · 20%',
     bullets: [
       'Hit production guidance in roughly 9 of the last 10 years — a record few peers can match.',
       'AISC maintained in the industry\'s lower half despite scale increase and grade decline.',
@@ -1062,16 +1055,16 @@ const agnicoWhySections = [
     ],
   },
   {
-    title: '4. Market gradually recognised it as the "high-quality major"',
+    title: '3. Massive reserve and resource growth · 10%',
     bullets: [
-      'Premium P/NAV multiple — now trades at 1.5-1.8× P/NAV vs 1.0-1.2× for Newmont and Barrick.',
-      'Index inclusion as senior gold producer accelerated post-Kirkland; generalist investors found their "safe gold pick".',
-      'Lower cost of equity capital → cheaper M&A currency for future deals.',
-      'Re-rating compounds: higher multiple → higher share price → cheaper acquisitions → better assets → higher multiple.',
+      'Reserves grew from ~20 Moz in 2013 to ~50 Moz post-Kirkland and Yamana — a 2.5× increase in a decade where most majors saw reserves shrink.',
+      'Detour Lake alone added ~20 Moz of reserves with a 25+ year mine life via the Kirkland Lake merger.',
+      'Ongoing organic exploration at Macassa, Hope Bay, Detour, and Kittila continues to extend mine lives at modest cost per ounce.',
+      'Reserve grade held above industry average despite the scale increase — counter to the sector-wide grade-decline trend.',
     ],
   },
   {
-    title: '5. Became a "platform" rather than a collection of mines',
+    title: '4. Became a "platform" rather than a collection of mines · 10%',
     bullets: [
       'Abitibi platform: Canadian Malartic + Detour + LaRonde + Goldex = ~3 Moz/yr from one belt with shared infrastructure and people.',
       'Nunavut platform: Meadowbank + Meliadine + Amaruq + Hope Bay (under care) — operates Arctic logistics few peers can match.',
@@ -1080,7 +1073,7 @@ const agnicoWhySections = [
     ],
   },
   {
-    title: '6. Strong gold-price leverage + improving margins',
+    title: '5. Strong gold-price leverage + improving margins · 10%',
     bullets: [
       'Cost discipline meant margins expanded faster than peers as gold rose; AISC stayed flat in real terms while spot gold tripled.',
       'Hedge book minimal — full exposure to spot pricing for shareholders.',
@@ -1089,13 +1082,23 @@ const agnicoWhySections = [
     ],
   },
   {
-    title: '7. Capital allocation discipline',
+    title: '6. Capital allocation discipline · 10%',
     bullets: [
       'Dividend grown ~10× since 2017; consistently returned cash to shareholders without compromising balance sheet.',
       'Maintained investment-grade credit rating through the cycle — rare among gold majors.',
       'Net cash position at multiple points; never forced into distressed asset sales.',
       'Buybacks deployed at favourable prices (not at peaks).',
       'Avoided "bigger-is-better" cycle peaks — did not bid for Newcrest in 2023.',
+    ],
+  },
+  {
+    title: '7. Market gradually recognised it as the "high-quality major" · 10%',
+    bullets: [
+      'Premium P/NAV multiple — now trades at 1.5-1.8× P/NAV vs 1.0-1.2× for Newmont and Barrick.',
+      'Index inclusion as senior gold producer accelerated post-Kirkland; generalist investors found their "safe gold pick".',
+      'Lower cost of equity capital → cheaper M&A currency for future deals.',
+      'Re-rating compounds: higher multiple → higher share price → cheaper acquisitions → better assets → higher multiple.',
+      'This chapter is best read as the *outcome* of chapters 1-6 — the market\'s gradual recognition is what crystallises the alpha.',
     ],
   },
 ];
@@ -1109,8 +1112,6 @@ const agnicoOtherInsights = [
     body: 'Sean Boyd\'s 24-year tenure and culture were significant drivers; Al-Joundi is proven (Agnico President since 2015) but the test is the next downturn or major M&A decision.' },
   { n: 4, title: 'Next leg of growth',
     body: 'Detour expansion, Hope Bay restart, Wasamac development, and Odyssey project ramp are the organic drivers. Major M&A unlikely in the near term given fewer attractive targets and rising premiums.' },
-  { n: 5, title: 'Lessons for Evolution Mining',
-    body: 'Brownfield consolidation in established belts beats greenfield ambition. Operational consistency builds re-rating; deal-flow does not. "Platform" thinking — turning multiple mines into a regional system — is what differentiates a senior from a producer collection.' },
 ];
 
 
@@ -1751,7 +1752,7 @@ const ActionTab = ({ data }) => {
 };
 
 const AgnicoCaseStudyTab = () => {
-  const driverColors = [C.gold, C.copper, C.ochre, C.forest, C.teal];
+  const driverColors = [C.gold, C.copper, C.ochre, C.forest, C.teal, C.slate, C.plum];
 
   return (
     <>
@@ -1850,6 +1851,65 @@ const AgnicoCaseStudyTab = () => {
           Other relevant insights
         </div>
         <NotesPanel notes={agnicoOtherInsights} />
+      </div>
+
+      <div className="mt-6 p-4 rounded" style={{ background: C.ink, borderLeft: `3px solid ${C.gold}` }}>
+        <div className="flex items-start gap-3">
+          <span className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mt-0.5"
+            style={{ background: C.marker, color: C.ink }}>5</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-base font-semibold mb-2"
+              style={{ color: C.text, fontFamily: "'Fraunces', Georgia, serif" }}>
+              Lessons for Evolution Mining
+            </div>
+            <p className="text-sm mb-4 leading-relaxed" style={{ color: C.text }}>
+              "Platform" thinking — turning multiple mines into a regional system that shares mills,
+              infrastructure, technical teams, and exploration knowledge — compounds in ways a scattered
+              collection of standalone mines cannot.
+            </p>
+
+            <div className="mb-4">
+              <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+                style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+                How platform thinking compounds
+              </div>
+              <ol className="space-y-1 ml-5 text-sm" style={{ color: C.text, listStyle: 'decimal' }}>
+                <li>New nearby ounces get processed at marginal cost (no greenfield mill capex of US$500M-1B per project).</li>
+                <li>Operational fixes propagate across a cluster instead of being solved separately at each site.</li>
+                <li>Investors pay a multiple premium for the predictability that comes from regional redundancy and infrastructure leverage.</li>
+              </ol>
+            </div>
+
+            <div className="mb-4">
+              <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+                style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+                Evolution's footprint today
+              </div>
+              <p className="text-sm" style={{ color: C.text }}>
+                Geographically scattered: Cowal (NSW), Ernest Henry (QLD), Mungari (WA), Red Lake (Ontario), Mt Rawdon (QLD). No dominant regional cluster.
+              </p>
+            </div>
+
+            <div className="mb-3">
+              <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+                style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+                Practical implication
+              </div>
+              <p className="text-sm mb-2" style={{ color: C.text }}>
+                Deepening one region likely creates more shareholder value than acquiring a sixth scattered mine. Three plausible paths:
+              </p>
+              <ul className="space-y-1 ml-5 text-sm" style={{ color: C.text, listStyle: 'disc' }}>
+                <li><strong style={{ color: C.gold }}>NSW</strong> — building out around Cowal</li>
+                <li><strong style={{ color: C.gold }}>QLD</strong> — a platform around Ernest Henry</li>
+                <li><strong style={{ color: C.gold }}>Ontario</strong> — going deeper in the gold belt around Red Lake</li>
+              </ul>
+            </div>
+
+            <p className="text-xs mt-3 pt-3" style={{ color: C.dim, fontStyle: 'italic', borderTop: `1px solid ${C.border}` }}>
+              Operational consistency builds the re-rating; brownfield consolidation in established belts beats greenfield ambition; deal flow alone does not.
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
