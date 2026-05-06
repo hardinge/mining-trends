@@ -104,15 +104,15 @@ const costNotes = [
 ];
 
 const methodData = [
-  { year: 1950, slc: 0, block: 0, other: 100 },
-  { year: 1960, slc: 0, block: 0, other: 100 },
-  { year: 1970, slc: 3, block: 0, other: 97 },
-  { year: 1980, slc: 14, block: 4, other: 82 },
-  { year: 1990, slc: 24, block: 8, other: 68 },
-  { year: 2000, slc: 26, block: 14, other: 60 },
-  { year: 2010, slc: 22, block: 20, other: 58 },
-  { year: 2020, slc: 18, block: 23, other: 59 },
-  { year: 2025, slc: 17, block: 26, other: 57 },
+  { year: 1950, slos: 20, slc: 0, block: 0,  cf: 14, other: 2 },
+  { year: 1960, slos: 20, slc: 0, block: 0,  cf: 12, other: 2 },
+  { year: 1970, slos: 20, slc: 1, block: 0,  cf: 7,  other: 2 },
+  { year: 1980, slos: 18, slc: 4, block: 1,  cf: 4,  other: 1 },
+  { year: 1990, slos: 20, slc: 6, block: 3,  cf: 2,  other: 1 },
+  { year: 2000, slos: 22, slc: 9, block: 5,  cf: 1,  other: 1 },
+  { year: 2010, slos: 25, slc: 9, block: 7,  cf: 1,  other: 0 },
+  { year: 2020, slos: 22, slc: 7, block: 10, cf: 1,  other: 0 },
+  { year: 2025, slos: 25, slc: 8, block: 12, cf: 1,  other: 0 },
 ];
 const methodNotes = [
   { year: 1971, n: 1, title: 'Mt Isa pioneers SLC', body: 'Sub-level caving scales for high-tonnage Pb-Zn-Cu' },
@@ -143,15 +143,15 @@ const revNotes = [
 ];
 
 const goldData = [
-  { year: 1950, africa: 60, namerica: 25, samerica: 5,  asiaoc: 8,  europe: 2 },
-  { year: 1960, africa: 67, namerica: 18, samerica: 5,  asiaoc: 8,  europe: 2 },
-  { year: 1970, africa: 75, namerica: 12, samerica: 4,  asiaoc: 7,  europe: 2 },
-  { year: 1980, africa: 60, namerica: 14, samerica: 5,  asiaoc: 19, europe: 2 },
-  { year: 1990, africa: 35, namerica: 22, samerica: 8,  asiaoc: 32, europe: 3 },
-  { year: 2000, africa: 22, namerica: 21, samerica: 12, asiaoc: 41, europe: 4 },
-  { year: 2010, africa: 22, namerica: 14, samerica: 17, asiaoc: 43, europe: 4 },
-  { year: 2020, africa: 22, namerica: 13, samerica: 17, asiaoc: 44, europe: 4 },
-  { year: 2025, africa: 25, namerica: 13, samerica: 16, asiaoc: 42, europe: 4 },
+  { year: 1950, africa: 450,  namerica: 190, samerica: 40,  asiaoc: 60,   europe: 15 },
+  { year: 1960, africa: 700,  namerica: 190, samerica: 55,  asiaoc: 85,   europe: 20 },
+  { year: 1970, africa: 1100, namerica: 175, samerica: 60,  asiaoc: 105,  europe: 30 },
+  { year: 1980, africa: 580,  namerica: 135, samerica: 50,  asiaoc: 180,  europe: 20 },
+  { year: 1990, africa: 750,  namerica: 470, samerica: 170, asiaoc: 690,  europe: 60 },
+  { year: 2000, africa: 560,  namerica: 535, samerica: 305, asiaoc: 1050, europe: 100 },
+  { year: 2010, africa: 580,  namerica: 370, samerica: 450, asiaoc: 1140, europe: 110 },
+  { year: 2020, africa: 700,  namerica: 415, samerica: 545, asiaoc: 1410, europe: 130 },
+  { year: 2025, africa: 825,  namerica: 430, samerica: 530, asiaoc: 1385, europe: 130 },
 ];
 const goldNotes = [
   { year: 1970, n: 1, title: 'Witwatersrand peak', body: 'South Africa ~75% of world gold — deepest UG mines globally' },
@@ -161,15 +161,15 @@ const goldNotes = [
 ];
 
 const copperData = [
-  { year: 1950, namerica: 35, samerica: 18, europe: 12, asia: 8,  africa: 22, oceania: 5 },
-  { year: 1960, namerica: 28, samerica: 22, europe: 10, asia: 10, africa: 25, oceania: 5 },
-  { year: 1970, namerica: 24, samerica: 24, europe: 8,  asia: 12, africa: 27, oceania: 5 },
-  { year: 1980, namerica: 20, samerica: 28, europe: 10, asia: 13, africa: 23, oceania: 6 },
-  { year: 1990, namerica: 22, samerica: 32, europe: 12, asia: 14, africa: 13, oceania: 7 },
-  { year: 2000, namerica: 13, samerica: 42, europe: 8,  asia: 18, africa: 12, oceania: 7 },
-  { year: 2010, namerica: 10, samerica: 42, europe: 6,  asia: 22, africa: 15, oceania: 5 },
-  { year: 2020, namerica: 9,  samerica: 40, europe: 6,  asia: 22, africa: 18, oceania: 5 },
-  { year: 2025, namerica: 9,  samerica: 38, europe: 5,  asia: 22, africa: 21, oceania: 5 },
+  { year: 1950, namerica: 1.1, samerica: 0.6, europe: 0.4, asia: 0.3, africa: 0.7, oceania: 0.2 },
+  { year: 1960, namerica: 1.3, samerica: 1.0, europe: 0.5, asia: 0.5, africa: 1.2, oceania: 0.2 },
+  { year: 1970, namerica: 1.5, samerica: 1.5, europe: 0.5, asia: 0.8, africa: 1.7, oceania: 0.3 },
+  { year: 1980, namerica: 1.5, samerica: 2.2, europe: 0.8, asia: 1.0, africa: 1.8, oceania: 0.5 },
+  { year: 1990, namerica: 2.0, samerica: 2.9, europe: 1.1, asia: 1.3, africa: 1.2, oceania: 0.6 },
+  { year: 2000, namerica: 1.7, samerica: 5.5, europe: 1.1, asia: 2.4, africa: 1.6, oceania: 0.9 },
+  { year: 2010, namerica: 1.6, samerica: 6.8, europe: 1.0, asia: 3.5, africa: 2.4, oceania: 0.8 },
+  { year: 2020, namerica: 1.9, samerica: 8.2, europe: 1.2, asia: 4.5, africa: 3.7, oceania: 1.0 },
+  { year: 2025, namerica: 2.1, samerica: 8.7, europe: 1.2, asia: 5.1, africa: 4.8, oceania: 1.2 },
 ];
 const copperNotes = [
   { year: 1971, n: 1, title: 'Chile nationalisation', body: 'Codelco formed; SAm dominance cemented through 1970s-80s' },
@@ -251,6 +251,26 @@ const discoveryNotes = [
   { decade: '2000s', n: 4, title: 'Discovery decline begins', body: 'Big easy targets exhausted; spend rises but tier-1 finds halve' },
   { decade: '2010s', n: 5, title: 'AI exploration era starts', body: 'Greenfields underwhelm; brownfield extensions dominate' },
   { decade: '2020s*', n: 6, title: 'Partial decade', body: '*2020-2024 only; final tally TBD; trend looks weakest on record' },
+];
+
+// Major Cu discoveries (>3 Mt contained Cu) per decade by continent
+const copperDiscoveryData = [
+  { decade: '1950s', africa: 5, namerica: 3, samerica: 4,  asiaoc: 1, europe: 0 },
+  { decade: '1960s', africa: 4, namerica: 4, samerica: 5,  asiaoc: 2, europe: 1 },
+  { decade: '1970s', africa: 3, namerica: 5, samerica: 6,  asiaoc: 3, europe: 1 },
+  { decade: '1980s', africa: 2, namerica: 4, samerica: 9,  asiaoc: 5, europe: 1 },
+  { decade: '1990s', africa: 4, namerica: 3, samerica: 12, asiaoc: 6, europe: 1 },
+  { decade: '2000s', africa: 4, namerica: 2, samerica: 6,  asiaoc: 5, europe: 0 },
+  { decade: '2010s', africa: 4, namerica: 2, samerica: 3,  asiaoc: 2, europe: 0 },
+  { decade: '2020s*', africa: 2, namerica: 1, samerica: 1, asiaoc: 1, europe: 0 },
+];
+const copperDiscoveryNotes = [
+  { decade: '1960s', n: 1, title: 'Andean porphyry boom', body: 'El Teniente expansion, La Caridad (Mexico), Toquepala — Cu belt era begins' },
+  { decade: '1980s', n: 2, title: 'Escondida (1981)', body: "World's largest Cu mine; BHP-Rio JV; sets template for Chilean megaprojects" },
+  { decade: '1990s', n: 3, title: 'Discovery peak', body: 'Collahuasi, Los Pelambres, Tenke Fungurume — Andes + DRC dominate' },
+  { decade: '2000s', n: 4, title: 'Oyu Tolgoi', body: 'Rio Tinto in Mongolia — supergiant Cu-Au; era of frontier discoveries' },
+  { decade: '2010s', n: 5, title: 'Kamoa-Kakula', body: 'Ivanhoe finds DRC supergiant; otherwise tier-1 finds rare' },
+  { decade: '2020s*', n: 6, title: 'Partial decade', body: '*2020-2024 only; Cu finds at multi-decade lows; energy transition demand outpacing supply' },
 ];
 
 const mergerData = [
@@ -338,27 +358,29 @@ const top5Notes = [
 ];
 
 const top615Data = [
-  { year: 2000, goldfields: 2,    northernstar: 0,    harmony: 1.5, panamerican: 0.5, alamos: 0.1 },
-  { year: 2005, goldfields: 8,    northernstar: 0,    harmony: 5,   panamerican: 1.5, alamos: 0.3 },
-  { year: 2010, goldfields: 12,   northernstar: 0.05, harmony: 4,   panamerican: 4,   alamos: 1.5 },
-  { year: 2011, goldfields: 13,   northernstar: 0.2,  harmony: 5,   panamerican: 4,   alamos: 2 },
-  { year: 2013, goldfields: 4,    northernstar: 0.3,  harmony: 1.5, panamerican: 1.5, alamos: 0.8 },
-  { year: 2015, goldfields: 3,    northernstar: 1.5,  harmony: 0.5, panamerican: 1.2, alamos: 1.5 },
-  { year: 2017, goldfields: 6,    northernstar: 2.5,  harmony: 1,   panamerican: 2.5, alamos: 2.5 },
-  { year: 2019, goldfields: 5,    northernstar: 6,    harmony: 1.5, panamerican: 5,   alamos: 2.5 },
-  { year: 2020, goldfields: 10,   northernstar: 8,    harmony: 4,   panamerican: 7,   alamos: 4 },
-  { year: 2022, goldfields: 8,    northernstar: 9,    harmony: 2,   panamerican: 5,   alamos: 3 },
-  { year: 2023, goldfields: 13,   northernstar: 11,   harmony: 4,   panamerican: 6,   alamos: 5 },
-  { year: 2024, goldfields: 14,   northernstar: 14,   harmony: 6,   panamerican: 8,   alamos: 8 },
-  { year: 2025, goldfields: 18,   northernstar: 18,   harmony: 9,   panamerican: 10,  alamos: 12 },
+  { year: 2000, goldfields: 2,    northernstar: 0,    harmony: 1.5, panamerican: 0.5, alamos: 0.1, evolution: 0,   gold: 280 },
+  { year: 2005, goldfields: 8,    northernstar: 0,    harmony: 5,   panamerican: 1.5, alamos: 0.3, evolution: 0,   gold: 450 },
+  { year: 2010, goldfields: 12,   northernstar: 0.05, harmony: 4,   panamerican: 4,   alamos: 1.5, evolution: 0,   gold: 1400 },
+  { year: 2011, goldfields: 13,   northernstar: 0.2,  harmony: 5,   panamerican: 4,   alamos: 2,   evolution: 0.3, gold: 1700 },
+  { year: 2013, goldfields: 4,    northernstar: 0.3,  harmony: 1.5, panamerican: 1.5, alamos: 0.8, evolution: 0.3, gold: 1300 },
+  { year: 2015, goldfields: 3,    northernstar: 1.5,  harmony: 0.5, panamerican: 1.2, alamos: 1.5, evolution: 1,   gold: 1100 },
+  { year: 2017, goldfields: 6,    northernstar: 2.5,  harmony: 1,   panamerican: 2.5, alamos: 2.5, evolution: 2.5, gold: 1300 },
+  { year: 2019, goldfields: 5,    northernstar: 6,    harmony: 1.5, panamerican: 5,   alamos: 2.5, evolution: 3.5, gold: 1500 },
+  { year: 2020, goldfields: 10,   northernstar: 8,    harmony: 4,   panamerican: 7,   alamos: 4,   evolution: 5,   gold: 1900 },
+  { year: 2022, goldfields: 8,    northernstar: 9,    harmony: 2,   panamerican: 5,   alamos: 3,   evolution: 3.5, gold: 1800 },
+  { year: 2023, goldfields: 13,   northernstar: 11,   harmony: 4,   panamerican: 6,   alamos: 5,   evolution: 4,   gold: 2050 },
+  { year: 2024, goldfields: 14,   northernstar: 14,   harmony: 6,   panamerican: 8,   alamos: 8,   evolution: 6,   gold: 2700 },
+  { year: 2025, goldfields: 18,   northernstar: 18,   harmony: 9,   panamerican: 10,  alamos: 12,  evolution: 8,   gold: 3500 },
 ];
 const top615Notes = [
   { year: 2002, n: 1, title: 'Gold Fields formed', body: 'South African senior consolidates Driefontein, Kloof, Beatrix' },
   { year: 2010, n: 2, title: 'Northern Star founded', body: 'Bill Beament takes shell, buys Paulsens, then Plutonic, Jundee' },
-  { year: 2018, n: 3, title: 'Pan American-Tahoe', body: 'Acquires Escobal (suspended); shifts to LATAM silver+gold mix' },
-  { year: 2021, n: 4, title: 'Northern Star-Saracen', body: 'Merger consolidates KCGM (Super Pit) ownership' },
-  { year: 2023, n: 5, title: 'Pan American-Yamana share', body: 'Splits Yamana with Agnico; Cerro Moro, Jacobina, Minera Florida' },
-  { year: 2025, n: 6, title: 'Mid-tier re-rate', body: 'Gold ATH lifts entire tier; Northern Star and Alamos lead percentage gains' },
+  { year: 2011, n: 3, title: 'Evolution Mining formed', body: 'Catalpa-Conquest merger; Cracow, Mt Rawdon, Pajingo seed assets' },
+  { year: 2016, n: 4, title: 'Evolution-Cowal', body: 'Buys Cowal from Barrick; subsequently Mungari, then Ernest Henry Cu-Au stream' },
+  { year: 2018, n: 5, title: 'Pan American-Tahoe', body: 'Acquires Escobal (suspended); shifts to LATAM silver+gold mix' },
+  { year: 2021, n: 6, title: 'Northern Star-Saracen', body: 'Merger consolidates KCGM (Super Pit) ownership' },
+  { year: 2023, n: 7, title: 'Pan American-Yamana share', body: 'Splits Yamana with Agnico; Cerro Moro, Jacobina, Minera Florida' },
+  { year: 2025, n: 8, title: 'Mid-tier re-rate', body: 'Gold ATH lifts entire tier; Northern Star, Alamos, Evolution lead percentage gains' },
 ];
 
 // ============ COMPONENTS ============
@@ -477,21 +499,25 @@ const CostChart = () => (
 
 const MethodChart = () => (
   <>
-    <ChartHeader title="Underground mining method" subtitle="Share of active medium/large UG metal mines, Australia" unit="% — Other = SLOS / cut-and-fill / room-and-pillar" />
+    <ChartHeader title="Underground mining method" subtitle="Active medium/large UG metal mines, Australia — by primary method" unit="number of mines" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-      <AreaChart data={methodData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }} stackOffset="expand">
+      <AreaChart data={methodData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
         <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
-        <YAxis {...axisStyle} tick={{ fill: C.dim }} tickFormatter={(v) => `${Math.round(v * 100)}%`} />
-        <Tooltip {...tooltipStyle} formatter={(v) => `${v}%`} />
-        <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
-        <Area type="monotone" dataKey="other" name="Other (SLOS / C&F)" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.85} />
-        <Area type="monotone" dataKey="slc"   name="Sub-level caving"  stackId="1" stroke={C.ochre} fill={C.ochre} fillOpacity={0.85} />
-        <Area type="monotone" dataKey="block" name="Block caving"      stackId="1" stroke={C.copper} fill={C.copper} fillOpacity={0.85} />
-        {methodNotes.map(note => (
-          <ReferenceDot key={note.n} x={note.year} y={0.95} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
-            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />
-        ))}
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Area type="monotone" dataKey="slos"  name="Sub-level open stoping" stackId="1" stroke={C.ochre} fill={C.ochre} fillOpacity={0.85} />
+        <Area type="monotone" dataKey="slc"   name="Sub-level caving"       stackId="1" stroke={C.copper} fill={C.copper} fillOpacity={0.85} />
+        <Area type="monotone" dataKey="block" name="Block / panel caving"   stackId="1" stroke={C.rust} fill={C.rust} fillOpacity={0.85} />
+        <Area type="monotone" dataKey="cf"    name="Cut-and-fill"           stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.85} />
+        <Area type="monotone" dataKey="other" name="Other"                  stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.85} />
+        {methodNotes.map(note => {
+          const pt = findNearest(methodData, note.year);
+          const total = pt.slos + pt.slc + pt.block + pt.cf + pt.other;
+          return <ReferenceDot key={note.n} x={note.year} y={total + 3} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
       </AreaChart>
     </ResponsiveContainer>
     <NotesPanel notes={methodNotes} />
@@ -529,23 +555,25 @@ const RevChart = () => (
 
 const GoldChart = () => (
   <>
-    <ChartHeader title="Gold mine production by continent" subtitle="Share of world primary production" unit="%" />
+    <ChartHeader title="Gold mine production by continent" subtitle="World primary mine production, by continent" unit="tonnes per year" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-      <AreaChart data={goldData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }} stackOffset="expand">
+      <AreaChart data={goldData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
         <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
-        <YAxis {...axisStyle} tick={{ fill: C.dim }} tickFormatter={(v) => `${Math.round(v * 100)}%`} />
-        <Tooltip {...tooltipStyle} formatter={(v) => `${v}%`} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v} t`} />
         <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
         <Area type="monotone" dataKey="africa" name="Africa" stackId="1" stroke={C.rust} fill={C.rust} fillOpacity={0.9} />
         <Area type="monotone" dataKey="asiaoc" name="Asia & Oceania" stackId="1" stroke={C.gold} fill={C.gold} fillOpacity={0.9} />
         <Area type="monotone" dataKey="namerica" name="North America" stackId="1" stroke={C.copper} fill={C.copper} fillOpacity={0.9} />
         <Area type="monotone" dataKey="samerica" name="South America" stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.9} />
         <Area type="monotone" dataKey="europe" name="Europe" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.9} />
-        {goldNotes.map(note => (
-          <ReferenceDot key={note.n} x={note.year} y={0.95} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
-            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />
-        ))}
+        {goldNotes.map(note => {
+          const pt = findNearest(goldData, note.year);
+          const total = pt.africa + pt.asiaoc + pt.namerica + pt.samerica + pt.europe;
+          return <ReferenceDot key={note.n} x={note.year} y={total + 100} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
       </AreaChart>
     </ResponsiveContainer>
     <NotesPanel notes={goldNotes} />
@@ -554,13 +582,13 @@ const GoldChart = () => (
 
 const CopperChart = () => (
   <>
-    <ChartHeader title="Copper mine production by continent" subtitle="Share of world primary production" unit="%" />
+    <ChartHeader title="Copper mine production by continent" subtitle="World primary mine production, by continent" unit="million tonnes per year" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-      <AreaChart data={copperData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }} stackOffset="expand">
+      <AreaChart data={copperData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
         <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
-        <YAxis {...axisStyle} tick={{ fill: C.dim }} tickFormatter={(v) => `${Math.round(v * 100)}%`} />
-        <Tooltip {...tooltipStyle} formatter={(v) => `${v}%`} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} formatter={(v) => `${v} Mt`} />
         <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
         <Area type="monotone" dataKey="samerica" name="South America" stackId="1" stroke={C.copper} fill={C.copper} fillOpacity={0.9} />
         <Area type="monotone" dataKey="africa" name="Africa" stackId="1" stroke={C.rust} fill={C.rust} fillOpacity={0.9} />
@@ -568,10 +596,12 @@ const CopperChart = () => (
         <Area type="monotone" dataKey="namerica" name="North America" stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.9} />
         <Area type="monotone" dataKey="europe" name="Europe" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.9} />
         <Area type="monotone" dataKey="oceania" name="Oceania" stackId="1" stroke={C.forest} fill={C.forest} fillOpacity={0.9} />
-        {copperNotes.map(note => (
-          <ReferenceDot key={note.n} x={note.year} y={0.95} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
-            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />
-        ))}
+        {copperNotes.map(note => {
+          const pt = findNearest(copperData, note.year);
+          const total = pt.samerica + pt.africa + pt.asia + pt.namerica + pt.europe + pt.oceania;
+          return <ReferenceDot key={note.n} x={note.year} y={total + 1} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
       </AreaChart>
     </ResponsiveContainer>
     <NotesPanel notes={copperNotes} />
@@ -653,6 +683,34 @@ const DiscoveryChart = () => (
       </BarChart>
     </ResponsiveContainer>
     <NotesPanel notes={discoveryNotes} />
+  </>
+);
+
+const CopperDiscoveryChart = () => (
+  <>
+    <ChartHeader title="Major copper discoveries by continent" subtitle="Count of >3 Mt contained Cu discoveries per decade" unit="number of discoveries" />
+    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <BarChart data={copperDiscoveryData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+        <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
+        <XAxis dataKey="decade" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <Tooltip {...tooltipStyle} />
+        <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
+        <Bar dataKey="samerica" name="South America" stackId="a" fill={C.copper} />
+        <Bar dataKey="africa" name="Africa" stackId="a" fill={C.rust} />
+        <Bar dataKey="asiaoc" name="Asia & Oceania" stackId="a" fill={C.gold} />
+        <Bar dataKey="namerica" name="North America" stackId="a" fill={C.teal} />
+        <Bar dataKey="europe" name="Europe" stackId="a" fill={C.slate} />
+        {copperDiscoveryNotes.map(note => {
+          const pt = copperDiscoveryData.find(d => d.decade === note.decade);
+          if (!pt) return null;
+          const total = pt.samerica + pt.africa + pt.asiaoc + pt.namerica + pt.europe;
+          return <ReferenceDot key={note.n} x={pt.decade} y={total + 1} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+            label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
+        })}
+      </BarChart>
+    </ResponsiveContainer>
+    <NotesPanel notes={copperDiscoveryNotes} />
   </>
 );
 
@@ -740,26 +798,29 @@ const Top5Chart = () => (
 
 const Top615Chart = () => (
   <>
-    <ChartHeader title="Mid-tier global gold miners" subtitle="Representative basket of #6-15 by current size — market cap" unit="US$B market cap" />
+    <ChartHeader title="Mid-tier global gold miners" subtitle="Representative basket of #6-15 by current size — market cap; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-      <LineChart data={top615Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
+      <ComposedChart data={top615Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
         <XAxis dataKey="year" {...axisStyle} tick={{ fill: C.dim }} />
-        <YAxis {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis yAxisId="cap" {...axisStyle} tick={{ fill: C.dim }} />
+        <YAxis yAxisId="gold" orientation="right" {...axisStyle} tick={{ fill: C.gold }} />
         <Tooltip {...tooltipStyle} />
         <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
-        <Line type="monotone" dataKey="goldfields" name="Gold Fields" stroke={C.ochre} strokeWidth={2} dot={{ r: 2 }} />
-        <Line type="monotone" dataKey="northernstar" name="Northern Star" stroke={C.gold} strokeWidth={2} dot={{ r: 2 }} />
-        <Line type="monotone" dataKey="harmony" name="Harmony" stroke={C.rust} strokeWidth={2} dot={{ r: 2 }} />
-        <Line type="monotone" dataKey="panamerican" name="Pan American" stroke={C.teal} strokeWidth={2} dot={{ r: 2 }} />
-        <Line type="monotone" dataKey="alamos" name="Alamos" stroke={C.plum} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="goldfields"   name="Gold Fields"   stroke={C.ochre}  strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="northernstar" name="Northern Star" stroke={C.forest} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="harmony"      name="Harmony"       stroke={C.rust}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="panamerican"  name="Pan American"  stroke={C.teal}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="alamos"       name="Alamos"        stroke={C.plum}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="evolution"    name="Evolution"     stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="gold" type="monotone" dataKey="gold"        name="Gold US$/oz"   stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
         {top615Notes.map(note => {
           const pt = findNearest(top615Data, note.year);
-          const yMax = Math.max(pt.goldfields, pt.northernstar, pt.harmony, pt.panamerican, pt.alamos);
-          return <ReferenceDot key={note.n} x={pt.year} y={yMax + 1.5} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+          const yMax = Math.max(pt.goldfields, pt.northernstar, pt.harmony, pt.panamerican, pt.alamos, pt.evolution);
+          return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 1.5} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
             label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
         })}
-      </LineChart>
+      </ComposedChart>
     </ResponsiveContainer>
     <NotesPanel notes={top615Notes} />
   </>
@@ -780,13 +841,14 @@ const App = () => {
     { id: 'copper',   label: '7 · Copper by region' },
   ];
   const tabsMarkets = [
-    { id: 'goldcycle',   label: '8 · Gold cycle' },
-    { id: 'coppercycle', label: '9 · Copper cycle' },
-    { id: 'discovery',   label: '10 · Au discoveries' },
-    { id: 'merger',      label: '11 · M&A' },
-    { id: 'commodities', label: '12 · Commodity prices' },
-    { id: 'top5',        label: '13 · Top 5 Au miners' },
-    { id: 'top615',      label: '14 · Mid-tier Au miners' },
+    { id: 'goldcycle',     label: '8 · Gold cycle' },
+    { id: 'coppercycle',   label: '9 · Copper cycle' },
+    { id: 'discovery',     label: '10 · Au discoveries' },
+    { id: 'cudiscovery',   label: '11 · Cu discoveries' },
+    { id: 'merger',        label: '12 · M&A' },
+    { id: 'commodities',   label: '13 · Commodity prices' },
+    { id: 'top5',          label: '14 · Top 5 Au miners' },
+    { id: 'top615',        label: '15 · Mid-tier Au miners' },
   ];
 
   const onSection = (s) => {
@@ -852,6 +914,7 @@ const App = () => {
         {tab === 'goldcycle'   && <GoldCycleChart />}
         {tab === 'coppercycle' && <CopperCycleChart />}
         {tab === 'discovery'   && <DiscoveryChart />}
+        {tab === 'cudiscovery' && <CopperDiscoveryChart />}
         {tab === 'merger'      && <MergerChart />}
         {tab === 'commodities' && <CommoditiesChart />}
         {tab === 'top5'        && <Top5Chart />}
@@ -860,7 +923,7 @@ const App = () => {
 
       <footer className="max-w-5xl mx-auto mt-4 text-xs space-y-2" style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
         <div>
-          Fourteen views of a seventy-five-year cycle.
+          Fifteen views of a seventy-five-year cycle.
         </div>
         <div>
           Indicative trends compiled from industry knowledge, not precise statistics. AISC was standardised in <span style={{ color: C.gold }}>2013</span>; earlier values are back-cast. Company market caps and merger values are best-effort approximations — directional shape is reliable, exact figures are not.
