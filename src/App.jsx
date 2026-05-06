@@ -2369,10 +2369,10 @@ const App = () => {
       <div className="max-w-5xl mx-auto mb-3 flex gap-2 flex-wrap">
         {[
           { id: 'industry',  label: 'Industry trends' },
-          { id: 'markets',   label: 'Markets' },
-          { id: 'companies', label: 'Companies' },
+          { id: 'markets',   label: 'Market trends' },
+          { id: 'companies', label: 'Company trends' },
           { id: 'leading',   label: 'Leading indicators' },
-          { id: 'future',    label: 'Future' },
+          { id: 'future',    label: 'Future trends' },
           { id: 'strategy',  label: 'Strategy' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
