@@ -358,19 +358,19 @@ const top5Notes = [
 ];
 
 const top615Data = [
-  { year: 2000, goldfields: 2,    northernstar: 0,    harmony: 1.5, panamerican: 0.5, alamos: 0.1, evolution: 0,   gold: 280 },
-  { year: 2005, goldfields: 8,    northernstar: 0,    harmony: 5,   panamerican: 1.5, alamos: 0.3, evolution: 0,   gold: 450 },
-  { year: 2010, goldfields: 12,   northernstar: 0.05, harmony: 4,   panamerican: 4,   alamos: 1.5, evolution: 0,   gold: 1400 },
-  { year: 2011, goldfields: 13,   northernstar: 0.2,  harmony: 5,   panamerican: 4,   alamos: 2,   evolution: 0.3, gold: 1700 },
-  { year: 2013, goldfields: 4,    northernstar: 0.3,  harmony: 1.5, panamerican: 1.5, alamos: 0.8, evolution: 0.3, gold: 1300 },
-  { year: 2015, goldfields: 3,    northernstar: 1.5,  harmony: 0.5, panamerican: 1.2, alamos: 1.5, evolution: 1,   gold: 1100 },
-  { year: 2017, goldfields: 6,    northernstar: 2.5,  harmony: 1,   panamerican: 2.5, alamos: 2.5, evolution: 2.5, gold: 1300 },
-  { year: 2019, goldfields: 5,    northernstar: 6,    harmony: 1.5, panamerican: 5,   alamos: 2.5, evolution: 3.5, gold: 1500 },
-  { year: 2020, goldfields: 10,   northernstar: 8,    harmony: 4,   panamerican: 7,   alamos: 4,   evolution: 5,   gold: 1900 },
-  { year: 2022, goldfields: 8,    northernstar: 9,    harmony: 2,   panamerican: 5,   alamos: 3,   evolution: 3.5, gold: 1800 },
-  { year: 2023, goldfields: 13,   northernstar: 11,   harmony: 4,   panamerican: 6,   alamos: 5,   evolution: 4,   gold: 2050 },
-  { year: 2024, goldfields: 14,   northernstar: 14,   harmony: 6,   panamerican: 8,   alamos: 8,   evolution: 6,   gold: 2700 },
-  { year: 2025, goldfields: 18,   northernstar: 18,   harmony: 9,   panamerican: 10,  alamos: 12,  evolution: 8,   gold: 3500 },
+  { year: 2000, goldfields: 2,    northernstar: 0,    harmony: 1.5, panamerican: 0.5, alamos: 0.1, evolution: 0,   newcrest: 1.5,  gold: 280 },
+  { year: 2005, goldfields: 8,    northernstar: 0,    harmony: 5,   panamerican: 1.5, alamos: 0.3, evolution: 0,   newcrest: 6,    gold: 450 },
+  { year: 2010, goldfields: 12,   northernstar: 0.05, harmony: 4,   panamerican: 4,   alamos: 1.5, evolution: 0,   newcrest: 25,   gold: 1400 },
+  { year: 2011, goldfields: 13,   northernstar: 0.2,  harmony: 5,   panamerican: 4,   alamos: 2,   evolution: 0.3, newcrest: 28,   gold: 1700 },
+  { year: 2013, goldfields: 4,    northernstar: 0.3,  harmony: 1.5, panamerican: 1.5, alamos: 0.8, evolution: 0.3, newcrest: 7,    gold: 1300 },
+  { year: 2015, goldfields: 3,    northernstar: 1.5,  harmony: 0.5, panamerican: 1.2, alamos: 1.5, evolution: 1,   newcrest: 7,    gold: 1100 },
+  { year: 2017, goldfields: 6,    northernstar: 2.5,  harmony: 1,   panamerican: 2.5, alamos: 2.5, evolution: 2.5, newcrest: 13,   gold: 1300 },
+  { year: 2019, goldfields: 5,    northernstar: 6,    harmony: 1.5, panamerican: 5,   alamos: 2.5, evolution: 3.5, newcrest: 17,   gold: 1500 },
+  { year: 2020, goldfields: 10,   northernstar: 8,    harmony: 4,   panamerican: 7,   alamos: 4,   evolution: 5,   newcrest: 22,   gold: 1900 },
+  { year: 2022, goldfields: 8,    northernstar: 9,    harmony: 2,   panamerican: 5,   alamos: 3,   evolution: 3.5, newcrest: 10,   gold: 1800 },
+  { year: 2023, goldfields: 13,   northernstar: 11,   harmony: 4,   panamerican: 6,   alamos: 5,   evolution: 4,   newcrest: 19,   gold: 2050 },
+  { year: 2024, goldfields: 14,   northernstar: 14,   harmony: 6,   panamerican: 8,   alamos: 8,   evolution: 6,   newcrest: null, gold: 2700 },
+  { year: 2025, goldfields: 18,   northernstar: 18,   harmony: 9,   panamerican: 10,  alamos: 12,  evolution: 8,   newcrest: null, gold: 3500 },
 ];
 const top615Notes = [
   { year: 2002, n: 1, title: 'Gold Fields formed', body: 'South African senior consolidates Driefontein, Kloof, Beatrix' },
@@ -380,8 +380,45 @@ const top615Notes = [
   { year: 2018, n: 5, title: 'Pan American-Tahoe', body: 'Acquires Escobal (suspended); shifts to LATAM silver+gold mix' },
   { year: 2021, n: 6, title: 'Northern Star-Saracen', body: 'Merger consolidates KCGM (Super Pit) ownership' },
   { year: 2023, n: 7, title: 'Pan American-Yamana share', body: 'Splits Yamana with Agnico; Cerro Moro, Jacobina, Minera Florida' },
-  { year: 2025, n: 8, title: 'Mid-tier re-rate', body: 'Gold ATH lifts entire tier; Northern Star, Alamos, Evolution lead percentage gains' },
+  { year: 2023, n: 8, title: 'Newcrest acquired by Newmont', body: 'US$19B; Cadia, Lihir, Telfer, Brucejack absorbed; ends 56-year ASX-listed history' },
+  { year: 2025, n: 9, title: 'Mid-tier re-rate', body: 'Gold ATH lifts entire tier; Northern Star, Alamos, Evolution lead percentage gains' },
 ];
+
+// ===== Section overviews =====
+
+const industryOverview = {
+  title: 'Seventy-five years of Australian metal mining',
+  intro: 'From hand-stoped gold in the 1950s to autonomous Pilbara haul trucks today: Australia became the world\'s largest open-cut metal mining country and a top producer in nearly every major metal. The seven charts that follow trace mine counts, costs, methods, revenue, and regional production share over that period.',
+  items: [
+    { n: 1, title: 'Open-cut takeover (1965-1985)', body: 'Iron ore in the Pilbara begins it; heap-leach + CIP/CIL economics in the WA-Goldfields completes it. OC mine count triples while UG count holds roughly flat — and stays that way to this day.' },
+    { n: 2, title: 'Underground methods modernise', body: 'Mt Isa pioneers sub-level caving in 1971; Northparkes brings panel block caving in 1993; Cadia East opens the modern block-cave era in 2010. Sub-level open stoping remains the gold UG workhorse.' },
+    { n: 3, title: 'Cost dynamics', body: 'Mechanisation collapsed OC unit costs by the 1970s. The 2003-2011 China boom inflated all costs ~50%; autonomous haulage and post-crash discipline pulled them back. Recent inflation (diesel, labour, ESG, depth) has them rising again.' },
+    { n: 4, title: 'Commodity composition', body: 'Gold dominated 1950s revenue; iron ore overtook everything by 2003 and now alone produces more revenue than all other Australian metal mining combined. Lithium became material from 2017.' },
+    { n: 5, title: 'Regional production', body: 'South Africa\'s gold dominance (75% in 1970) collapsed; Asia-Pacific now leads. South America\'s copper share rose to 42% by 2010 then plateaued as African output (DRC, Zambia) accelerated.' },
+  ],
+};
+
+const marketsOverview = {
+  title: 'Seventy-five years of metal market cycles',
+  intro: 'Two big stories run through the markets data: gold\'s three bull markets driven by monetary regime shifts, and a multi-decade decline in tier-1 mineral discoveries despite ever-rising exploration spend. Five charts cover gold and copper price cycles, major discoveries by continent, and a multi-commodity index.',
+  items: [
+    { n: 1, title: "Gold's three bull markets", body: 'Post-Bretton-Woods (1971-1980, +6×), China-led (2001-2011, +5×), and the current run (2015-present, +2.5× and counting in real terms). Different driver each time: monetary breakdown, industrial demand, then rate-cut and central-bank-buying dynamics.' },
+    { n: 2, title: "Copper's long bear and supercycle", body: 'From 1974 to 1999, real copper went from US$5/lb to US$1/lb. The China supercycle restored 5× pricing; the energy-transition premium since 2016 has structurally re-rated copper higher.' },
+    { n: 3, title: 'Discovery decline', body: 'For both gold and copper, tier-1 discoveries peaked in the 1990s and have halved since. Despite record exploration spend in the 2010s, finds keep getting smaller, deeper, more remote. The 2020s on track to be weakest on record for both metals.' },
+    { n: 4, title: 'The China supercycle (2003-2011)', body: 'Iron ore +6×, copper +4×, gold +5×. Each metal has a different post-2011 path: iron ore boom-bust, copper structural re-rate, gold three-phase bull.' },
+    { n: 5, title: 'Lithium mania (2018-2024)', body: 'Spodumene rose 12× in four years on the EV thesis, then corrected 70%. Classic boom-bust shape, with a structurally higher floor than 2000.' },
+  ],
+};
+
+const companiesOverview = {
+  title: 'Seventy-five years of mining companies and M&A',
+  intro: 'Three views on company-level dynamics: major mining M&A activity since 1995, the senior gold producers (Newmont, Barrick, Agnico, AngloGold, Kinross), and the mid-tier basket. The pattern: consolidation accelerates near price peaks; mid-tier rises during corrections.',
+  items: [
+    { n: 1, title: 'M&A waves', body: '2001 BHP-Billiton creates the first true diversified major. 2007 peak (Rio-Alcan US$38B) ends in GFC. Glencore-Xstrata 2013 marks late-cycle consolidation. 2019 brings the gold senior wave (Newmont-Goldcorp, Barrick-Randgold). 2023 Newmont-Newcrest is the biggest gold deal ever; 2024 BHP-Anglo bid signals copper scarcity premium.' },
+    { n: 2, title: 'Senior gold consolidation', body: 'Newmont-Normandy (2002) and Barrick-Placer Dome (2006) created the modern top-2. After the 2015 trough, Newmont-Goldcorp and Newmont-Newcrest cemented #1; Agnico-Kirkland Lake created a true challenger; Agnico now rivals Newmont by market cap at gold ATH.' },
+    { n: 3, title: 'Mid-tier emergence', body: 'Northern Star (2010 founding) and Evolution (2011 founding) grew from nothing to multi-billion-dollar producers via systematic acquisition. The 2025 gold breakout has lifted the entire mid-tier — percentage gains exceed the seniors.' },
+  ],
+};
 
 // ============ COMPONENTS ============
 
@@ -395,7 +432,7 @@ const NotesPanel = ({ notes }) => (
           style={{ background: C.marker, color: C.ink }}>{note.n}</span>
         <div style={{ color: C.text }}>
           <span className="font-semibold" style={{ color: C.text }}>
-            {note.year || note.decade} · {note.title}.
+            {(note.year || note.decade) ? `${note.year || note.decade} · ${note.title}.` : `${note.title}.`}
           </span>{' '}
           <span style={{ color: C.dim }}>{note.body}</span>
         </div>
@@ -421,6 +458,16 @@ const ChartHeader = ({ title, subtitle, unit }) => (
 
 const findNearest = (data, year, key = 'year') =>
   data.reduce((p, c) => Math.abs(c[key] - year) < Math.abs(p[key] - year) ? c : p);
+
+const OverviewSection = ({ data }) => (
+  <>
+    <ChartHeader title={data.title} subtitle="Section overview" unit={`${data.items.length} key trends`} />
+    <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
+      {data.intro}
+    </p>
+    <NotesPanel notes={data.items} />
+  </>
+);
 
 // ===== Industry Trends =====
 
@@ -798,7 +845,7 @@ const Top5Chart = () => (
 
 const Top615Chart = () => (
   <>
-    <ChartHeader title="Mid-tier global gold miners" subtitle="Representative basket of #6-15 by current size — market cap; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
+    <ChartHeader title="Mid-tier global gold miners" subtitle="Representative basket of #6-15 by current size + Newcrest pre-acquisition; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={top615Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -807,17 +854,18 @@ const Top615Chart = () => (
         <YAxis yAxisId="gold" orientation="right" {...axisStyle} tick={{ fill: C.gold }} />
         <Tooltip {...tooltipStyle} />
         <Legend wrapperStyle={{ color: C.text, fontSize: 11 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="goldfields"   name="Gold Fields"   stroke={C.ochre}  strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="northernstar" name="Northern Star" stroke={C.forest} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="harmony"      name="Harmony"       stroke={C.rust}   strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="panamerican"  name="Pan American"  stroke={C.teal}   strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="alamos"       name="Alamos"        stroke={C.plum}   strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="cap" type="monotone" dataKey="evolution"    name="Evolution"     stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
-        <Line yAxisId="gold" type="monotone" dataKey="gold"        name="Gold US$/oz"   stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
+        <Line yAxisId="cap" type="monotone" dataKey="goldfields"   name="Gold Fields"           stroke={C.ochre}  strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="northernstar" name="Northern Star"         stroke={C.forest} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="harmony"      name="Harmony"               stroke={C.rust}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="panamerican"  name="Pan American"          stroke={C.teal}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="alamos"       name="Alamos"                stroke={C.plum}   strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="evolution"    name="Evolution"             stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
+        <Line yAxisId="cap" type="monotone" dataKey="newcrest"     name="Newcrest (to 2023)"    stroke={C.slate}  strokeWidth={2} dot={{ r: 2 }} connectNulls={false} />
+        <Line yAxisId="gold" type="monotone" dataKey="gold"        name="Gold US$/oz"           stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
         {top615Notes.map(note => {
           const pt = findNearest(top615Data, note.year);
-          const yMax = Math.max(pt.goldfields, pt.northernstar, pt.harmony, pt.panamerican, pt.alamos, pt.evolution);
-          return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 1.5} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
+          const yMax = Math.max(pt.goldfields, pt.northernstar, pt.harmony, pt.panamerican, pt.alamos, pt.evolution, pt.newcrest || 0);
+          return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 2} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
             label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
         })}
       </ComposedChart>
@@ -829,9 +877,10 @@ const Top615Chart = () => (
 // ============ MAIN ============
 const App = () => {
   const [section, setSection] = useState('industry');
-  const [tab, setTab] = useState('mines');
+  const [tab, setTab] = useState('industryOverview');
 
   const tabsIndustry = [
+    { id: 'industryOverview', label: 'Overview' },
     { id: 'mines',    label: '1 · Mine count' },
     { id: 'aisc',     label: '2 · AISC' },
     { id: 'cost',     label: '3 · Mining cost' },
@@ -841,22 +890,32 @@ const App = () => {
     { id: 'copper',   label: '7 · Copper by region' },
   ];
   const tabsMarkets = [
+    { id: 'marketsOverview', label: 'Overview' },
     { id: 'goldcycle',     label: '8 · Gold cycle' },
     { id: 'coppercycle',   label: '9 · Copper cycle' },
     { id: 'discovery',     label: '10 · Au discoveries' },
     { id: 'cudiscovery',   label: '11 · Cu discoveries' },
-    { id: 'merger',        label: '12 · M&A' },
-    { id: 'commodities',   label: '13 · Commodity prices' },
+    { id: 'commodities',   label: '12 · Commodity prices' },
+  ];
+  const tabsCompanies = [
+    { id: 'companiesOverview', label: 'Overview' },
+    { id: 'merger',        label: '13 · M&A' },
     { id: 'top5',          label: '14 · Top 5 Au miners' },
     { id: 'top615',        label: '15 · Mid-tier Au miners' },
   ];
 
-  const onSection = (s) => {
-    setSection(s);
-    setTab(s === 'industry' ? 'mines' : 'goldcycle');
+  const tabsBySection = {
+    industry: tabsIndustry,
+    markets: tabsMarkets,
+    companies: tabsCompanies,
   };
 
-  const tabs = section === 'industry' ? tabsIndustry : tabsMarkets;
+  const onSection = (s) => {
+    setSection(s);
+    setTab(tabsBySection[s][0].id);
+  };
+
+  const tabs = tabsBySection[section];
 
   return (
     <div style={{ background: C.bg, color: C.text, minHeight: '100vh', fontFamily: "'Inter', -apple-system, sans-serif" }}
@@ -869,10 +928,11 @@ const App = () => {
         </div>
       </header>
 
-      <div className="max-w-5xl mx-auto mb-3 flex gap-2">
+      <div className="max-w-5xl mx-auto mb-3 flex gap-2 flex-wrap">
         {[
-          { id: 'industry', label: 'Industry trends' },
-          { id: 'markets',  label: 'Markets & companies' },
+          { id: 'industry',  label: 'Industry trends' },
+          { id: 'markets',   label: 'Markets' },
+          { id: 'companies', label: 'Companies' },
         ].map(s => (
           <button key={s.id} onClick={() => onSection(s.id)}
             className="px-4 py-2 text-sm rounded-md transition-colors"
@@ -904,6 +964,9 @@ const App = () => {
 
       <main className="max-w-5xl mx-auto rounded-lg p-4 sm:p-6"
         style={{ background: C.card, border: `1px solid ${C.border}` }}>
+        {tab === 'industryOverview'  && <OverviewSection data={industryOverview} />}
+        {tab === 'marketsOverview'   && <OverviewSection data={marketsOverview} />}
+        {tab === 'companiesOverview' && <OverviewSection data={companiesOverview} />}
         {tab === 'mines'       && <MineChart />}
         {tab === 'aisc'        && <AiscChart />}
         {tab === 'cost'        && <CostChart />}
