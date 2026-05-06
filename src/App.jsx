@@ -422,19 +422,96 @@ const companiesOverview = {
   ],
 };
 
-const futureTrends = {
-  title: 'Where the next decade points',
-  intro: 'Reading the past 75 years forward: the strongest signals are a long-running discovery decline running into rising energy-transition demand, a structural gold bull driven by central-bank reallocation, and a permanent grade-decline tailwind to costs. Below are the trends most likely to shape Australian and global metal mining through 2035.',
+const futureTrends5yr = {
+  title: '5-year trends · 2026-2030',
+  subtitle: 'Near-term forecast — high confidence; signals already present in leading indicators',
+  unit: 'trends ranked by impact × likelihood score',
+  intro: 'Five-year horizon trends are largely playing out already. Energy transition demand, gold structural bull, M&A wave, and lithium recovery dominate. Most of these are baked in by current capital allocation and inventory dynamics; the question is magnitude not direction.',
   items: [
-    { n: 1, title: 'Copper supply gap widens', body: 'Energy transition (EVs, grid, data centres, electrification of heat) needs ~50 Mt/yr by 2035 vs 23 Mt today. Pipeline of approved projects covers <60% of forecast demand. Expect structurally higher prices, more copper-driven M&A (BHP-Anglo will not be the last), Chinese majors paying premiums for African assets.' },
-    { n: 2, title: 'Gold structural bull continues', body: 'Central-bank buying running 1,000+ tonnes/year (vs ~400t pre-2022) — driven by post-Russia-sanctions de-dollarisation. Gold/M2 ratio still well below 1980 highs. Likely path: continued grind higher with high volatility; A$ gold price (the figure that matters for Australian producers) compounds further given AUD weakness.' },
-    { n: 3, title: 'Discovery cliff forces M&A acceleration', body: 'Tier-1 finds halved each decade since 1990s for both Au and Cu. Average mine reserve life across majors has fallen ~30% in 15 years. With brownfield extension exhausted at most assets, the only path to growth is acquisition. Expect M&A deal count near current levels; deal sizes to grow as fewer targets remain.' },
-    { n: 4, title: 'Grade decline = cost ceiling rises', body: 'Average operating Cu grade ~0.6% (was 1.6% in 1990); Au heap-leach grades approaching 0.5 g/t at scale. Each year requires more rock moved per oz/Mt produced. AISC and unit cost will keep rising in real terms; only step-changes in autonomous haulage, AI ore-sorting, and deep-UG block caves can offset.' },
-    { n: 5, title: 'Permitting timelines structural problem', body: 'Discovery-to-production averaged ~10 years in the 1990s; now 18+ years globally and rising. Australian permitting is faster than most jurisdictions but still extending. This means even if exploration succeeds, supply response lags 10-20 years — locking in tight markets.' },
-    { n: 6, title: 'Critical minerals: Australia\'s structural advantage', body: 'Lithium, REE, nickel sulphide, vanadium, tungsten — all areas where Australia has resource + jurisdiction + ally-aligned geopolitics. US/EU government-backed offtake/finance is now reality (DPA grants, Critical Minerals Facility). Lithium reset of 2024 will see consolidation; mid-decade Li price recovery likely as backlog clears.' },
-    { n: 7, title: 'Iron ore plateau, not collapse', body: 'Chinese steel demand has peaked but Indian + SE Asian growth provides ~20-year offset. Pilbara remains the lowest-cost producer globally. Risk: African competition (Simandou ramps mid-decade) erodes price premium. Australian iron ore revenue likely flat-to-slightly-down through 2035, not crashing.' },
-    { n: 8, title: 'AI exploration and autonomous mining', body: 'KoBold (gold/copper) and similar AI-targeting programs starting to deliver discoveries. Cadia PC2-3, Mt Keith automation, autonomous Pilbara haul fleets at full deployment. Productivity uplift could be 15-25% over the decade — partial offset to grade decline.' },
-    { n: 9, title: 'ESG/closure becomes cost line', body: 'Tailings management (post-Brumadinho), water rights, scope-1 decarbonisation, Indigenous heritage (post-Juukan Gorge) — each adds ~5-10% to operating costs. Premium pricing for "green" copper/iron emerging. Australian producers well-positioned vs DRC, Russia, parts of Latin America.' },
+    { n: 1, title: 'Gold stays elevated', impact: 3, likelihood: 3,
+      body: 'Central bank buying continues at >1,000t/yr; fiat debasement narrative strengthens. Gold above US$3,500/oz real for most of period; A$ gold at ATH most years given AUD weakness.' },
+    { n: 2, title: 'Copper supply gap widens', impact: 3, likelihood: 3,
+      body: 'Codelco production declines, Escondida grade drops, no major new mines come online before 2028. LME inventories below 2-week consumption most of period; price stays structurally elevated.' },
+    { n: 3, title: 'Gold M&A wave continues', impact: 3, likelihood: 3,
+      body: 'Another senior-on-senior or senior-on-large-mid-tier deal likely. Newmont, Agnico, Barrick all could be acquirer or target. Gold M&A deal value above pre-2020 levels every year of period.' },
+    { n: 4, title: 'Critical minerals govt finance expands', impact: 3, likelihood: 2,
+      body: 'US/EU/AU government-backed offtake and finance becomes standard for tier-1 critical minerals projects. DPA, Critical Minerals Facility, EU CRMA all scale. Several Australian Li, REE, Ni projects benefit.' },
+    { n: 5, title: 'Lithium price recovers', impact: 2, likelihood: 3,
+      body: 'Backlog clears 2026-27 and EV penetration grows; spodumene returns to A$2,000-2,500/t real range. Several Australian Li miners survive the reset; consolidation among smaller players.' },
+    { n: 6, title: 'Diesel structurally higher', impact: 2, likelihood: 3,
+      body: 'Diesel stays above A$1.80/L through period; this alone adds ~5-10% to OC AISC vs 2019 baseline. Hybrid haulage trials accelerate but no large-scale deployment yet.' },
+    { n: 7, title: 'Resource nationalism escalates', impact: 2, likelihood: 3,
+      body: 'DRC, Indonesia, Mexico, possibly Mongolia tighten terms. At least one major asset shutdown like Cobre Panamá. Australian state royalty reviews continue.' },
+    { n: 8, title: 'Aussie mid-tier mega-deal', impact: 2, likelihood: 3,
+      body: 'Northern Star, Evolution, or another mid-tier makes a US$5B+ acquisition. Mid-tier consolidation accelerates as gold price holds; possibly an offshore Australian acquisition.' },
+    { n: 9, title: 'Iron ore volume softens', impact: 2, likelihood: 2,
+      body: 'Chinese steel demand declines modestly; Pilbara volumes flat-to-down 5-10%. Price holds on Simandou delays. AU Fe revenue remains the largest single contributor through 2030.' },
+    { n: 10, title: 'AI exploration: first tier-1 find', impact: 2, likelihood: 2,
+      body: 'A KoBold, Earth AI, or similar program delivers a >2 Moz Au or >3 Mt Cu discovery from ML-targeted greenfield drilling. Validates the technology even if economic discovery rate stays low.' },
+    { n: 11, title: 'Major LATAM nationalisation', impact: 3, likelihood: 1,
+      body: 'Significant asset (>US$5B) nationalised or contract reopened in Mexico, Argentina, or Peru. Triggers global re-rating of jurisdictional risk premiums and capital flight to safer jurisdictions.' },
+  ],
+};
+
+const futureTrends15yr = {
+  title: '15-year trends · 2026-2040',
+  subtitle: 'Medium-term structural shifts — discovery cliff meets energy transition demand',
+  unit: 'trends ranked by impact × likelihood score',
+  intro: 'Fifteen-year horizon is where the structural problems compound. Discovery cliff, grade decline, and reserve depletion collide with sustained energy-transition demand. Unit costs rise in real terms across most metals despite automation; geographic concentration intensifies.',
+  items: [
+    { n: 1, title: 'Cu demand outpaces supply by 30%+', impact: 3, likelihood: 3,
+      body: 'IEA, BloombergNEF, and S&P all forecast 2035-40 Cu demand of 45-55Mt vs supply 30-35Mt. Sustained price premium; recycling intensity rises but cannot close the gap. Cu is the dominant story of the next 15 years.' },
+    { n: 2, title: 'Grade decline drives unit cost up 30-50%', impact: 3, likelihood: 3,
+      body: 'Cu grade reaches 0.4%; Au OC grade 0.7g/t. Real-cost increase of 30-50% across both metals despite scale, automation, and AI ore-sorting offsets. Industry-wide AISC roughly doubles by 2040.' },
+    { n: 3, title: 'Sector-wide reserve writedowns', impact: 3, likelihood: 3,
+      body: 'Discovery cliff means top-10 producers must accept lower-grade reserves to maintain reserve life or accept declining output. Several major producers shrink; widespread reserve recuts at lower price decks.' },
+    { n: 4, title: 'Gold reaches new real-price peak', impact: 3, likelihood: 2,
+      body: 'Gold/M2 ratio approaches 1980 levels; A$ gold price compounds further given AUD weakness. Real US$ gold peaks above US$5,000/oz at some point during the period; sustained levels above current ATH.' },
+    { n: 5, title: 'Indonesia + Chile dominate base metals', impact: 2, likelihood: 3,
+      body: 'Chile, Peru, DRC, Indonesia together produce 70%+ of global Cu and Ni. Geographic concentration reaches Co-like levels for several metals. Drives further "ally-aligned" pricing differentiation.' },
+    { n: 6, title: 'ESG/closure structural cost', impact: 2, likelihood: 3,
+      body: 'Tailings, water, scope-1 carbon, Indigenous, biodiversity together add 10-15% to real opex permanently. Premium pricing for compliance materialises. Australian producers advantaged.' },
+    { n: 7, title: 'Block caving becomes default UG', impact: 2, likelihood: 3,
+      body: 'New large-scale UG metal mines almost all block caves by 2040. Capital-intensive but required to compete on cost as easier ore depletes. Cadia PC2-3 template gets replicated globally.' },
+    { n: 8, title: 'Autonomous fleets standard', impact: 2, likelihood: 3,
+      body: 'Every major OC operation runs autonomous haulage by 2035; partial UG automation common. Productivity uplift offsets ~30% of grade-decline cost pressure. Australian leadership in this technology.' },
+    { n: 9, title: 'Iron ore plateau confirmed', impact: 2, likelihood: 3,
+      body: 'Chinese steel demand peaks; India + SE Asia partially offset. Pilbara remains lowest-cost producer; Simandou ramps mid-decade. AU Fe revenue flat-to-slightly-down through 2040, not crashing.' },
+    { n: 10, title: 'EV+grid build hits supercycle scale', impact: 3, likelihood: 2,
+      body: 'Cu, Ni, Li, Co demand grows at China-supercycle pace through 2035. Some metals see 3-4× demand growth. Coincides with discovery cliff to create the most acute supply tightness in 50+ years.' },
+    { n: 11, title: 'REE supply diversifies', impact: 3, likelihood: 1,
+      body: 'China share of REE supply drops below 50% as US, Australian, Vietnamese projects reach commercial scale. Significant geopolitical event likely required as catalyst — partial decoupling rather than full.' },
+  ],
+};
+
+const futureTrends25yr = {
+  title: '25-year trends · 2026-2050',
+  subtitle: 'Long-term transformations — scale of change rivals the 2000s China supercycle',
+  unit: 'trends ranked by impact × likelihood score',
+  intro: 'Twenty-five-year horizon mixes inevitable trends (decarbonisation, demographic shifts, iron ore peak) with speculative ones (asteroid mining, deep-sea mining). Several of these will be the defining stories of the second half of the century, but timing is highly uncertain. Lower likelihood does not mean lower importance.',
+  items: [
+    { n: 1, title: 'Iron ore demand peaks then declines', impact: 3, likelihood: 3,
+      body: 'Chinese steel intensity peak combined with circular economy reduces global Fe demand by 15-25% from 2030 peak. Australian iron ore revenue declines structurally; Pilbara lowest-cost producers survive but margins compress.' },
+    { n: 2, title: 'Mining decarbonisation completed', impact: 3, likelihood: 3,
+      body: 'Net-zero scope 1+2 across major mining operations; hydrogen haulage, electric loaders, renewable power fully deployed. Cost of decarbonisation embedded in commodity prices; "green premium" becomes default pricing.' },
+    { n: 3, title: 'Demographic shift forces full automation', impact: 3, likelihood: 3,
+      body: 'Aging Australian/global mining workforce + low recruitment forces full automation. Onsite headcount per Mt produced drops 60-70% from 2020 levels. FIFO model fundamentally restructured.' },
+    { n: 4, title: 'Battery tech reshapes Li/Ni demand', impact: 3, likelihood: 2,
+      body: 'Solid-state, sodium-ion, or other tech reshapes the bill of materials. Possible scenarios: less Li (sodium scales), less Ni (LFP wins), or more of both (demand growth dominates). High dispersion of outcomes.' },
+    { n: 5, title: 'Recycling meets 50%+ of demand', impact: 3, likelihood: 2,
+      body: 'Cu recycling reaches 50% of global supply; Au and Pt-group from urban mining. Reduces but does not eliminate primary mining requirement; recycling grades exceed virgin ore by 2-3× for most metals.' },
+    { n: 6, title: 'AI exploration matches old greenfield era', impact: 3, likelihood: 2,
+      body: 'ML-targeted exploration delivers tier-1 finds at rates approaching the 1990s peak by mid-century. Restocks reserves; partial offset to discovery cliff. Likely concentrated in underexplored Africa and Asia.' },
+    { n: 7, title: 'Resource scarcity geopolitical conflicts', impact: 3, likelihood: 2,
+      body: 'Significant geopolitical event(s) over critical mineral supply — embargoes, sanctions, possibly military involvement around chokepoints. Drives "ally-aligned" pricing further; reshapes globalised supply chains.' },
+    { n: 8, title: 'Geographic centre shifts south', impact: 2, likelihood: 3,
+      body: 'Africa supplies 25%+ of global Cu, Co, Au by 2050. South America consolidates Cu/Li dominance. Northern hemisphere mining becomes specialty/critical-only; broad-base mining moves to Global South.' },
+    { n: 9, title: 'Hydrogen replaces diesel', impact: 2, likelihood: 2,
+      body: 'H2 fuel cells or H2 ICE replace diesel for >50% of mining haulage. Eliminates ~15% of OC unit cost (replaces it with H2 cost which trends down). Australian renewable H2 industry scales as anchor offtake.' },
+    { n: 10, title: 'Asteroid mining commercial', impact: 3, likelihood: 1,
+      body: 'At least one near-Earth asteroid commercially mined for Pt-group, possibly Au. Niche supply (<5% of any metal) but proves concept; reshapes long-term scarcity narrative for high-value metals only.' },
+    { n: 11, title: 'Deep-sea mining commercial scale', impact: 2, likelihood: 1,
+      body: 'Polymetallic nodules from Clarion-Clipperton Zone commercially mined for Cu, Ni, Co, Mn. Significant environmental backlash; produces 5-10% of global supply at most by 2050; primarily Asian operators.' },
   ],
 };
 
@@ -732,6 +809,138 @@ const OverviewSection = ({ data }) => (
       {data.intro}
     </p>
     <NotesPanel notes={data.items} />
+  </>
+);
+
+const TrendsMatrix = ({ trends }) => {
+  const itemsAt = (impact, likelihood) =>
+    trends.filter(t => t.impact === impact && t.likelihood === likelihood);
+
+  const cellBg = (score) => {
+    const opacity = 0.04 + (score - 1) * 0.045;
+    return `rgba(230, 184, 74, ${opacity})`;
+  };
+
+  const Cell = ({ impact, likelihood }) => {
+    const items = itemsAt(impact, likelihood);
+    const score = impact * likelihood;
+    return (
+      <div className="p-2 rounded relative flex items-center justify-center"
+        style={{
+          background: cellBg(score),
+          border: `1px solid ${C.border}`,
+          minHeight: 92,
+        }}>
+        <div className="absolute top-1 right-2 text-[10px]"
+          style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+          {score}
+        </div>
+        <div className="flex flex-wrap gap-1 justify-center items-center">
+          {items.map(item => (
+            <span key={item.n} title={item.title}
+              className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style={{ background: C.marker, color: C.ink }}>
+              {item.n}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="my-5">
+      <div className="text-[10px] uppercase tracking-[0.2em] mb-1"
+        style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+        Impact × Likelihood matrix
+      </div>
+      <div className="text-xs mb-3" style={{ color: C.dim }}>
+        Each trend's number is plotted by impact (rows) and likelihood (columns). Cell number = impact × likelihood score.
+      </div>
+      <div style={{ maxWidth: 580 }}>
+        <div className="grid gap-1" style={{ gridTemplateColumns: '92px 1fr 1fr 1fr' }}>
+          {/* Top row: column labels */}
+          <div></div>
+          <div className="text-center text-[10px] uppercase tracking-widest pb-1"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            Low likelihood
+          </div>
+          <div className="text-center text-[10px] uppercase tracking-widest pb-1"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            Medium
+          </div>
+          <div className="text-center text-[10px] uppercase tracking-widest pb-1"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            High
+          </div>
+
+          {/* High impact row */}
+          <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            High impact
+          </div>
+          <Cell impact={3} likelihood={1} />
+          <Cell impact={3} likelihood={2} />
+          <Cell impact={3} likelihood={3} />
+
+          {/* Med impact row */}
+          <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            Medium
+          </div>
+          <Cell impact={2} likelihood={1} />
+          <Cell impact={2} likelihood={2} />
+          <Cell impact={2} likelihood={3} />
+
+          {/* Low impact row */}
+          <div className="flex items-center justify-end pr-2 text-[10px] uppercase tracking-widest"
+            style={{ color: C.dim, fontFamily: 'ui-monospace, monospace' }}>
+            Low
+          </div>
+          <Cell impact={1} likelihood={1} />
+          <Cell impact={1} likelihood={2} />
+          <Cell impact={1} likelihood={3} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TrendsList = ({ items }) => {
+  const sorted = [...items].sort((a, b) =>
+    (b.impact * b.likelihood) - (a.impact * a.likelihood)
+  );
+  return (
+    <ol className="mt-4 space-y-2">
+      {sorted.map(item => {
+        const score = item.impact * item.likelihood;
+        return (
+          <li key={item.n} className="flex gap-3 text-sm">
+            <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style={{ background: C.marker, color: C.ink }}>{item.n}</span>
+            <div style={{ color: C.text, flex: 1, minWidth: 0 }}>
+              <span className="font-semibold" style={{ color: C.text }}>{item.title}.</span>{' '}
+              <span style={{ color: C.dim }}>{item.body}</span>
+            </div>
+            <span className="flex-shrink-0 text-[10px] uppercase tracking-widest self-start mt-1"
+              style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+              Score {score}
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
+const TrendsTimeView = ({ data }) => (
+  <>
+    <ChartHeader title={data.title} subtitle={data.subtitle} unit={data.unit} />
+    <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
+      {data.intro}
+    </p>
+    <TrendsMatrix trends={data.items} />
+    <TrendsList items={data.items} />
   </>
 );
 
@@ -1451,7 +1660,9 @@ const App = () => {
     { id: 'funnel',         label: '25 · Permit funnel' },
   ];
   const tabsFuture = [
-    { id: 'futureTrends', label: 'Trends' },
+    { id: 'futureTrends5yr',  label: '5yr Trends' },
+    { id: 'futureTrends15yr', label: '15yr Trends' },
+    { id: 'futureTrends25yr', label: '25yr Trends' },
   ];
 
   const tabsBySection = {
@@ -1522,7 +1733,9 @@ const App = () => {
         {tab === 'marketsOverview'   && <OverviewSection data={marketsOverview} />}
         {tab === 'companiesOverview' && <OverviewSection data={companiesOverview} />}
         {tab === 'leadingOverview'   && <OverviewSection data={leadingOverview} />}
-        {tab === 'futureTrends'      && <OverviewSection data={futureTrends} />}
+        {tab === 'futureTrends5yr'   && <TrendsTimeView data={futureTrends5yr} />}
+        {tab === 'futureTrends15yr'  && <TrendsTimeView data={futureTrends15yr} />}
+        {tab === 'futureTrends25yr'  && <TrendsTimeView data={futureTrends25yr} />}
         {tab === 'mines'         && <MineChart />}
         {tab === 'aisc'          && <AiscChart />}
         {tab === 'cost'          && <CostChart />}
