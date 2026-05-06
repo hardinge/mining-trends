@@ -3,6 +3,7 @@ import {
   LineChart, Line, BarChart, Bar, AreaChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   ResponsiveContainer, ReferenceDot, ReferenceArea, ComposedChart,
+  PieChart, Pie, Cell,
 } from 'recharts';
 
 // ============ PALETTE ============
@@ -975,6 +976,134 @@ const opportunitiesData = {
   ],
 };
 
+// ===== Agnico Eagle case study data =====
+
+const agnicoCaseData = [
+  { year: 2000, agnico: 0.5,  newmont: 5,   barrick: 8,   evolution: null, gold: 280  },
+  { year: 2002, agnico: 0.8,  newmont: 12,  barrick: 9,   evolution: null, gold: 310  },
+  { year: 2005, agnico: 2,    newmont: 24,  barrick: 15,  evolution: null, gold: 450  },
+  { year: 2008, agnico: 5,    newmont: 22,  barrick: 32,  evolution: null, gold: 880  },
+  { year: 2010, agnico: 10,   newmont: 32,  barrick: 52,  evolution: null, gold: 1400 },
+  { year: 2011, agnico: 6,    newmont: 32,  barrick: 50,  evolution: 0.3,  gold: 1700 },
+  { year: 2013, agnico: 5,    newmont: 12,  barrick: 18,  evolution: 0.5,  gold: 1300 },
+  { year: 2015, agnico: 6,    newmont: 10,  barrick: 9,   evolution: 1,    gold: 1100 },
+  { year: 2017, agnico: 11,   newmont: 20,  barrick: 17,  evolution: 2.5,  gold: 1300 },
+  { year: 2019, agnico: 14,   newmont: 36,  barrick: 32,  evolution: 5,    gold: 1500 },
+  { year: 2020, agnico: 19,   newmont: 50,  barrick: 47,  evolution: 8,    gold: 1900 },
+  { year: 2022, agnico: 22,   newmont: 36,  barrick: 30,  evolution: 5,    gold: 1800 },
+  { year: 2023, agnico: 28,   newmont: 48,  barrick: 30,  evolution: 7,    gold: 2050 },
+  { year: 2024, agnico: 42,   newmont: 50,  barrick: 32,  evolution: 10,   gold: 2700 },
+  { year: 2025, agnico: 58,   newmont: 62,  barrick: 36,  evolution: 13,   gold: 3500 },
+  { year: 2026, agnico: 78,   newmont: 65,  barrick: 42,  evolution: 16,   gold: 4565 },
+];
+
+const agnicoCallouts = [
+  { year: 2008, n: 1, title: 'Pinos Altos opens (Mexico)',
+    body: 'First international mine — established expansion playbook beyond Quebec.' },
+  { year: 2014, n: 2, title: 'Canadian Malartic JV with Yamana',
+    body: 'Acquired 50% from distressed Osisko Mining alongside Yamana — bought a tier-1 asset at a low point in the cycle.' },
+  { year: 2017, n: 3, title: 'Nunavut platform online',
+    body: 'Meliadine and Amaruq commissioning establishes second regional platform alongside Abitibi.' },
+  { year: 2022, n: 4, title: 'Kirkland Lake merger closes (Feb)',
+    body: '~US$10B all-stock merger of equals brings Detour Lake, Macassa, and Fosterville. Reserves doubled overnight; production scale rivals Newmont and Barrick.' },
+  { year: 2022, n: 5, title: 'Sean Boyd → Ammar Al-Joundi',
+    body: 'Boyd retires as CEO after 24 years; becomes Executive Chair. Al-Joundi (President since 2015) takes over after a brief Tony Makuch interregnum.' },
+  { year: 2023, n: 6, title: '100% Canadian Malartic',
+    body: 'Buys remaining 50% via Yamana split with Pan American (~US$4.8B JV deal). Consolidates Canada\'s largest gold mine; unlocks Odyssey project and Abitibi mill optimisation.' },
+  { year: 2024, n: 7, title: 'Detour expansion + reserve growth',
+    body: 'Detour Lake throughput expansion underway; ongoing exploration adds reserves at Detour, Hope Bay, Macassa.' },
+  { year: 2026, n: 8, title: 'Market cap leadership',
+    body: 'AEM market cap rivals or exceeds Newmont at gold ATH. Cleanest senior balance sheet; premium P/NAV multiple sustained through cycle.' },
+];
+
+const agnicoDrivers = [
+  { name: 'Premium re-rating',           value: 30 },
+  { name: 'M&A / portfolio transformation', value: 25 },
+  { name: 'Gold price tailwind',         value: 20 },
+  { name: 'Reserve / resource growth',   value: 15 },
+  { name: 'Capital allocation discipline', value: 10 },
+];
+
+const agnicoWhySections = [
+  {
+    title: '1. Massive reserve and resource growth',
+    bullets: [
+      'Reserves grew from ~20 Moz in 2013 to ~50 Moz post-Kirkland and Yamana — a 2.5× increase in a decade where most majors saw reserves shrink.',
+      'Detour Lake alone added ~20 Moz of reserves with a 25+ year mine life via the Kirkland Lake merger.',
+      'Ongoing organic exploration at Macassa, Hope Bay, Detour, and Kittila continues to extend mine lives at modest cost per ounce.',
+      'Reserve grade held above industry average despite the scale increase — counter to the sector-wide grade-decline trend.',
+    ],
+  },
+  {
+    title: '2. Best major-sector acquisitions of the cycle',
+    bullets: [
+      '2014 Canadian Malartic JV — bought from distressed Osisko alongside Yamana at a low point in the cycle.',
+      '2022 Kirkland Lake merger — transformational; got Detour, Macassa, Fosterville for ~US$10B in stock at trough valuations relative to gold price.',
+      '2023 Yamana split — finally got 100% of Canadian Malartic and unlocked Abitibi mill optimisation potential.',
+      'Compare with Newmont-Newcrest (2023, ~US$19B at near-peak gold) — Agnico\'s deals were better-timed and at better multiples.',
+    ],
+  },
+  {
+    title: '3. Exceptional operational consistency',
+    bullets: [
+      'Hit production guidance in roughly 9 of the last 10 years — a record few peers can match.',
+      'AISC maintained in the industry\'s lower half despite scale increase and grade decline.',
+      'Best-in-class safety record; "boring" execution.',
+      'Low-risk jurisdictions only: Canada, Finland, Mexico, Australia (post-Kirkland) — no DRC, no Mali, no Pascua-Lama, no Cobre Panamá.',
+    ],
+  },
+  {
+    title: '4. Market gradually recognised it as the "high-quality major"',
+    bullets: [
+      'Premium P/NAV multiple — now trades at 1.5-1.8× P/NAV vs 1.0-1.2× for Newmont and Barrick.',
+      'Index inclusion as senior gold producer accelerated post-Kirkland; generalist investors found their "safe gold pick".',
+      'Lower cost of equity capital → cheaper M&A currency for future deals.',
+      'Re-rating compounds: higher multiple → higher share price → cheaper acquisitions → better assets → higher multiple.',
+    ],
+  },
+  {
+    title: '5. Became a "platform" rather than a collection of mines',
+    bullets: [
+      'Abitibi platform: Canadian Malartic + Detour + LaRonde + Goldex = ~3 Moz/yr from one belt with shared infrastructure and people.',
+      'Nunavut platform: Meadowbank + Meliadine + Amaruq + Hope Bay (under care) — operates Arctic logistics few peers can match.',
+      'Brownfield optionality — new finds get plugged into existing mills, often at marginal capex.',
+      'This is how Newmont and Barrick are organised internally; Agnico got there via acquisition rather than scale-up.',
+    ],
+  },
+  {
+    title: '6. Strong gold-price leverage + improving margins',
+    bullets: [
+      'Cost discipline meant margins expanded faster than peers as gold rose; AISC stayed flat in real terms while spot gold tripled.',
+      'Hedge book minimal — full exposure to spot pricing for shareholders.',
+      'Growing production into rising prices = compounded earnings growth (production up ~3× while gold up ~3× = ~9× EBITDA).',
+      'Operating leverage works both ways but Agnico\'s cost base is among the most defensive in the senior tier.',
+    ],
+  },
+  {
+    title: '7. Capital allocation discipline',
+    bullets: [
+      'Dividend grown ~10× since 2017; consistently returned cash to shareholders without compromising balance sheet.',
+      'Maintained investment-grade credit rating through the cycle — rare among gold majors.',
+      'Net cash position at multiple points; never forced into distressed asset sales.',
+      'Buybacks deployed at favourable prices (not at peaks).',
+      'Avoided "bigger-is-better" cycle peaks — did not bid for Newcrest in 2023.',
+    ],
+  },
+];
+
+const agnicoOtherInsights = [
+  { n: 1, title: 'Geographic concentration cuts both ways',
+    body: 'Heavy Canada exposure (>80% of NAV) reduces jurisdictional risk but concentrates currency, tax, and policy risk into one country. Future Canadian royalty or carbon regime changes have outsized impact.' },
+  { n: 2, title: 'Limited copper exposure',
+    body: 'Pure-play gold is fashionable now, but it concentrates exposure to gold-cycle risk. Newmont-Newcrest got Cu byproduct credits at scale; Agnico does not. If gold cycles turn, Agnico has less diversification.' },
+  { n: 3, title: 'Successor risk',
+    body: 'Sean Boyd\'s 24-year tenure and culture were significant drivers; Al-Joundi is proven (Agnico President since 2015) but the test is the next downturn or major M&A decision.' },
+  { n: 4, title: 'Next leg of growth',
+    body: 'Detour expansion, Hope Bay restart, Wasamac development, and Odyssey project ramp are the organic drivers. Major M&A unlikely in the near term given fewer attractive targets and rising premiums.' },
+  { n: 5, title: 'Lessons for Evolution Mining',
+    body: 'Brownfield consolidation in established belts beats greenfield ambition. Operational consistency builds re-rating; deal-flow does not. "Platform" thinking — turning multiple mines into a regional system — is what differentiates a senior from a producer collection.' },
+];
+
 
 // ===== Leading Indicators data =====
 
@@ -1608,6 +1737,111 @@ const ActionTab = ({ data }) => {
         yKey={data.yKey} xKey={data.xKey}
         yLabel={data.yLabel} xLabel={data.xLabel} />
       <ActionList items={lensItems} yKey={data.yKey} xKey={data.xKey} />
+    </>
+  );
+};
+
+const AgnicoCaseStudyTab = () => {
+  const driverColors = [C.gold, C.copper, C.ochre, C.forest, C.teal];
+
+  return (
+    <>
+      <ChartHeader
+        title="Agnico Eagle Case Study · Anatomy of a re-rating"
+        subtitle="How Agnico went from mid-tier to the most valuable senior gold producer"
+        unit="2000-2026 · approximate market caps US$B · gold US$/oz" />
+
+      <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
+        From 2013 (post the gold-bear lows) to 2026, Agnico Eagle's market cap grew roughly 16× — versus 3× for the gold price. That gap is the alpha: re-rating, M&A, and operational compounding. The chart below tracks Agnico against Newmont, Barrick, and Evolution alongside the gold price; numbered callouts mark the key inflection points.
+      </p>
+
+      <div className="my-5" style={{ height: 420 }}>
+        <ResponsiveContainer>
+          <ComposedChart data={agnicoCaseData} margin={{ top: 20, right: 60, bottom: 10, left: 10 }}>
+            <CartesianGrid stroke={C.border} strokeDasharray="2 4" />
+            <XAxis dataKey="year" stroke={C.dim} tick={{ fill: C.dim, fontSize: 11 }} />
+            <YAxis yAxisId="left" stroke={C.dim} tick={{ fill: C.dim, fontSize: 11 }}
+              label={{ value: 'Market cap (US$B)', angle: -90, position: 'insideLeft', fill: C.dim, fontSize: 11, style: { textAnchor: 'middle' } }} />
+            <YAxis yAxisId="right" orientation="right" stroke={C.gold} tick={{ fill: C.gold, fontSize: 11 }}
+              label={{ value: 'Gold US$/oz', angle: 90, position: 'insideRight', fill: C.gold, fontSize: 11, style: { textAnchor: 'middle' } }} />
+            <Tooltip contentStyle={{ background: C.ink, border: `1px solid ${C.border}`, color: C.text, fontSize: 12 }} />
+            <Legend wrapperStyle={{ fontSize: 11, color: C.dim }} />
+            <Line yAxisId="right" type="monotone" dataKey="gold" name="Gold US$/oz" stroke={C.gold} strokeWidth={1.5} strokeDasharray="3 3" dot={false} />
+            <Line yAxisId="left" type="monotone" dataKey="agnico" name="Agnico Eagle" stroke={C.copper} strokeWidth={3} dot={{ r: 3, fill: C.copper }} />
+            <Line yAxisId="left" type="monotone" dataKey="newmont" name="Newmont" stroke={C.slate} strokeWidth={2} dot={false} />
+            <Line yAxisId="left" type="monotone" dataKey="barrick" name="Barrick" stroke={C.rust} strokeWidth={2} dot={false} />
+            <Line yAxisId="left" type="monotone" dataKey="evolution" name="Evolution Mining" stroke={C.forest} strokeWidth={2} dot={false} />
+            {agnicoCallouts.map(c => (
+              <ReferenceDot key={c.n} yAxisId="left" x={c.year} y={
+                agnicoCaseData.find(d => d.year === c.year)?.agnico || 0
+              } r={11} fill={C.marker} stroke={C.ink} strokeWidth={1}
+                label={{ value: c.n, fill: C.ink, fontSize: 11, fontWeight: 700 }} />
+            ))}
+          </ComposedChart>
+        </ResponsiveContainer>
+      </div>
+
+      <NotesPanel notes={agnicoCallouts} />
+
+      <KeyInsight>
+        Agnico's market cap grew ~16× from 2013 to 2026 vs ~3× for the gold price. The 13× gap is the alpha — driven by re-rating, M&A, and operational compounding. The Kirkland Lake merger alone (Feb 2022) is responsible for roughly half of that gap.
+      </KeyInsight>
+
+      <div className="my-6">
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-2"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Drivers of outperformance · illustrative weighting
+        </div>
+        <div className="text-xs mb-3" style={{ color: C.dim }}>
+          A directional split of what drove Agnico's 16× re-rating since 2013. Weights are judgemental, not measured.
+        </div>
+        <div style={{ height: 320 }}>
+          <ResponsiveContainer>
+            <PieChart>
+              <Pie data={agnicoDrivers} dataKey="value" nameKey="name"
+                cx="50%" cy="50%" outerRadius={110} innerRadius={50}
+                label={({ name, value }) => `${name} · ${value}%`}
+                labelLine={{ stroke: C.dim }}
+                stroke={C.ink} strokeWidth={2}>
+                {agnicoDrivers.map((entry, i) => (
+                  <Cell key={entry.name} fill={driverColors[i]} />
+                ))}
+              </Pie>
+              <Tooltip contentStyle={{ background: C.ink, border: `1px solid ${C.border}`, color: C.text, fontSize: 12 }}
+                formatter={(value) => `${value}%`} />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="mt-6 space-y-5">
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-1"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Why Agnico has performed so well since 2013
+        </div>
+        {agnicoWhySections.map(section => (
+          <div key={section.title}>
+            <h3 className="text-base mb-2" style={{ color: C.text, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}>
+              {section.title}
+            </h3>
+            <ul className="space-y-1.5 ml-4">
+              {section.bullets.map((b, i) => (
+                <li key={i} className="text-sm leading-relaxed" style={{ color: C.text, listStyle: 'disc' }}>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8">
+        <div className="text-[10px] uppercase tracking-[0.2em] mb-3"
+          style={{ color: C.gold, fontFamily: 'ui-monospace, monospace' }}>
+          Other relevant insights
+        </div>
+        <NotesPanel notes={agnicoOtherInsights} />
+      </div>
     </>
   );
 };
@@ -2316,16 +2550,16 @@ const App = () => {
   ];
   const tabsLeading = [
     { id: 'leadingOverview', label: 'Overview' },
-    { id: 'exploration',    label: '16 · Spend vs discoveries' },
-    { id: 'grade',          label: '17 · Ore grade' },
-    { id: 'reservelife',    label: '18 · Reserve life' },
-    { id: 'pipeline',       label: '19 · Project pipeline' },
-    { id: 'lag',            label: '20 · Discovery → production lag' },
-    { id: 'capex',          label: '21 · Mining capex' },
-    { id: 'concentration',  label: '22 · Concentration risk' },
-    { id: 'diesel',         label: '23 · Diesel price' },
-    { id: 'royalty',        label: '24 · Resource nationalism' },
-    { id: 'funnel',         label: '25 · Permit funnel' },
+    { id: 'exploration',    label: '16 · Spend vs discoveries',     group: 'Discovery & Reserves' },
+    { id: 'grade',          label: '17 · Ore grade',                group: 'Discovery & Reserves' },
+    { id: 'reservelife',    label: '18 · Reserve life',             group: 'Discovery & Reserves' },
+    { id: 'pipeline',       label: '19 · Project pipeline',         group: 'Project execution' },
+    { id: 'lag',            label: '20 · Discovery → production lag', group: 'Project execution' },
+    { id: 'funnel',         label: '25 · Permit funnel',            group: 'Project execution' },
+    { id: 'capex',          label: '21 · Mining capex',             group: 'Cost pressures' },
+    { id: 'diesel',         label: '23 · Diesel price',             group: 'Cost pressures' },
+    { id: 'concentration',  label: '22 · Concentration risk',       group: 'Geopolitical risk' },
+    { id: 'royalty',        label: '24 · Resource nationalism',     group: 'Geopolitical risk' },
   ];
   const tabsFuture = [
     { id: 'futureTrends5yr',  label: '5yr Trends' },
@@ -2337,6 +2571,7 @@ const App = () => {
     { id: 'success',       label: 'Success' },
     { id: 'issues',        label: 'Issues' },
     { id: 'opportunities', label: 'Opportunities' },
+    { id: 'agnico',        label: 'Agnico Eagle Case Study' },
   ];
 
   const tabsBySection = {
@@ -2388,19 +2623,31 @@ const App = () => {
         ))}
       </div>
 
-      <nav className="max-w-5xl mx-auto mb-4 flex gap-1 overflow-x-auto pb-2" style={{ borderBottom: `1px solid ${C.border}` }}>
-        {tabs.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)}
-            className="px-3 py-2 text-xs whitespace-nowrap rounded-t transition-colors"
-            style={{
-              background: tab === t.id ? C.card : 'transparent',
-              color: tab === t.id ? C.gold : C.dim,
-              borderBottom: tab === t.id ? `2px solid ${C.gold}` : '2px solid transparent',
-              fontWeight: tab === t.id ? 600 : 400,
-              fontFamily: 'ui-monospace, monospace',
-            }}
-          >{t.label}</button>
-        ))}
+      <nav className="max-w-5xl mx-auto mb-4 flex gap-1 items-center overflow-x-auto pb-2" style={{ borderBottom: `1px solid ${C.border}` }}>
+        {tabs.map((t, i) => {
+          const prevGroup = i > 0 ? tabs[i - 1].group : null;
+          const showGroupLabel = t.group && t.group !== prevGroup;
+          return (
+            <React.Fragment key={t.id}>
+              {showGroupLabel && (
+                <div className="flex items-center px-2 text-[10px] uppercase tracking-widest whitespace-nowrap"
+                  style={{ color: C.gold, fontFamily: 'ui-monospace, monospace', borderLeft: `1px solid ${C.border}`, marginLeft: 4, paddingLeft: 10 }}>
+                  {t.group}
+                </div>
+              )}
+              <button onClick={() => setTab(t.id)}
+                className="px-3 py-2 text-xs whitespace-nowrap rounded-t transition-colors"
+                style={{
+                  background: tab === t.id ? C.card : 'transparent',
+                  color: tab === t.id ? C.gold : C.dim,
+                  borderBottom: tab === t.id ? `2px solid ${C.gold}` : '2px solid transparent',
+                  fontWeight: tab === t.id ? 600 : 400,
+                  fontFamily: 'ui-monospace, monospace',
+                }}
+              >{t.label}</button>
+            </React.Fragment>
+          );
+        })}
       </nav>
 
       <main className="max-w-5xl mx-auto rounded-lg p-4 sm:p-6"
@@ -2415,6 +2662,7 @@ const App = () => {
         {tab === 'success'           && <SuccessTab data={successData} />}
         {tab === 'issues'            && <ActionTab data={issuesData} />}
         {tab === 'opportunities'     && <ActionTab data={opportunitiesData} />}
+        {tab === 'agnico'            && <AgnicoCaseStudyTab />}
         {tab === 'mines'         && <MineChart />}
         {tab === 'aisc'          && <AiscChart />}
         {tab === 'cost'          && <CostChart />}
