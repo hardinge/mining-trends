@@ -8,22 +8,22 @@ import {
 
 // ============ PALETTE ============
 const C = {
-  bg: '#1a1612',
-  card: '#221d18',
-  border: '#3a322a',
-  text: '#e8dfd2',
-  dim: '#9a8c78',
-  ochre: '#d4a14a',
-  copper: '#c87856',
-  rust: '#a14a2c',
-  gold: '#e6b84a',
-  teal: '#4a8a87',
-  slate: '#7e8b9a',
-  forest: '#5a7a4a',
-  plum: '#7a4a6a',
-  sand: '#b8966a',
-  ink: '#2a2520',
-  marker: '#f0d896',
+  bg: '#0b1733',
+  card: '#142347',
+  border: '#2a3a5e',
+  text: '#e6ecf5',
+  dim: '#9aa6bd',
+  ochre: '#e0a850',
+  copper: '#d8845e',
+  rust: '#c25a36',
+  gold: '#f0c14a',
+  teal: '#5fc7b8',
+  slate: '#c0cad8',
+  forest: '#7aa85a',
+  plum: '#b87aa0',
+  sand: '#c8a878',
+  ink: '#050d1f',
+  marker: '#f5d896',
 };
 
 // ============ DATA ============
@@ -1349,6 +1349,28 @@ const KeyInsight = ({ children }) => (
   </div>
 );
 
+const CalloutToggle = ({ value, onChange }) => (
+  <div className="flex justify-end mt-2 mb-1">
+    <button onClick={() => onChange(!value)}
+      type="button"
+      className="inline-flex items-center gap-2 px-2.5 py-1 text-[11px] rounded transition-colors"
+      style={{
+        background: 'transparent',
+        color: value ? C.marker : C.dim,
+        border: `1px solid ${value ? C.marker : C.border}`,
+        fontFamily: 'ui-monospace, monospace',
+      }}>
+      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full text-[10px] font-bold flex-shrink-0"
+        style={{
+          background: value ? C.marker : 'transparent',
+          color: value ? C.ink : C.dim,
+          border: value ? 'none' : `1px solid ${C.dim}`,
+        }}>1</span>
+      {value ? 'Hide callouts' : 'Show callouts'}
+    </button>
+  </div>
+);
+
 const insights = {
   // Industry trends
   mines:        "Open-cut count tripled from 1965-1985 and has stayed dominant ever since; underground count has been roughly flat at 30-45 mines for 75 years.",
@@ -1753,6 +1775,7 @@ const ActionTab = ({ data }) => {
 
 const AgnicoCaseStudyTab = () => {
   const driverColors = [C.gold, C.copper, C.ochre, C.forest, C.teal, C.slate, C.plum];
+  const [showCallouts, setShowCallouts] = useState(true);
 
   return (
     <>
@@ -1764,6 +1787,8 @@ const AgnicoCaseStudyTab = () => {
       <p className="text-sm leading-relaxed mt-3 mb-1" style={{ color: C.text }}>
         From 2013 (post the gold-bear lows) to 2026, Agnico Eagle's market cap grew roughly 16× — versus 3× for the gold price. That gap is the alpha: re-rating, M&A, and operational compounding. The chart below tracks Agnico against Newmont, Barrick, and Evolution alongside the gold price; numbered callouts mark the key inflection points.
       </p>
+
+      <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
 
       <div className="my-5" style={{ height: 420 }}>
         <ResponsiveContainer>
@@ -1781,7 +1806,7 @@ const AgnicoCaseStudyTab = () => {
             <Line yAxisId="left" type="monotone" dataKey="newmont" name="Newmont" stroke={C.slate} strokeWidth={2} dot={false} />
             <Line yAxisId="left" type="monotone" dataKey="barrick" name="Barrick" stroke={C.rust} strokeWidth={2} dot={false} />
             <Line yAxisId="left" type="monotone" dataKey="evolution" name="Evolution Mining" stroke={C.forest} strokeWidth={2} dot={false} />
-            {agnicoCallouts.map(c => (
+            {showCallouts && agnicoCallouts.map(c => (
               <ReferenceDot key={c.n} yAxisId="left" x={c.year} y={
                 agnicoCaseData.find(d => d.year === c.year)?.agnico || 0
               } r={11} fill={C.marker} stroke={C.ink} strokeWidth={1}
@@ -1917,9 +1942,12 @@ const AgnicoCaseStudyTab = () => {
 
 // ===== Industry Trends =====
 
-const MineChart = () => (
+const MineChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Australian metal mines, medium & large" subtitle="Active count — open cut vs underground" unit="number of mines" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={mineData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -1929,7 +1957,7 @@ const MineChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Bar dataKey="openCut" name="Open cut" fill={C.ochre} />
         <Bar dataKey="underground" name="Underground" fill={C.copper} />
-        {mineNotes.map(note => {
+        {showCallouts && mineNotes.map(note => {
           const pt = findNearest(mineData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.openCut + pt.underground + 8} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -1940,11 +1968,15 @@ const MineChart = () => (
     <KeyInsight>{insights.mines}</KeyInsight>
     <NotesPanel notes={mineNotes} />
   </>
-);
+  );
+};
 
-const AiscChart = () => (
+const AiscChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Gold AISC trend" subtitle="Open-cut vs underground gold mines (illustrative)" unit="A$2025 per ounce · pre-2013 back-cast" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={aiscData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -1954,7 +1986,7 @@ const AiscChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Line type="monotone" dataKey="oc" name="Open cut" stroke={C.ochre} strokeWidth={2.5} dot={{ r: 3 }} />
         <Line type="monotone" dataKey="ug" name="Underground" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
-        {aiscNotes.map(note => {
+        {showCallouts && aiscNotes.map(note => {
           const pt = findNearest(aiscData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.ug + 100} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -1965,11 +1997,15 @@ const AiscChart = () => (
     <KeyInsight>{insights.aisc}</KeyInsight>
     <NotesPanel notes={aiscNotes} />
   </>
-);
+  );
+};
 
-const CostChart = () => (
+const CostChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Mining unit cost" subtitle="Open cut vs underground (different scales — note dual axis)" unit="A$2025 per tonne mined+processed" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={costData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -1980,7 +2016,7 @@ const CostChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Line yAxisId="oc" type="monotone" dataKey="oc" name="Open cut (left)" stroke={C.ochre} strokeWidth={2.5} dot={{ r: 3 }} />
         <Line yAxisId="ug" type="monotone" dataKey="ug" name="Underground (right)" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
-        {costNotes.map(note => {
+        {showCallouts && costNotes.map(note => {
           const pt = findNearest(costData, note.year);
           return <ReferenceDot key={note.n} yAxisId="ug" x={pt.year} y={pt.ug + 12} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -1991,11 +2027,15 @@ const CostChart = () => (
     <KeyInsight>{insights.cost}</KeyInsight>
     <NotesPanel notes={costNotes} />
   </>
-);
+  );
+};
 
-const MethodChart = () => (
+const MethodChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Underground mining method" subtitle="Active medium/large UG metal mines, Australia — by primary method" unit="number of mines" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <AreaChart data={methodData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2008,7 +2048,7 @@ const MethodChart = () => (
         <Area type="monotone" dataKey="block" name="Block / panel caving"   stackId="1" stroke={C.rust} fill={C.rust} fillOpacity={0.85} />
         <Area type="monotone" dataKey="cf"    name="Cut-and-fill"           stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.85} />
         <Area type="monotone" dataKey="other" name="Other"                  stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.85} />
-        {methodNotes.map(note => {
+        {showCallouts && methodNotes.map(note => {
           const pt = findNearest(methodData, note.year);
           const total = pt.slos + pt.slc + pt.block + pt.cf + pt.other;
           return <ReferenceDot key={note.n} x={note.year} y={total + 3} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2019,11 +2059,15 @@ const MethodChart = () => (
     <KeyInsight>{insights.method}</KeyInsight>
     <NotesPanel notes={methodNotes} />
   </>
-);
+  );
+};
 
-const RevChart = () => (
+const RevChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Australian metal mining revenue" subtitle="By commodity — A$2025-equivalent value of production" unit="A$ billions, real" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <AreaChart data={revData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2038,7 +2082,7 @@ const RevChart = () => (
         <Area type="monotone" dataKey="basemetals" name="Pb/Zn/Ni" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.9} />
         <Area type="monotone" dataKey="bauxite" name="Bauxite" stackId="1" stroke={C.ochre} fill={C.ochre} fillOpacity={0.9} />
         <Area type="monotone" dataKey="other" name="Other" stackId="1" stroke={C.plum} fill={C.plum} fillOpacity={0.9} />
-        {revNotes.map(note => {
+        {showCallouts && revNotes.map(note => {
           const pt = findNearest(revData, note.year);
           const total = pt.iron + pt.gold + pt.copper + pt.lithium + pt.basemetals + pt.bauxite + pt.other;
           return <ReferenceDot key={note.n} x={pt.year} y={total + 10} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2049,11 +2093,15 @@ const RevChart = () => (
     <KeyInsight>{insights.rev}</KeyInsight>
     <NotesPanel notes={revNotes} />
   </>
-);
+  );
+};
 
-const GoldChart = () => (
+const GoldChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Gold mine production by continent" subtitle="World primary mine production, by continent" unit="tonnes per year" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <AreaChart data={goldData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2066,7 +2114,7 @@ const GoldChart = () => (
         <Area type="monotone" dataKey="namerica" name="North America" stackId="1" stroke={C.copper} fill={C.copper} fillOpacity={0.9} />
         <Area type="monotone" dataKey="samerica" name="South America" stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.9} />
         <Area type="monotone" dataKey="europe" name="Europe" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.9} />
-        {goldNotes.map(note => {
+        {showCallouts && goldNotes.map(note => {
           const pt = findNearest(goldData, note.year);
           const total = pt.africa + pt.asiaoc + pt.namerica + pt.samerica + pt.europe;
           return <ReferenceDot key={note.n} x={note.year} y={total + 100} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2077,11 +2125,15 @@ const GoldChart = () => (
     <KeyInsight>{insights.gold}</KeyInsight>
     <NotesPanel notes={goldNotes} />
   </>
-);
+  );
+};
 
-const CopperChart = () => (
+const CopperChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Copper mine production by continent" subtitle="World primary mine production, by continent" unit="million tonnes per year" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <AreaChart data={copperData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2095,7 +2147,7 @@ const CopperChart = () => (
         <Area type="monotone" dataKey="namerica" name="North America" stackId="1" stroke={C.teal} fill={C.teal} fillOpacity={0.9} />
         <Area type="monotone" dataKey="europe" name="Europe" stackId="1" stroke={C.slate} fill={C.slate} fillOpacity={0.9} />
         <Area type="monotone" dataKey="oceania" name="Oceania" stackId="1" stroke={C.forest} fill={C.forest} fillOpacity={0.9} />
-        {copperNotes.map(note => {
+        {showCallouts && copperNotes.map(note => {
           const pt = findNearest(copperData, note.year);
           const total = pt.samerica + pt.africa + pt.asia + pt.namerica + pt.europe + pt.oceania;
           return <ReferenceDot key={note.n} x={note.year} y={total + 1} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2106,13 +2158,17 @@ const CopperChart = () => (
     <KeyInsight>{insights.copper}</KeyInsight>
     <NotesPanel notes={copperNotes} />
   </>
-);
+  );
+};
 
 // ===== Markets & Companies =====
 
-const GoldCycleChart = () => (
+const GoldCycleChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Gold price cycle" subtitle="Real US$2025 per ounce, with 2026 spot; phase shading shows bull/bear regimes" unit="real US$ / oz · 2026 = current spot" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={goldCycleData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2123,7 +2179,7 @@ const GoldCycleChart = () => (
           <ReferenceArea key={i} x1={p.x1} x2={p.x2} fill={p.color} fillOpacity={0.1} stroke="none" />
         ))}
         <Line type="monotone" dataKey="price" name="Gold" stroke={C.gold} strokeWidth={2.5} dot={{ r: 3 }} />
-        {goldCycleNotes.map(note => {
+        {showCallouts && goldCycleNotes.map(note => {
           const pt = findNearest(goldCycleData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.price + 200} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
             label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
@@ -2133,11 +2189,15 @@ const GoldCycleChart = () => (
     <KeyInsight>{insights.goldcycle}</KeyInsight>
     <NotesPanel notes={goldCycleNotes} />
   </>
-);
+  );
+};
 
-const CopperCycleChart = () => (
+const CopperCycleChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Copper price cycle" subtitle="Real US$2025 per pound, with 2026 spot; phase shading shows market regimes" unit="real US$ / lb · 2026 = current spot" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={copperCycleData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2148,7 +2208,7 @@ const CopperCycleChart = () => (
           <ReferenceArea key={i} x1={p.x1} x2={p.x2} fill={p.color} fillOpacity={0.1} stroke="none" />
         ))}
         <Line type="monotone" dataKey="price" name="Copper" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
-        {copperCycleNotes.map(note => {
+        {showCallouts && copperCycleNotes.map(note => {
           const pt = findNearest(copperCycleData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.price + 0.5} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
             label={{ value: String(note.n), fill: C.ink, fontSize: 11, fontWeight: 700 }} />;
@@ -2158,11 +2218,15 @@ const CopperCycleChart = () => (
     <KeyInsight>{insights.coppercycle}</KeyInsight>
     <NotesPanel notes={copperCycleNotes} />
   </>
-);
+  );
+};
 
-const DiscoveryChart = () => (
+const DiscoveryChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Major gold discoveries by continent" subtitle="Count of >2 Moz Au discoveries per decade" unit="number of discoveries" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={discoveryData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2175,7 +2239,7 @@ const DiscoveryChart = () => (
         <Bar dataKey="namerica" name="North America" stackId="a" fill={C.copper} />
         <Bar dataKey="samerica" name="South America" stackId="a" fill={C.teal} />
         <Bar dataKey="europe" name="Europe" stackId="a" fill={C.slate} />
-        {discoveryNotes.map(note => {
+        {showCallouts && discoveryNotes.map(note => {
           const pt = discoveryData.find(d => d.decade === note.decade);
           if (!pt) return null;
           const total = pt.africa + pt.asiaoc + pt.namerica + pt.samerica + pt.europe;
@@ -2187,11 +2251,15 @@ const DiscoveryChart = () => (
     <KeyInsight>{insights.discovery}</KeyInsight>
     <NotesPanel notes={discoveryNotes} />
   </>
-);
+  );
+};
 
-const CopperDiscoveryChart = () => (
+const CopperDiscoveryChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Major copper discoveries by continent" subtitle="Count of >3 Mt contained Cu discoveries per decade" unit="number of discoveries" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={copperDiscoveryData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2204,7 +2272,7 @@ const CopperDiscoveryChart = () => (
         <Bar dataKey="asiaoc" name="Asia & Oceania" stackId="a" fill={C.gold} />
         <Bar dataKey="namerica" name="North America" stackId="a" fill={C.teal} />
         <Bar dataKey="europe" name="Europe" stackId="a" fill={C.slate} />
-        {copperDiscoveryNotes.map(note => {
+        {showCallouts && copperDiscoveryNotes.map(note => {
           const pt = copperDiscoveryData.find(d => d.decade === note.decade);
           if (!pt) return null;
           const total = pt.samerica + pt.africa + pt.asiaoc + pt.namerica + pt.europe;
@@ -2216,11 +2284,15 @@ const CopperDiscoveryChart = () => (
     <KeyInsight>{insights.cudiscovery}</KeyInsight>
     <NotesPanel notes={copperDiscoveryNotes} />
   </>
-);
+  );
+};
 
-const MergerChart = () => (
+const MergerChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Mining M&A activity" subtitle="Deals >US$1B — count (bars) and total deal value (line)" unit="count + US$B aggregate value" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={mergerData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2231,7 +2303,7 @@ const MergerChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Bar yAxisId="count" dataKey="count" name="Deal count (left)" fill={C.ochre} fillOpacity={0.85} />
         <Line yAxisId="value" type="monotone" dataKey="value" name="Total US$B (right)" stroke={C.gold} strokeWidth={2.5} dot={{ r: 3 }} />
-        {mergerNotes.map(note => {
+        {showCallouts && mergerNotes.map(note => {
           const pt = findNearest(mergerData, note.year);
           return <ReferenceDot key={note.n} yAxisId="value" x={pt.year} y={pt.value + 8} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2242,11 +2314,15 @@ const MergerChart = () => (
     <KeyInsight>{insights.merger}</KeyInsight>
     <NotesPanel notes={mergerNotes} />
   </>
-);
+  );
+};
 
-const CommoditiesChart = () => (
+const CommoditiesChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Commodity prices, real" subtitle="Indexed to 2000 = 100 (real US$)" unit="index, 2000 = 100" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={commoditiesData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2259,7 +2335,7 @@ const CommoditiesChart = () => (
         <Line type="monotone" dataKey="ironOre" name="Iron ore" stroke={C.rust} strokeWidth={2.5} dot={false} />
         <Line type="monotone" dataKey="lithium" name="Lithium" stroke={C.teal} strokeWidth={2.5} dot={false} />
         <Line type="monotone" dataKey="nickel" name="Nickel" stroke={C.slate} strokeWidth={2.5} dot={false} />
-        {commoditiesNotes.map(note => {
+        {showCallouts && commoditiesNotes.map(note => {
           const pt = findNearest(commoditiesData, note.year);
           const yMax = Math.max(pt.gold, pt.copper, pt.ironOre, pt.lithium, pt.nickel);
           return <ReferenceDot key={note.n} x={pt.year} y={yMax + 60} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2270,11 +2346,15 @@ const CommoditiesChart = () => (
     <KeyInsight>{insights.commodities}</KeyInsight>
     <NotesPanel notes={commoditiesNotes} />
   </>
-);
+  );
+};
 
-const Top5Chart = () => (
+const Top5Chart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Top 5 global gold miners — market cap" subtitle="2000-2025 in US$B; Newcrest plotted alongside until Nov 2023 acquisition; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={top5Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2290,7 +2370,7 @@ const Top5Chart = () => (
         <Line yAxisId="cap" type="monotone" dataKey="kinross"   name="Kinross"           stroke={C.slate}  strokeWidth={2} dot={{ r: 2 }} />
         <Line yAxisId="cap" type="monotone" dataKey="newcrest"  name="Newcrest (to 2023)" stroke={C.sand}  strokeWidth={2} dot={{ r: 2 }} connectNulls={false} />
         <Line yAxisId="gold" type="monotone" dataKey="gold"     name="Gold US$/oz"       stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
-        {top5Notes.map(note => {
+        {showCallouts && top5Notes.map(note => {
           const pt = findNearest(top5Data, note.year);
           const yMax = Math.max(pt.newmont, pt.barrick, pt.agnico, pt.anglogold, pt.kinross, pt.newcrest || 0);
           return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 4} r={11}
@@ -2302,11 +2382,15 @@ const Top5Chart = () => (
     <KeyInsight>{insights.top5}</KeyInsight>
     <NotesPanel notes={top5Notes} />
   </>
-);
+  );
+};
 
-const Top615Chart = () => (
+const Top615Chart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Mid-tier global gold miners" subtitle="Representative basket of #6-15 by current size + Newcrest pre-acquisition; gold price overlay (right axis)" unit="US$B market cap · gold US$/oz nominal" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={top615Data} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2323,7 +2407,7 @@ const Top615Chart = () => (
         <Line yAxisId="cap" type="monotone" dataKey="evolution"    name="Evolution"             stroke={C.copper} strokeWidth={2} dot={{ r: 2 }} />
         <Line yAxisId="cap" type="monotone" dataKey="newcrest"     name="Newcrest (to 2023)"    stroke={C.slate}  strokeWidth={2} dot={{ r: 2 }} connectNulls={false} />
         <Line yAxisId="gold" type="monotone" dataKey="gold"        name="Gold US$/oz"           stroke={C.gold}   strokeWidth={2.5} strokeDasharray="4 4" dot={false} />
-        {top615Notes.map(note => {
+        {showCallouts && top615Notes.map(note => {
           const pt = findNearest(top615Data, note.year);
           const yMax = Math.max(pt.goldfields, pt.northernstar, pt.harmony, pt.panamerican, pt.alamos, pt.evolution, pt.newcrest || 0);
           return <ReferenceDot key={note.n} yAxisId="cap" x={pt.year} y={yMax + 2} r={11} fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2334,13 +2418,17 @@ const Top615Chart = () => (
     <KeyInsight>{insights.top615}</KeyInsight>
     <NotesPanel notes={top615Notes} />
   </>
-);
+  );
+};
 
 // ===== Leading Indicators charts =====
 
-const ExplorationChart = () => (
+const ExplorationChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Gold exploration spend vs discoveries" subtitle="Annual global exploration spend (line) vs tier-1 (>2 Moz) discoveries (bars)" unit="US$B real spend · count of tier-1 discoveries" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={explorationData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2351,7 +2439,7 @@ const ExplorationChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Bar yAxisId="disc" dataKey="discoveries" name="Discoveries (left)" fill={C.ochre} fillOpacity={0.85} />
         <Line yAxisId="spend" type="monotone" dataKey="spend" name="Exploration spend US$B (right)" stroke={C.gold} strokeWidth={2.5} dot={{ r: 3 }} />
-        {explorationNotes.map(note => {
+        {showCallouts && explorationNotes.map(note => {
           const pt = findNearest(explorationData, note.year);
           return <ReferenceDot key={note.n} yAxisId="spend" x={pt.year} y={pt.spend + 1.5} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2362,11 +2450,15 @@ const ExplorationChart = () => (
     <KeyInsight>{insights.exploration}</KeyInsight>
     <NotesPanel notes={explorationNotes} />
   </>
-);
+  );
+};
 
-const GradeChart = () => (
+const GradeChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Average ore grade — operating mines" subtitle="Cu grade in % (left) and Au grades in g/t (right) — operating mines, weighted average" unit="Cu % · Au g/t · 1990-2025" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <ComposedChart data={gradeData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2378,7 +2470,7 @@ const GradeChart = () => (
         <Line yAxisId="cu" type="monotone" dataKey="cuGrade"   name="Cu grade % (left)"     stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
         <Line yAxisId="au" type="monotone" dataKey="auGradeUG" name="Au UG g/t (right)"     stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
         <Line yAxisId="au" type="monotone" dataKey="auGradeOC" name="Au OC g/t (right)"     stroke={C.ochre}  strokeWidth={2.5} dot={{ r: 3 }} />
-        {gradeNotes.map(note => {
+        {showCallouts && gradeNotes.map(note => {
           const pt = findNearest(gradeData, note.year);
           return <ReferenceDot key={note.n} yAxisId="au" x={pt.year} y={pt.auGradeUG + 0.5} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2389,11 +2481,15 @@ const GradeChart = () => (
     <KeyInsight>{insights.grade}</KeyInsight>
     <NotesPanel notes={gradeNotes} />
   </>
-);
+  );
+};
 
-const ReserveLifeChart = () => (
+const ReserveLifeChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Reserve life across top-10 producers" subtitle="Average remaining mine life — gold and copper seniors" unit="years of reserve at current production" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={reserveLifeData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2403,7 +2499,7 @@ const ReserveLifeChart = () => (
         <Legend wrapperStyle={{ color: C.text, fontSize: 12 }} />
         <Line type="monotone" dataKey="gold"   name="Gold seniors"   stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
         <Line type="monotone" dataKey="copper" name="Copper seniors" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
-        {reserveLifeNotes.map(note => {
+        {showCallouts && reserveLifeNotes.map(note => {
           const pt = findNearest(reserveLifeData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.copper + 2} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2414,11 +2510,15 @@ const ReserveLifeChart = () => (
     <KeyInsight>{insights.reservelife}</KeyInsight>
     <NotesPanel notes={reserveLifeNotes} />
   </>
-);
+  );
+};
 
-const PipelineChart = () => (
+const PipelineChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Project pipeline by metal" subtitle="Significant new projects in pre-feasibility / feasibility / permitting / construction" unit="number of projects in development" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={pipelineData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2430,7 +2530,7 @@ const PipelineChart = () => (
         <Line type="monotone" dataKey="gold"    name="Gold"    stroke={C.gold}   strokeWidth={2.5} dot={{ r: 3 }} />
         <Line type="monotone" dataKey="lithium" name="Lithium" stroke={C.teal}   strokeWidth={2.5} dot={{ r: 3 }} />
         <Line type="monotone" dataKey="nickel"  name="Nickel"  stroke={C.slate}  strokeWidth={2.5} dot={{ r: 3 }} />
-        {pipelineNotes.map(note => {
+        {showCallouts && pipelineNotes.map(note => {
           const pt = findNearest(pipelineData, note.year);
           const yMax = Math.max(pt.copper, pt.gold, pt.lithium, pt.nickel);
           return <ReferenceDot key={note.n} x={pt.year} y={yMax + 4} r={11}
@@ -2442,11 +2542,15 @@ const PipelineChart = () => (
     <KeyInsight>{insights.pipeline}</KeyInsight>
     <NotesPanel notes={pipelineNotes} />
   </>
-);
+  );
+};
 
-const LagChart = () => (
+const LagChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Discovery-to-production lag" subtitle="Average years from initial discovery to first production — global, all metals" unit="years" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={lagData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2454,7 +2558,7 @@ const LagChart = () => (
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} formatter={(v) => `${v} years`} />
         <Bar dataKey="years" name="Years to production" fill={C.ochre} fillOpacity={0.85} />
-        {lagNotes.map(note => {
+        {showCallouts && lagNotes.map(note => {
           const pt = lagData.find(d => d.decade === note.decade);
           if (!pt) return null;
           return <ReferenceDot key={note.n} x={pt.decade} y={pt.years + 2} r={11}
@@ -2466,11 +2570,15 @@ const LagChart = () => (
     <KeyInsight>{insights.lag}</KeyInsight>
     <NotesPanel notes={lagNotes} />
   </>
-);
+  );
+};
 
-const CapexChart = () => (
+const CapexChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Mining majors aggregate capex" subtitle="BHP + Rio + Glencore + Anglo + Vale combined annual capex" unit="US$B nominal · 2-3yr lag to commodity prices" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={capexData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2478,7 +2586,7 @@ const CapexChart = () => (
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} formatter={(v) => `$${v}B`} />
         <Line type="monotone" dataKey="capex" name="Aggregate capex US$B" stroke={C.copper} strokeWidth={2.5} dot={{ r: 3 }} />
-        {capexNotes.map(note => {
+        {showCallouts && capexNotes.map(note => {
           const pt = findNearest(capexData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.capex + 8} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2489,7 +2597,8 @@ const CapexChart = () => (
     <KeyInsight>{insights.capex}</KeyInsight>
     <NotesPanel notes={capexNotes} />
   </>
-);
+  );
+};
 
 const ConcentrationChart = () => (
   <>
@@ -2512,9 +2621,12 @@ const ConcentrationChart = () => (
   </>
 );
 
-const DieselChart = () => (
+const DieselChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Australian diesel price (real)" subtitle="Mining-relevant cost driver — diesel typically 15-20% of OC unit cost" unit="A$2025 per litre · pump price equivalent" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <LineChart data={dieselData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2522,7 +2634,7 @@ const DieselChart = () => (
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} formatter={(v) => `A$${v}/L`} />
         <Line type="monotone" dataKey="price" name="Diesel A$/L real" stroke={C.rust} strokeWidth={2.5} dot={{ r: 3 }} />
-        {dieselNotes.map(note => {
+        {showCallouts && dieselNotes.map(note => {
           const pt = findNearest(dieselData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.price + 0.2} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2533,11 +2645,15 @@ const DieselChart = () => (
     <KeyInsight>{insights.diesel}</KeyInsight>
     <NotesPanel notes={dieselNotes} />
   </>
-);
+  );
+};
 
-const RoyaltyChart = () => (
+const RoyaltyChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Resource nationalism events" subtitle="Major royalty hikes, nationalisations, contract reopenings, export bans per year" unit="count of significant events" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={royaltyData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2545,7 +2661,7 @@ const RoyaltyChart = () => (
         <YAxis {...axisStyle} tick={{ fill: C.dim }} />
         <Tooltip {...tooltipStyle} />
         <Bar dataKey="events" name="Resource nationalism events" fill={C.plum} fillOpacity={0.85} />
-        {royaltyNotes.map(note => {
+        {showCallouts && royaltyNotes.map(note => {
           const pt = findNearest(royaltyData, note.year);
           return <ReferenceDot key={note.n} x={pt.year} y={pt.events + 1} r={11}
             fill={C.marker} stroke={C.ink} strokeWidth={2}
@@ -2556,11 +2672,15 @@ const RoyaltyChart = () => (
     <KeyInsight>{insights.royalty}</KeyInsight>
     <NotesPanel notes={royaltyNotes} />
   </>
-);
+  );
+};
 
-const FunnelChart = () => (
+const FunnelChart = () => {
+  const [showCallouts, setShowCallouts] = useState(true);
+  return (
   <>
     <ChartHeader title="Permit-to-production funnel" subtitle="Average years at each project stage — discovery to first production, by decade" unit="years per stage · sum = total lag" />
+    <CalloutToggle value={showCallouts} onChange={setShowCallouts} />
     <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
       <BarChart data={funnelData} margin={{ top: 30, right: 12, left: 0, bottom: 4 }}>
         <CartesianGrid stroke={C.border} strokeDasharray="2 4" vertical={false} />
@@ -2573,7 +2693,7 @@ const FunnelChart = () => (
         <Bar dataKey="feasibility" name="DFS → Permit"         stackId="a" fill={C.rust} />
         <Bar dataKey="permit"      name="Permit → Construct"   stackId="a" fill={C.plum} />
         <Bar dataKey="construct"   name="Construct → Production" stackId="a" fill={C.teal} />
-        {funnelNotes.map(note => {
+        {showCallouts && funnelNotes.map(note => {
           const pt = funnelData.find(d => d.decade === note.decade);
           if (!pt) return null;
           const total = pt.explore + pt.prefeas + pt.feasibility + pt.permit + pt.construct;
@@ -2586,7 +2706,8 @@ const FunnelChart = () => (
     <KeyInsight>{insights.funnel}</KeyInsight>
     <NotesPanel notes={funnelNotes} />
   </>
-);
+  );
+};
 
 // ============ MAIN ============
 const App = () => {
